@@ -1,0 +1,2201 @@
+```html
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Farhan M Hameed (Farhan Abhi) — Founder of DILRU & AI Systems Engineer</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Anton (Condensed Display), Plus Jakarta Sans (Executive UI), Cormorant Garamond (Luxury Editorial Serif), JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Phosphor Icons -->
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            display: ['Anton', 'sans-serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+            serif: ['Cormorant Garamond', 'serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            omnic: {
+              bg: '#F69B11',
+              deep: '#781E02',
+              mid: '#C94608',
+              bright: '#F26B1D',
+              glow: '#FF9E44',
+              accent: '#FF5500'
+            },
+            dilru: {
+              sand: '#E8D5C4',
+              stone: '#C9A88E',
+              terracotta: '#9E6B4F',
+              pink: '#E28B93',
+              rose: '#C66470',
+              deep: '#5E202E',
+              fern: '#2A473B',
+              cream: '#FFFBF5'
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --hero-outer-bg: linear-gradient(135deg, #FF9E1B 0%, #F68B10 50%, #E06606 100%);
+      --hero-left-bg: radial-gradient(circle at 65% 38%, #F57C20 0%, #CC4608 48%, #751E03 100%);
+      --hero-accent: #FF5500;
+      --lens-tint: rgba(255, 123, 0, 0.42);
+    }
+
+    body {
+      background-color: #14110F;
+      color: #18181B;
+      overflow-x: hidden;
+    }
+
+    /* Giant CREATE Typography matching Omnic Studio Reference */
+    .hero-create-text {
+      font-family: 'Anton', sans-serif;
+      letter-spacing: 0.015em;
+      line-height: 0.88;
+      text-transform: uppercase;
+    }
+
+    /* Single Signature Sunset Orange Stage */
+    .stage-wrapper {
+      background: var(--hero-outer-bg);
+    }
+
+    .hero-card-left {
+      background: var(--hero-left-bg);
+    }
+
+    /* Decorative sweeping circles inside Left Panel */
+    .editorial-arc-1 {
+      position: absolute;
+      width: 480px;
+      height: 480px;
+      border-radius: 9999px;
+      background: radial-gradient(circle, rgba(255,180,90,0.28) 0%, rgba(255,120,20,0) 70%);
+      top: -110px;
+      left: 18%;
+      pointer-events: none;
+    }
+
+    .editorial-arc-2 {
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      border-radius: 9999px;
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      bottom: -80px;
+      left: 24%;
+      pointer-events: none;
+    }
+
+    /* Portrait Center Overlap Styling */
+    .portrait-stage {
+      filter: drop-shadow(-10px 16px 26px rgba(45, 10, 0, 0.48));
+      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), filter 0.4s ease;
+    }
+
+    /* Warm Rim Light Effect to blend B&W Cutout into Sunset Editorial Scene */
+    .portrait-warm-grade {
+      filter: contrast(1.08) brightness(0.99) sepia(0.16) saturate(1.3);
+    }
+
+    /* Flowing Water Wave Keyframes */
+    @keyframes waveFlowSlow {
+      0% { transform: translateX(0) translateZ(0) scaleY(1); }
+      50% { transform: translateX(-25%) translateZ(0) scaleY(0.92); }
+      100% { transform: translateX(-50%) translateZ(0) scaleY(1); }
+    }
+
+    @keyframes waveFlowFast {
+      0% { transform: translateX(-50%) translateZ(0) scaleY(0.96); }
+      50% { transform: translateX(-25%) translateZ(0) scaleY(1.06); }
+      100% { transform: translateX(0) translateZ(0) scaleY(0.96); }
+    }
+
+    @keyframes waterShimmer {
+      0%, 100% { opacity: 0.35; transform: scale(1) translateY(0px); }
+      50% { opacity: 0.65; transform: scale(1.03) translateY(-4px); }
+    }
+
+    @keyframes rippleRingExpand {
+      0% {
+        transform: translate(-50%, -50%) scale(0.15);
+        opacity: 0.85;
+      }
+      100% {
+        transform: translate(-50%, -50%) scale(2.6);
+        opacity: 0;
+      }
+    }
+
+    .animate-wave-slow {
+      width: 200%;
+      animation: waveFlowSlow 13s linear infinite;
+    }
+
+    .animate-wave-fast {
+      width: 200%;
+      animation: waveFlowFast 9s ease-in-out infinite;
+    }
+
+    .animate-water-shimmer {
+      animation: waterShimmer 5s ease-in-out infinite;
+    }
+
+    .water-ripple-ring {
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      border-radius: 9999px;
+      border: 2px solid rgba(255, 255, 255, 0.75);
+      box-shadow: 0 0 24px rgba(255, 190, 165, 0.6), inset 0 0 18px rgba(255, 255, 255, 0.5);
+      pointer-events: none;
+      animation: rippleRingExpand 1.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    /* Premium Botanical Illustration Animations */
+    @keyframes floatBotanical {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-7px) rotate(2.5deg); }
+    }
+
+    @keyframes petalPulse {
+      0%, 100% { transform: scale(1); filter: drop-shadow(0 8px 16px rgba(190, 24, 60, 0.25)); }
+      50% { transform: scale(1.05); filter: drop-shadow(0 12px 24px rgba(190, 24, 60, 0.45)); }
+    }
+
+    @keyframes dropletFall {
+      0% { transform: translateY(-6px) scale(0.85); opacity: 0; }
+      40% { opacity: 1; }
+      100% { transform: translateY(10px) scale(1.05); opacity: 0; }
+    }
+
+    @keyframes spiceOrbit {
+      0%, 100% { transform: rotate(-4deg) scale(1); }
+      50% { transform: rotate(6deg) scale(1.04); }
+    }
+
+    .animate-botanical-float {
+      animation: floatBotanical 5.5s ease-in-out infinite;
+    }
+
+    .animate-petal-pulse {
+      animation: petalPulse 4.5s ease-in-out infinite;
+    }
+
+    .animate-droplet-fall {
+      animation: dropletFall 2.8s ease-in-out infinite;
+    }
+
+    .animate-spice-orbit {
+      animation: spiceOrbit 6s ease-in-out infinite;
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #14110F;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #EA6A15;
+      border-radius: 9999px;
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-omnic-accent selection:text-white">
+
+  <!-- SVG LIQUID REFRACTION FILTER FOR REALISTIC WATER MOVEMENT -->
+  <svg class="hidden" aria-hidden="true">
+    <defs>
+      <filter id="water-refraction-filter" x="-10%" y="-10%" width="120%" height="120%">
+        <feTurbulence id="water-turbulence" type="fractalNoise" baseFrequency="0.012 0.025" numOctaves="2" seed="3" result="noise" />
+        <feDisplacementMap id="water-displacement" in="SourceGraphic" in2="noise" scale="0" xChannelSelector="R" yChannelSelector="G" />
+      </filter>
+    </defs>
+  </svg>
+
+  <!-- FLOATING EXECUTIVE NAVIGATION BAR -->
+  <header class="fixed top-3 sm:top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] max-w-5xl pointer-events-none">
+    <div class="pointer-events-auto mx-auto bg-[#14110F]/90 backdrop-blur-xl border border-amber-500/25 text-white px-3.5 sm:px-5 py-2.5 rounded-full shadow-2xl flex items-center justify-between gap-2 text-xs">
+      <!-- Brand Identity -->
+      <a href="#top" class="flex items-center gap-2 pl-1 shrink-0">
+        <span class="w-2.5 h-2.5 rounded-full bg-omnic-accent animate-ping"></span>
+        <span class="font-bold tracking-wider uppercase text-white text-[11px] sm:text-xs">Farhan M Hameed</span>
+        <span class="hidden md:inline-block text-white/30">•</span>
+        <span class="hidden md:inline-block text-amber-400 font-mono text-[11px]">Founder @ DILRU & AI Engineer</span>
+      </a>
+
+      <!-- Quick Navigation & Prominent Work Portfolio Button -->
+      <div class="flex items-center gap-1.5 sm:gap-2.5 ml-auto">
+        <!-- Portrait Photo Toggle -->
+        <div class="hidden sm:flex items-center bg-white/10 rounded-full p-0.5 border border-white/10">
+          <button onclick="setPortraitStyle('editorial')" id="btn-style-editorial" class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-omnic-accent text-white transition">
+            Cutout Portrait
+          </button>
+          <button onclick="setPortraitStyle('natural')" id="btn-style-natural" class="px-2.5 py-1 rounded-full text-[10px] font-medium text-white/75 hover:text-white transition">
+            Lifestyle Photo
+          </button>
+        </div>
+
+        <a href="#dilru-showcase" class="hidden lg:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 text-amber-200 font-semibold text-[11px] transition">
+          <span>DILRU PINK</span>
+        </a>
+
+        <!-- PROMINENT REDIRECT BUTTON TO WORK PORTFOLIO WEBSITE -->
+        <a
+          href="https://github.com/farhanabhi"
+          target="_blank"
+          rel="noopener noreferrer"
+          id="nav-work-portfolio-btn"
+          class="inline-flex items-center gap-1.5 px-3.5 sm:px-4 py-1.5 rounded-full bg-gradient-to-r from-[#FF5500] to-[#F69B11] hover:from-[#ff6a1f] hover:to-[#ffae33] text-white font-extrabold text-[11px] tracking-wider uppercase shadow-lg shadow-orange-600/30 hover:scale-105 active:scale-95 transition"
+        >
+          <span>Work Portfolio</span>
+          <i class="ph-bold ph-arrow-up-right text-xs"></i>
+        </a>
+
+        <button onclick="openPortfolioLinkModal()" title="Configure Work Portfolio URL" class="w-7 h-7 rounded-full bg-white/10 hover:bg-white/20 text-white/80 flex items-center justify-center transition">
+          <i class="ph-bold ph-link-simple text-xs"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===================================================================== -->
+  <!-- SECTION 1: SIGNATURE ORANGE OMNIC-STYLE SPLIT EDITORIAL HERO          -->
+  <!--            (Mobile-First Rock-Solid Layout + Desktop Split Overlap)   -->
+  <!-- ===================================================================== -->
+  <section id="top" class="stage-wrapper min-h-screen pt-20 pb-10 sm:pb-14 px-3 sm:px-6 lg:px-10 flex flex-col items-center justify-center relative overflow-hidden">
+    
+    <!-- Top Studio Header Emblem & Giant "PORTFOLIO" Watermark -->
+    <div class="w-full max-w-[1340px] mx-auto text-center mb-2 sm:mb-3 relative select-none">
+      <div class="inline-flex items-center gap-2.5 mb-1">
+        <div class="w-7 h-7 rounded-lg border-2 border-neutral-900 flex items-center justify-center bg-neutral-900 text-amber-400 font-bold text-xs shadow-sm">
+          FA
+        </div>
+        <div class="text-left leading-none">
+          <div class="text-xs font-extrabold tracking-[0.2em] text-neutral-950 uppercase">FARHAN ABHI</div>
+          <div class="text-[9px] font-bold tracking-[0.28em] text-neutral-900/75 uppercase">VENTURES & AI LABS</div>
+        </div>
+      </div>
+
+      <!-- Embossed "PORTFOLIO" Header Text matching reference -->
+      <div class="font-extrabold tracking-[0.06em] uppercase text-[13vw] sm:text-[11vw] xl:text-[134px] leading-[0.84] text-white/20 pointer-events-none">
+        PORTFOLIO
+      </div>
+    </div>
+
+    <!-- MAIN EDITORIAL SPLIT FRAME -->
+    <div class="w-full max-w-[1340px] mx-auto rounded-[26px] sm:rounded-[34px] p-2 sm:p-3.5 hero-card-left shadow-[0_35px_90px_-15px_rgba(45,10,0,0.68)] border border-white/25 relative overflow-hidden">
+      
+      <!-- Decorative Warm Light Circles inside Left Side -->
+      <div class="editorial-arc-1"></div>
+      <div class="editorial-arc-2"></div>
+
+      <!-- Inner Split Grid: Stacks cleanly on mobile, 12-col split on lg+ -->
+      <div class="relative grid grid-cols-1 lg:grid-cols-12 lg:min-h-[700px] rounded-[20px] sm:rounded-[26px] overflow-hidden">
+        
+        <!-- =============================================================== -->
+        <!-- LEFT PANEL: DEEP BURNT ORANGE EDITORIAL CANVAS                  -->
+        <!-- =============================================================== -->
+        <div class="lg:col-span-7 p-5 sm:p-9 lg:p-12 flex flex-col justify-between relative z-20 text-white">
+          
+          <!-- Top-Left Brand Mark & Headline Switcher -->
+          <div class="flex flex-wrap items-center justify-between gap-2">
+            <a href="#top" class="inline-flex items-center gap-2 group">
+              <span class="text-2xl font-serif italic font-bold text-white">ƒ</span>
+              <span class="font-serif text-xl sm:text-2xl tracking-tight text-white font-semibold">Farhan Abhi</span>
+            </a>
+
+            <!-- Interactive Headline Word Switcher -->
+            <div class="flex items-center gap-1 bg-black/25 backdrop-blur-md border border-white/15 rounded-full p-1 text-[10px] font-mono uppercase">
+              <button onclick="setHeroWord('CREATE')" class="hero-word-btn px-2.5 py-0.5 rounded-full bg-white text-neutral-950 font-bold transition" data-word="CREATE">CREATE</button>
+              <button onclick="setHeroWord('VENTURE')" class="hero-word-btn px-2.5 py-0.5 rounded-full text-white/80 hover:text-white transition" data-word="VENTURE">VENTURE</button>
+              <button onclick="setHeroWord('ENGINEER')" class="hero-word-btn px-2.5 py-0.5 rounded-full text-white/80 hover:text-white transition" data-word="ENGINEER">ENGINEER</button>
+            </div>
+          </div>
+
+          <!-- Center-Left Giant Display Typography & CTA -->
+          <div class="mt-6 sm:mt-8 lg:my-auto max-w-md relative z-20">
+            <h1 id="hero-giant-word" class="hero-create-text text-[72px] xs:text-[84px] sm:text-[116px] xl:text-[138px] text-white drop-shadow-[0_10px_25px_rgba(0,0,0,0.28)] select-none transition-all duration-300">
+              CREATE
+            </h1>
+
+            <p class="mt-2.5 sm:mt-3 text-sm sm:text-lg text-white/95 font-normal leading-relaxed max-w-[300px]">
+              Ventures that scale.<br />
+              Systems that connect.<br />
+              <span class="text-amber-100/85 text-xs sm:text-sm block mt-1">
+                Founder of <strong class="text-white font-bold">DILRU PINK</strong> & Applied AI Systems Engineer.
+              </span>
+            </p>
+
+            <!-- Primary & Secondary Pill CTAs (Including Prominent Work Portfolio Redirect) -->
+            <div class="mt-5 sm:mt-7 flex flex-wrap items-center gap-2.5 sm:gap-3">
+              <a
+                href="#dilru-showcase"
+                class="inline-flex items-center gap-2 bg-white text-neutral-950 hover:bg-amber-50 font-extrabold text-[11px] sm:text-xs tracking-wider uppercase px-5 sm:px-6 py-3 sm:py-3.5 rounded-full shadow-[0_10px_30px_rgba(255,255,255,0.3)] hover:scale-105 active:scale-95 transition"
+              >
+                <span>DILRU PINK</span>
+                <i class="ph-bold ph-arrow-down-right text-sm"></i>
+              </a>
+
+              <a
+                href="https://github.com/farhanabhi"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="work-portfolio-link inline-flex items-center gap-2 bg-neutral-950 hover:bg-neutral-900 text-amber-400 border border-amber-400/40 font-extrabold text-[11px] sm:text-xs tracking-wider uppercase px-5 py-3 sm:py-3.5 rounded-full shadow-lg hover:scale-105 active:scale-95 transition"
+              >
+                <span>WORK PORTFOLIO</span>
+                <i class="ph-bold ph-arrow-up-right text-sm"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Bottom-Left Social Proof & Network Badge -->
+          <div class="mt-6 lg:mt-0 relative z-20 pt-2">
+            <div class="inline-flex items-center gap-2 bg-white/15 backdrop-blur-md border border-white/25 rounded-full p-1.5 pr-4 shadow-lg">
+              <div class="flex -space-x-2">
+                <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-gradient-to-br from-amber-200 to-orange-600 border-2 border-white flex items-center justify-center text-[9px] font-extrabold text-neutral-950">VC</div>
+                <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-gradient-to-br from-rose-200 to-pink-600 border-2 border-white flex items-center justify-center text-[9px] font-extrabold text-neutral-950">D2C</div>
+                <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-gradient-to-br from-amber-100 to-amber-500 border-2 border-white flex items-center justify-center text-[9px] font-extrabold text-neutral-950">AI</div>
+                <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-neutral-900 border-2 border-white flex items-center justify-center text-[9px] font-extrabold text-amber-400">R&D</div>
+              </div>
+              <span class="text-xs font-extrabold text-white pl-1">+15</span>
+            </div>
+            <p class="mt-2 text-[11px] sm:text-xs text-white/85 max-w-[220px] leading-snug">
+              Trusted by forward-thinking investors, founders & brand partners.
+            </p>
+          </div>
+
+          <!-- MOBILE & TABLET DEDICATED PORTRAIT STAGE (< 1024px) -->
+          <!-- Ensures the cutout portrait sits cleanly centered at the bottom of the orange section on phones with zero text overlap -->
+          <div class="lg:hidden mt-6 -mx-5 sm:-mx-9 -mb-5 sm:-mb-9 pt-2 flex flex-col items-center justify-end relative overflow-hidden">
+            <div class="absolute bottom-6 w-60 h-60 rounded-full bg-amber-400/35 blur-2xl pointer-events-none"></div>
+            
+            <!-- Mobile Portrait Style Switcher Pill -->
+            <div class="relative z-30 mb-2 flex items-center gap-1 bg-black/35 backdrop-blur-md border border-white/20 rounded-full p-1">
+              <button onclick="setPortraitStyle('editorial')" id="mob-btn-editorial" class="px-3 py-1 rounded-full text-[10px] font-bold bg-white text-neutral-900 transition">
+                Cutout Portrait
+              </button>
+              <button onclick="setPortraitStyle('natural')" id="mob-btn-natural" class="px-3 py-1 rounded-full text-[10px] font-semibold text-white/85 transition">
+                Original Photo
+              </button>
+            </div>
+            <!-- Mobile Cutout Canvas (Uses IMAGE_CONFIG.PORTRAIT_BW) -->
+            <div id="mobile-cutout-wrap" class="relative z-20 w-[86%] max-w-[340px] sm:max-w-[400px] flex items-end justify-center portrait-stage">
+              <canvas id="cutout-canvas-mobile" class="w-full h-auto object-contain object-bottom portrait-warm-grade block"></canvas>
+            </div>
+
+            <!-- IMAGE FILE #2 (Mobile Natural Photo): IMG_1113.jpg -->
+            <div id="mobile-natural-wrap" class="hidden relative z-20 w-[86%] max-w-[320px] mb-5 rounded-2xl overflow-hidden border-2 border-white shadow-2xl">
+              <img data-img-key="PORTRAIT_COLOR" src="IMG_1113.jpg" alt="Farhan M Hameed" class="w-full h-[340px] object-cover object-center" />
+            </div>
+          </div>
+
+        </div>
+
+        <!-- =============================================================== -->
+        <!-- DESKTOP CENTER OVERLAPPING PORTRAIT (lg: >= 1024px only)        -->
+        <!-- =============================================================== -->
+        <div class="hidden lg:flex lg:absolute lg:inset-y-0 lg:left-[53%] lg:-translate-x-1/2 lg:w-[560px] xl:w-[610px] items-end justify-center pointer-events-none z-30">
+          <!-- Warm Backlight Halo behind Farhan's head/sunglasses -->
+          <div class="absolute top-[16%] left-1/2 -translate-x-1/2 w-72 h-72 rounded-full bg-gradient-to-tr from-amber-500/45 via-orange-400/25 to-transparent blur-2xl pointer-events-none"></div>
+
+          <div id="portrait-parallax" class="relative w-full flex items-end justify-center portrait-stage select-none">
+            <!-- Desktop Cutout Canvas (Uses IMAGE_CONFIG.PORTRAIT_BW) -->
+            <canvas id="cutout-canvas" class="w-full h-auto object-contain object-bottom portrait-warm-grade transition-all duration-500 block"></canvas>
+
+            <!-- IMAGE FILE #1 (Fallback B&W Cutout Portrait): Gemini_Generated_Image_kl05a4kl05a4kl05.png -->
+            <img
+              id="fallback-cutout-img"
+              data-img-key="PORTRAIT_BW"
+              src="Gemini_Generated_Image_kl05a4kl05a4kl05.png"
+              alt="Farhan M Hameed Portrait"
+              class="hidden w-full h-auto object-contain object-bottom"
+            />
+
+            <!-- IMAGE FILE #2 (Desktop Natural Lifestyle Card): IMG_1113.jpg -->
+            <div id="natural-photo-frame" class="hidden w-[380px] mb-8 rounded-3xl overflow-hidden border-4 border-white shadow-2xl pointer-events-auto relative group">
+              <img
+                data-img-key="PORTRAIT_COLOR"
+                src="IMG_1113.jpg"
+                alt="Farhan M Hameed Lifestyle Portrait"
+                class="w-full h-[470px] object-cover object-center group-hover:scale-105 transition duration-700"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent"></div>
+              <div class="absolute bottom-4 left-4 right-4 text-white flex items-center justify-between">
+                <div>
+                  <span class="text-[10px] font-mono uppercase tracking-widest text-amber-300 block">Original Portrait</span>
+                  <span class="text-sm font-bold">Farhan M Hameed</span>
+                </div>
+                <button onclick="setPortraitStyle('editorial')" class="px-3 py-1.5 rounded-full bg-white text-neutral-950 text-xs font-bold hover:bg-amber-100 transition">
+                  Use Cutout
+                </button>
+              </div>
+            </div>
+
+            <!-- Warm Sunset Amber Reflection on Sunglasses -->
+            <div id="sunglasses-glow" class="absolute top-[27.5%] left-[51.5%] w-[16%] h-[6.5%] rounded-full pointer-events-none blur-[6px] opacity-85 transition-opacity duration-500" style="background: var(--lens-tint); transform: rotate(-6deg);"></div>
+          </div>
+        </div>
+
+        <!-- =============================================================== -->
+        <!-- RIGHT PANEL: CRISP EDITORIAL WHITE EXECUTIVE PANEL              -->
+        <!-- =============================================================== -->
+        <div class="lg:col-span-5 bg-[#FFFFFF] text-neutral-900 rounded-[20px] sm:rounded-[24px] p-6 sm:p-9 lg:p-10 flex flex-col justify-between relative z-10 shadow-inner mt-2 lg:mt-0">
+          
+          <!-- Top Navigation Bar inside Right White Panel -->
+          <div class="flex items-center justify-between gap-2 relative z-40">
+            <nav class="flex flex-wrap items-center gap-4 sm:gap-5 text-[11px] font-extrabold tracking-[0.14em] uppercase text-neutral-600">
+              <a href="#dilru-showcase" class="text-[#D35400] hover:text-neutral-950 flex items-center gap-1.5 transition">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#FF5500]"></span>
+                DILRU PINK
+              </a>
+              <a href="#executive-dossier" class="hover:text-[#FF5500] transition">SKILLS</a>
+              <a href="#connect" class="hover:text-[#FF5500] transition">INVESTORS</a>
+            </nav>
+
+            <!-- Quick Redirect to Work Portfolio Pill -->
+            <a
+              href="https://github.com/farhanabhi"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="work-portfolio-link inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-neutral-100 hover:bg-[#FF5500] hover:text-white text-neutral-900 text-[10px] font-extrabold uppercase tracking-wider transition shadow-sm"
+              title="Open Farhan's Work Portfolio"
+            >
+              <span>Portfolio</span>
+              <i class="ph-bold ph-arrow-up-right"></i>
+            </a>
+          </div>
+
+          <!-- Middle-Right Availability & Focus Block -->
+          <div class="my-7 lg:my-auto lg:pl-28 xl:pl-36 relative z-40">
+            <div class="inline-flex items-center gap-2 text-[11px] font-extrabold tracking-[0.18em] uppercase text-[#D9530F] mb-2">
+              <span>AVAILABLE FOR</span>
+              <span class="w-2 h-2 rounded-full bg-[#FF5500] animate-ping"></span>
+              <span class="w-2 h-2 rounded-full bg-[#FF5500] -ml-4"></span>
+            </div>
+
+            <h2 class="text-2xl sm:text-3xl xl:text-[32px] font-extrabold tracking-tight text-neutral-900 leading-[1.16]">
+              Seed Partnerships,<br />
+              Venture Building &<br />
+              AI Architecture
+            </h2>
+
+            <!-- Key Credential Pills -->
+            <div class="mt-4 flex flex-wrap gap-1.5">
+              <span class="px-2.5 py-1 rounded-md bg-orange-50 text-[#9C3404] border border-orange-200/80 font-mono text-[10px] font-semibold">Founder @ DILRU</span>
+              <span class="px-2.5 py-1 rounded-md bg-neutral-100 text-neutral-700 font-mono text-[10px] font-medium">B.Tech AI & Data Science</span>
+              <span class="px-2.5 py-1 rounded-md bg-neutral-100 text-neutral-700 font-mono text-[10px] font-medium">FMCG + DeepTech</span>
+            </div>
+          </div>
+
+          <!-- Bottom-Right Testimonial / Executive Thesis Card -->
+          <div class="lg:pl-24 xl:pl-32 relative z-40">
+            <div class="bg-[#F6F4F0] border border-neutral-200/90 rounded-2xl p-5 shadow-sm hover:shadow-md transition relative">
+              <div class="text-3xl font-serif font-bold leading-none text-[#FF5500] mb-1.5 select-none">“</div>
+              
+              <p class="text-xs sm:text-[13px] text-neutral-700 leading-relaxed font-medium">
+                Bridging zero-to-one consumer beverage formulation with autonomous AI systems—scaling <strong class="text-neutral-950">DILRU PINK</strong> for modern functional wellness alongside production software engineering.
+              </p>
+
+              <div class="mt-4 pt-3 border-t border-neutral-200/90 flex items-center justify-between gap-3">
+                <div>
+                  <div class="text-[11px] font-extrabold tracking-wider uppercase text-neutral-900">FARHAN M HAMEED</div>
+                  <div class="text-[10px] font-semibold tracking-wider uppercase text-neutral-500">FOUNDER, DILRU • AI ENGINEER</div>
+                </div>
+
+                <!-- IMAGE FILE #2 (Circular Avatar Thumbnail): IMG_1113.jpg -->
+                <div class="w-10 h-10 rounded-full overflow-hidden ring-2 ring-[#FF5500]/50 shrink-0 shadow">
+                  <img
+                    data-img-key="PORTRAIT_COLOR"
+                    src="IMG_1113.jpg"
+                    alt="Farhan M Hameed"
+                    class="w-full h-full object-cover object-top"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Caption Bar inside Hero Stage -->
+    <div class="w-full max-w-[1340px] mx-auto mt-4 px-2 flex flex-wrap items-center justify-between gap-2 text-neutral-950 text-xs font-bold tracking-wide">
+      <div class="flex items-center gap-3">
+        <span class="uppercase tracking-widest text-[10px] sm:text-[11px] bg-black/15 px-3 py-1 rounded-full">Kochi, Kerala, India • Global</span>
+        <span class="hidden md:inline text-neutral-950/80">Investor, Founder & Executive Partner Profile</span>
+      </div>
+      <div class="flex items-center gap-4">
+        <a
+          href="https://github.com/farhanabhi"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="work-portfolio-link inline-flex items-center gap-1.5 text-neutral-950 underline decoration-neutral-950/40 hover:opacity-75 transition"
+        >
+          <span>Visit Work Portfolio</span>
+          <i class="ph-bold ph-arrow-square-out text-sm"></i>
+        </a>
+        <a href="#dilru-showcase" class="inline-flex items-center gap-1.5 text-neutral-950 hover:opacity-75 transition">
+          <span>Explore DILRU PINK</span>
+          <i class="ph-fill ph-caret-circle-down text-base"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- SECTION 2: AUTHENTIC DILRU PINK PRODUCT SHOWCASE + WATER MOVEMENT     -->
+  <!-- (Uses ONLY 1000438210.png & 1000438211.png + Realistic Water Ripples) -->
+  <!-- ===================================================================== -->
+  <section id="dilru-showcase" class="relative py-20 sm:py-28 bg-gradient-to-b from-[#FFFBF5] via-[#F9EDE2] to-[#F3DFCE] text-neutral-900 overflow-hidden">
+    
+    <!-- Top Animated Flowing Water Wave Divider -->
+    <div class="absolute top-0 left-0 right-0 h-16 overflow-hidden pointer-events-none opacity-65">
+      <svg class="animate-wave-slow h-full text-[#F69B11]/25" viewBox="0 0 1440 120" fill="currentColor" preserveAspectRatio="none">
+        <path d="M0,64 C240,120 480,8 720,64 C960,120 1200,8 1440,64 L1440,0 L0,0 Z"></path>
+      </svg>
+    </div>
+
+    <!-- Ambient Warm Sunlit Caustics Glow -->
+    <div class="absolute -top-20 right-1/4 w-[550px] h-[550px] rounded-full bg-gradient-to-br from-orange-300/30 via-rose-300/25 to-transparent blur-3xl pointer-events-none animate-water-shimmer"></div>
+    <div class="absolute bottom-10 left-10 w-[480px] h-[480px] rounded-full bg-gradient-to-tr from-amber-300/25 via-rose-200/25 to-transparent blur-3xl pointer-events-none animate-water-shimmer"></div>
+
+    <div class="max-w-[1340px] mx-auto px-4 sm:px-8 relative z-10">
+      
+      <!-- Brand Header Banner -->
+      <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+        <div class="inline-flex flex-wrap items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-[#D35400]/10 border border-[#D35400]/25 text-[#9C3404] text-[11px] font-extrabold tracking-[0.18em] uppercase mb-4">
+          <span class="w-2 h-2 rounded-full bg-[#FF5500] animate-ping"></span>
+          <span>100% Natural • No Added Sugar • 300ml Clear PET Can</span>
+        </div>
+
+        <h2 class="text-4xl sm:text-6xl font-extrabold tracking-[0.26em] uppercase text-[#24130E] pl-[0.26em]">
+          DILRU
+        </h2>
+        <div class="mt-2.5 inline-block px-5 py-1.5 rounded-full bg-gradient-to-r from-[#D35400] via-[#C6535E] to-[#A8384B] text-white text-xs sm:text-sm font-extrabold tracking-[0.26em] uppercase shadow-md">
+          PINK • PERIOD RELIEF
+        </div>
+
+        <p class="mt-4 sm:mt-5 text-lg sm:text-2xl font-serif italic text-[#523428] leading-relaxed">
+          “Natural cramp relief, mood balance & blood-restorative energy—captured in a crystal-clear 300ml PET can with zero added sugar.”
+        </p>
+
+        <!-- Clean-Label Trust Pills -->
+        <div class="mt-4 flex flex-wrap items-center justify-center gap-2">
+          <span class="px-3.5 py-1 rounded-full bg-white/85 border border-amber-900/15 text-[#3B1D12] text-xs font-extrabold tracking-wide shadow-sm">
+            🌿 100% Natural Botanicals
+          </span>
+          <span class="px-3.5 py-1 rounded-full bg-rose-950 text-rose-100 text-xs font-extrabold tracking-wide shadow-sm">
+            🚫 No Added Sugar • Zero Refined Sugar
+          </span>
+          <span class="px-3.5 py-1 rounded-full bg-white/85 border border-amber-900/15 text-[#3B1D12] text-xs font-extrabold tracking-wide shadow-sm">
+            🥫 300ml Transparent Recyclable PET Can
+          </span>
+        </div>
+      </div>
+
+      <!-- MAIN AUTHENTIC PRODUCT PHOTOGRAPHY + WATER MOVEMENT STAGE -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+        
+        <!-- LEFT COLUMN (7 Cols): AUTHENTIC STUDIO PHOTOGRAPHS + LIVE WATER RIPPLE ENGINE -->
+        <div class="lg:col-span-7">
+          <div class="rounded-[28px] sm:rounded-[34px] bg-gradient-to-b from-[#DFC3AC] via-[#CFA98E] to-[#B78B6C] p-4 sm:p-7 shadow-[0_30px_80px_-15px_rgba(85,35,15,0.32)] border border-white/60 relative overflow-hidden">
+            
+            <!-- Top Controls: Photo View Mode & Water Ripple Trigger -->
+            <div class="flex flex-wrap items-center justify-between gap-2.5 mb-5 relative z-30">
+              <div class="flex items-center gap-1 bg-black/25 backdrop-blur-md p-1 rounded-full border border-white/25">
+                <button onclick="switchDilruPhotoView('dual')" id="photo-btn-dual" class="px-3 sm:px-3.5 py-1.5 rounded-full text-[11px] font-extrabold bg-white text-neutral-950 shadow transition">
+                  Dual Studio View
+                </button>
+                <button onclick="switchDilruPhotoView('campaign')" id="photo-btn-campaign" class="px-3 sm:px-3.5 py-1.5 rounded-full text-[11px] font-bold text-white/90 hover:text-white transition">
+                  Stone Podium Shot
+                </button>
+                <button onclick="switchDilruPhotoView('minimal')" id="photo-btn-minimal" class="px-3 sm:px-3.5 py-1.5 rounded-full text-[11px] font-bold text-white/90 hover:text-white transition">
+                  Pure Dew Close-Up
+                </button>
+              </div>
+
+              <!-- Trigger Realistic Water Wave Ripple Button -->
+              <button
+                onclick="triggerWaterPulse(event)"
+                class="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-[#FF5500] hover:bg-[#e04800] text-white text-[11px] font-extrabold tracking-wide uppercase shadow-lg active:scale-95 transition"
+              >
+                <i class="ph-bold ph-waves text-sm"></i>
+                <span>Create Water Ripple</span>
+              </button>
+            </div>
+
+            <!-- INTERACTIVE WATER MOVEMENT CONTAINER -->
+            <div
+              id="water-stage-container"
+              onmousemove="handleStageWaterMove(event)"
+              ontouchmove="handleStageWaterTouch(event)"
+              onclick="triggerWaterPulse(event)"
+              class="relative rounded-[22px] sm:rounded-[26px] overflow-hidden cursor-pointer select-none"
+            >
+              <!-- Interactive Water Ripple Rings Overlay Container -->
+              <div id="ripple-rings-layer" class="absolute inset-0 pointer-events-none z-30 overflow-hidden"></div>
+
+              <!-- Live HTML5 Canvas Water Caustics & Wave Shimmer Overlay -->
+              <canvas id="water-caustics-canvas" class="absolute inset-0 w-full h-full pointer-events-none z-20 opacity-65 mix-blend-screen"></canvas>
+
+              <!-- AUTHENTIC PRODUCT PHOTOGRAPHS GRID (Filtered with Subtle Liquid Refraction on Ripple) -->
+              <div id="dilru-photos-grid" style="filter: url(#water-refraction-filter);" class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 relative z-10 transition-all duration-500">
+                
+                <!-- IMAGE FILE #3 (DILRU Stone Podium Campaign Shot): 1000438210.png -->
+                <div id="card-photo-campaign" class="group relative rounded-[20px] sm:rounded-[24px] overflow-hidden shadow-2xl border-2 border-white/70 bg-[#C89D7C] aspect-[4/5]">
+                  <img
+                    data-img-key="DILRU_STONE_PHOTO"
+                    src="1000438210.png"
+                    alt="DILRU PINK 300ml — Natural Relief & Restorative Energy on Stone Podium"
+                    class="w-full h-full object-cover object-center group-hover:scale-105 transition duration-700"
+                  />
+                  <!-- Subtle Water Surface Reflection Shimmer at bottom of card -->
+                  <div class="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black/65 via-black/20 to-transparent pointer-events-none"></div>
+                  
+                  <div class="absolute bottom-3.5 left-4 right-4 text-white flex items-end justify-between pointer-events-none">
+                    <div>
+                      <span class="text-[10px] font-mono uppercase tracking-widest text-amber-300 block">Botanical Campaign</span>
+                      <span class="text-sm font-extrabold tracking-wide">DILRU PINK • Period Relief</span>
+                    </div>
+                    <span class="text-[10px] bg-white/20 backdrop-blur-md px-2.5 py-1 rounded-full font-bold border border-white/25">
+                      300ml PET
+                    </span>
+                  </div>
+                </div>
+
+                <!-- IMAGE FILE #4 (DILRU Minimalist Studio Dew Close-Up): 1000438211.png -->
+                <div id="card-photo-minimal" class="group relative rounded-[20px] sm:rounded-[24px] overflow-hidden shadow-2xl border-2 border-white/70 bg-[#EADCD3] aspect-[4/5]">
+                  <img
+                    data-img-key="DILRU_MINIMAL_PHOTO"
+                    src="1000438211.png"
+                    alt="DILRU PINK 300ml — Studio Close-Up with Chilled Condensation Droplets"
+                    class="w-full h-full object-cover object-center group-hover:scale-105 transition duration-700"
+                  />
+                  <div class="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-[#3B171E]/70 via-transparent to-transparent pointer-events-none"></div>
+
+                  <div class="absolute bottom-3.5 left-4 right-4 text-white flex items-end justify-between pointer-events-none">
+                    <div>
+                      <span class="text-[10px] font-mono uppercase tracking-widest text-rose-200 block">Pure Dew Close-Up</span>
+                      <span class="text-sm font-extrabold tracking-wide">Zero Sugar Refreshment</span>
+                    </div>
+                    <span class="text-[10px] bg-white/20 backdrop-blur-md px-2.5 py-1 rounded-full font-bold border border-white/25">
+                      300ml Chilled
+                    </span>
+                  </div>
+                </div>
+
+              </div>
+
+              <!-- Animated Multi-Layer Flowing Water Waves Along the Base of the Showcase -->
+              <div class="relative h-14 sm:h-16 -mt-6 z-20 pointer-events-none overflow-hidden rounded-b-[22px]">
+                <svg class="animate-wave-slow absolute bottom-0 left-0 h-full text-white/35" viewBox="0 0 1440 120" fill="currentColor" preserveAspectRatio="none">
+                  <path d="M0,48 C320,110 420,0 720,48 C1020,96 1120,10 1440,48 L1440,120 L0,120 Z"></path>
+                </svg>
+                <svg class="animate-wave-fast absolute bottom-0 left-0 h-12 text-[#FFFBF5]/55" viewBox="0 0 1440 120" fill="currentColor" preserveAspectRatio="none">
+                  <path d="M0,64 C280,10 520,110 720,64 C920,18 1160,108 1440,64 L1440,120 L0,120 Z"></path>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Bottom Packaging Spec Strip -->
+            <div class="mt-4 pt-3 border-t border-neutral-900/15 flex flex-wrap items-center justify-between gap-2 text-xs font-bold text-neutral-900">
+              <span class="flex items-center gap-1.5">
+                <i class="ph-fill ph-drop text-[#D35400] text-sm"></i>
+                <span>Touch or move across the cans to experience soothing water wave motion</span>
+              </span>
+              <span class="font-mono text-[11px] bg-white/80 px-3 py-1 rounded-full">300ml • Transparent PET Can • No Added Sugar</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT COLUMN (5 Cols): WHAT DILRU PINK DOES & COMMERCIAL THESIS -->
+        <div class="lg:col-span-5 space-y-5">
+          <div class="bg-white/90 backdrop-blur-xl rounded-3xl p-6 sm:p-8 border border-amber-900/15 shadow-xl">
+            <div class="text-xs font-extrabold uppercase tracking-[0.2em] text-[#D35400] mb-2">
+              THE PRODUCT THESIS
+            </div>
+            <h3 class="text-2xl sm:text-3xl font-extrabold text-neutral-950 leading-tight">
+              Complete Cycle Relief, Mood Balance & Blood Restoration in 300ml.
+            </h3>
+            <p class="mt-3 text-sm text-neutral-600 leading-relaxed">
+              During their cycle, millions of women face painful cramps, nausea, sudden mood drops, and intense sugar cravings. <strong class="text-neutral-950">DILRU PINK</strong> is a <strong class="text-[#9C3404]">100% natural, no-added-sugar</strong> functional botanical beverage crafted in a crystal-clear 300ml PET can for complete physiological comfort and vitality.
+            </p>
+
+            <!-- Interactive 4-Pillar Product Highlights (Triggers Water Ripple on Click) -->
+            <div class="mt-6 space-y-3" id="dilru-feature-list">
+              
+              <!-- Feature 01 -->
+              <div onclick="selectDilruFeature(0)" class="dilru-feature-card cursor-pointer rounded-2xl p-4 border-2 border-[#FF5500] bg-orange-50/70 transition-all">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-xl bg-[#D35400] text-white flex items-center justify-center font-mono text-xs font-bold">01</span>
+                    <h4 class="font-bold text-sm sm:text-base text-neutral-950">Period Cramp & Nausea Relief</h4>
+                  </div>
+                  <i class="ph-bold ph-heart-half text-[#D35400] text-lg"></i>
+                </div>
+                <p class="mt-2 text-xs text-neutral-700 leading-relaxed pl-11">
+                  Bio-active hibiscus, kokum, and gentle warming spices soothe uterine muscle spasms while calming cycle-triggered nausea and digestive queasiness.
+                </p>
+              </div>
+
+              <!-- Feature 02 -->
+              <div onclick="selectDilruFeature(1)" class="dilru-feature-card cursor-pointer rounded-2xl p-4 border border-neutral-200 bg-white hover:border-[#FF5500]/60 transition-all">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-xl bg-orange-100 text-[#9C3404] flex items-center justify-center font-mono text-xs font-bold">02</span>
+                    <h4 class="font-bold text-sm sm:text-base text-neutral-950">Balances Mood & Stops Sugar Cravings</h4>
+                  </div>
+                  <i class="ph-bold ph-scales text-[#D35400] text-lg"></i>
+                </div>
+                <p class="mt-2 text-xs text-neutral-600 leading-relaxed pl-11">
+                  Stabilizes sudden hormonal mood swings and curbs intense period sugar cravings naturally—with zero added sugar and zero glycemic spikes.
+                </p>
+              </div>
+
+              <!-- Feature 03 -->
+              <div onclick="selectDilruFeature(2)" class="dilru-feature-card cursor-pointer rounded-2xl p-4 border border-neutral-200 bg-white hover:border-[#FF5500]/60 transition-all">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-xl bg-orange-100 text-[#9C3404] flex items-center justify-center font-mono text-xs font-bold">03</span>
+                    <h4 class="font-bold text-sm sm:text-base text-neutral-950">Restorative Energy & Blood Restoration</h4>
+                  </div>
+                  <i class="mt-0.5 ph-bold ph-drop-half-bottom text-[#D35400] text-lg"></i>
+                </div>
+                <p class="mt-2 text-xs text-neutral-600 leading-relaxed pl-11">
+                  Rich in natural anthocyanins, iron-supportive hibiscus phytonutrients, and coconut water electrolytes to support blood restoration and clean energy.
+                </p>
+              </div>
+
+              <!-- Feature 04 -->
+              <div onclick="selectDilruFeature(3)" class="dilru-feature-card cursor-pointer rounded-2xl p-4 border border-neutral-200 bg-white hover:border-[#FF5500]/60 transition-all">
+                <div class="flex items-center justify-between">
+                  <div class="flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-xl bg-orange-100 text-[#9C3404] flex items-center justify-center font-mono text-xs font-bold">04</span>
+                    <h4 class="font-bold text-sm sm:text-base text-neutral-950">300ml Transparent PET Can Innovation</h4>
+                  </div>
+                  <i class="ph-bold ph-package text-[#D35400] text-lg"></i>
+                </div>
+                <p class="mt-2 text-xs text-neutral-600 leading-relaxed pl-11">
+                  Showcased in a sleek 300ml clear PET can with an aluminum pull-tab seal—offering unbreakable portability, 100% recyclability, and instant visual trust on retail shelves.
+                </p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================================================================= -->
+      <!-- NEW SUB-SECTION A: WHAT DILRU PINK DOES TO YOUR BODY (6 EFFECTS)   -->
+      <!-- ================================================================= -->
+      <div class="mt-14 sm:mt-20 rounded-[30px] sm:rounded-[36px] bg-white/90 backdrop-blur-xl border border-amber-900/15 p-6 sm:p-10 lg:p-12 shadow-2xl relative overflow-hidden">
+        <!-- Subtle Decorative Gradient Glow -->
+        <div class="absolute -right-20 -top-20 w-80 h-80 rounded-full bg-gradient-to-bl from-rose-300/30 via-orange-200/25 to-transparent blur-3xl pointer-events-none"></div>
+
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-4 mb-8 sm:mb-10">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-rose-100 text-rose-900 text-[11px] font-extrabold tracking-[0.18em] uppercase mb-2.5">
+              <span class="w-2 h-2 rounded-full bg-rose-600 animate-ping"></span>
+              <span>PHYSIOLOGICAL BIO-ACTION • WHEN YOU DRINK DILRU PINK</span>
+            </div>
+            <h3 class="text-2xl sm:text-4xl font-extrabold text-neutral-950 tracking-tight">
+              What DILRU PINK Actually Does to Your Body
+            </h3>
+          </div>
+          <p class="text-xs sm:text-sm text-neutral-600 max-w-md leading-relaxed">
+            Tap any of the <strong class="text-neutral-950">6 bio-active relief pathways</strong> below to inspect how a single chilled 300ml can works inside the body during menstruation.
+          </p>
+        </div>
+
+        <!-- Interactive Spotlight Banner for Selected Physiological Benefit -->
+        <div id="body-benefit-spotlight" class="mb-8 rounded-2xl bg-gradient-to-r from-[#3A131C] via-[#591C28] to-[#3B170E] text-white p-5 sm:p-7 shadow-xl border border-rose-300/20 transition-all duration-300">
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div class="space-y-1.5">
+              <div class="flex items-center gap-2.5">
+                <span id="spotlight-step-badge" class="px-3 py-0.5 rounded-full bg-[#FF5500] text-white font-mono text-[11px] font-bold uppercase">
+                  PATHWAY 01 / 06
+                </span>
+                <span id="spotlight-timing" class="text-xs font-mono text-rose-200">
+                  Fast-Acting Botanical Absorption • Within 15–25 Mins
+                </span>
+              </div>
+              <h4 id="spotlight-title" class="text-xl sm:text-2xl font-extrabold text-white">
+                1. Deep Period Cramp & Pelvic Tension Relief
+              </h4>
+              <p id="spotlight-desc" class="text-xs sm:text-sm text-rose-100/90 leading-relaxed max-w-3xl">
+                Organic hibiscus organic acids and warming botanical spices naturally relax smooth uterine muscle contractions (prostaglandin-induced spasms), easing lower abdominal and back cramps without synthetic painkillers.
+              </p>
+            </div>
+            <div class="shrink-0">
+              <span id="spotlight-Driver" class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-white/10 border border-white/20 text-xs font-mono text-amber-200">
+                <i class="ph-fill ph-sparkle text-amber-400"></i>
+                <span>Active Driver: Hibiscus + Warming Spices</span>
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6 Physiological Effects Interactive Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+          
+          <!-- Effect 1: Period Cramp Relief -->
+          <div onclick="selectBodyBenefit(0)" class="body-benefit-card cursor-pointer rounded-2xl p-5 border-2 border-[#FF5500] bg-gradient-to-br from-orange-50/90 to-rose-50/60 shadow-md hover:-translate-y-1 transition-all duration-300">
+            <div class="flex items-start justify-between gap-3 mb-3">
+              <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#D35400] to-[#A8384B] text-white flex items-center justify-center shadow-md shrink-0">
+                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 21s-7-4.35-7-10a4 4 0 0 1 7-2.65A4 4 0 0 1 19 11c0 5.65-7 10-7 10z" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M9 12h2l1-2 1 4 1-2h2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <span class="font-mono text-[11px] font-bold text-[#D35400] bg-orange-100 px-2.5 py-1 rounded-full">01 • CRAMP RELIEF</span>
+            </div>
+            <h4 class="text-base sm:text-lg font-extrabold text-neutral-950 mb-1.5">Period Cramp Relief</h4>
+            <p class="text-xs text-neutral-600 leading-relaxed">
+              Relaxes smooth uterine muscle contractions and eases lower pelvic & back stiffness naturally without harsh synthetic meds.
+            </p>
+          </div>
+
+          <!-- Effect 2: Nausea & Digestive Calm -->
+          <div onclick="selectBodyBenefit(1)" class="body-benefit-card cursor-pointer rounded-2xl p-5 border border-neutral-200/90 bg-white hover:border-[#FF5500]/60 hover:-translate-y-1 transition-all duration-300">
+            <div class="flex items-start justify-between gap-3 mb-3">
+              <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-rose-500 to-amber-600 text-white flex items-center justify-center shadow-md shrink-0">
+                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M3 10c2.5-2 5.5-2 8 0s5.5 2 8 0" stroke-linecap="round"/>
+                  <path d="M3 15c2.5-2 5.5-2 8 0s5.5 2 8 0" stroke-linecap="round"/>
+                  <circle cx="12" cy="6" r="2"/>
+                </svg>
+              </div>
+              <span class="font-mono text-[11px] font-bold text-rose-800 bg-rose-100 px-2.5 py-1 rounded-full">02 • ANTI-NAUSEA</span>
+            </div>
+            <h4 class="text-base sm:text-lg font-extrabold text-neutral-950 mb-1.5">Nausea & Bloating Calm</h4>
+            <p class="text-xs text-neutral-600 leading-relaxed">
+              Coastal Kokum (garcinol) and aromatic spices gently settle cycle-induced nausea, stomach queasiness, acidity, and gut bloating.
+            </p>
+          </div>
+
+          <!-- Effect 3: Sudden Mood Discharge Balancing -->
+          <div onclick="selectBodyBenefit(2)" class="body-benefit-card cursor-pointer rounded-2xl p-5 border border-neutral-200/90 bg-white hover:border-[#FF5500]/60 hover:-translate-y-1 transition-all duration-300">
+            <div class="flex items-start justify-between gap-3 mb-3">
+              <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-500 to-orange-600 text-white flex items-center justify-center shadow-md shrink-0">
+                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="9"/>
+                  <path d="M8.5 14.5c1 1.2 2.2 1.8 3.5 1.8s2.5-.6 3.5-1.8" stroke-linecap="round"/>
+                  <path d="M9 9.5h.01M15 9.5h.01" stroke-linecap="round" stroke-width="2.5"/>
+                </svg>
+              </div>
+              <span class="font-mono text-[11px] font-bold text-amber-900 bg-amber-100 px-2.5 py-1 rounded-full">03 • MOOD BALANCE</span>
+            </div>
+            <h4 class="text-base sm:text-lg font-extrabold text-neutral-950 mb-1.5">Sudden Mood Swing Balancing</h4>
+            <p class="text-xs text-neutral-600 leading-relaxed">
+              Cools nervous system stress and balances sudden hormonal mood drops, irritability, and emotional overwhelm during your period.
+            </p>
+          </div>
+
+          <!-- Effect 4: Prevents Sugar Cravings -->
+          <div onclick="selectBodyBenefit(3)" class="body-benefit-card cursor-pointer rounded-2xl p-5 border border-neutral-200/90 bg-white hover:border-[#FF5500]/60 hover:-translate-y-1 transition-all duration-300">
+            <div class="flex items-start justify-between gap-3 mb-3">
+              <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-emerald-600 to-teal-700 text-white flex items-center justify-center shadow-md shrink-0">
+                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke-linejoin="round"/>
+                  <line x1="4" y1="4" x2="20" y2="20" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <span class="font-mono text-[11px] font-bold text-emerald-900 bg-emerald-100 px-2.5 py-1 rounded-full">04 • ZERO CRAVINGS</span>
+            </div>
+            <h4 class="text-base sm:text-lg font-extrabold text-neutral-950 mb-1.5">Prevents Sugar Cravings</h4>
+            <p class="text-xs text-neutral-600 leading-relaxed">
+               Kokum hydroxycitric acid (HCA) & warm spices naturally curb hormonal sweet cravings while keeping blood glucose steady with <strong class="text-neutral-900">zero added sugar</strong>.
+            </p>
+          </div>
+
+          <!-- Effect 5: Restorative Energy -->
+          <div onclick="selectBodyBenefit(4)" class="body-benefit-card cursor-pointer rounded-2xl p-5 border border-neutral-200/90 bg-white hover:border-[#FF5500]/60 hover:-translate-y-1 transition-all duration-300">
+            <div class="flex items-start justify-between gap-3 mb-3">
+              <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#FF5500] to-amber-500 text-white flex items-center justify-center shadow-md shrink-0">
+                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <span class="font-mono text-[11px] font-bold text-orange-900 bg-orange-100 px-2.5 py-1 rounded-full">05 • CLEAN ENERGY</span>
+            </div>
+            <h4 class="text-base sm:text-lg font-extrabold text-neutral-950 mb-1.5">Gives Clean Restorative Energy</h4>
+            <p class="text-xs text-neutral-600 leading-relaxed">
+              Tender coconut water electrolytes (potassium & magnesium) rapidly rehydrate cells and eliminate period exhaustion without caffeine jitters.
+            </p>
+          </div>
+
+          <!-- Effect 6: Blood & Iron Restoration -->
+          <div onclick="selectBodyBenefit(5)" class="body-benefit-card cursor-pointer rounded-2xl p-5 border border-neutral-200/90 bg-white hover:border-[#FF5500]/60 hover:-translate-y-1 transition-all duration-300">
+            <div class="flex items-start justify-between gap-3 mb-3">
+              <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#9E1B32] to-[#5E1120] text-white flex items-center justify-center shadow-md shrink-0">
+                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" stroke-linejoin="round"/>
+                  <path d="M12 11v5M9.5 13.5h5" stroke-linecap="round"/>
+                </svg>
+              </div>
+              <span class="font-mono text-[11px] font-bold text-rose-950 bg-rose-200/80 px-2.5 py-1 rounded-full">06 • BLOOD RESTORATION</span>
+            </div>
+            <h4 class="text-base sm:text-lg font-extrabold text-neutral-950 mb-1.5">Blood & Iron Restoration</h4>
+            <p class="text-xs text-neutral-600 leading-relaxed">
+              Ruby Hibiscus and Kokum bio-flavonoids + natural Vitamin C support healthy hemoglobin synthesis, iron absorption, and blood replenishment.
+            </p>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ================================================================= -->
+      <!-- NEW SUB-SECTION B: KEY INGREDIENTS + ANIMATED BOTANICAL SVGs      -->
+      <!-- ================================================================= -->
+      <div class="mt-14 sm:mt-16">
+        <div class="text-center max-w-3xl mx-auto mb-10">
+          <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-950 text-emerald-200 text-[11px] font-extrabold tracking-[0.2em] uppercase mb-3 shadow">
+            <span>🌿 100% NATURAL • NO SUGAR • NO ADDED SUGAR</span>
+          </div>
+          <h3 class="text-2xl sm:text-4xl font-extrabold text-[#24130E] tracking-tight">
+            Crafted with 3 Signature Botanicals & Warming Spices
+          </h3>
+          <p class="mt-2.5 text-xs sm:text-sm text-[#5A3A2E] leading-relaxed">
+            We don’t mask period fatigue with refined sugar or artificial syrups. Every 300ml can of <strong class="text-[#24130E]">DILRU PINK</strong> derives its rose-blush hue and therapeutic power from pure botanical infusions.
+          </p>
+        </div>
+
+        <!-- 4 Animated Botanical Ingredient Cards -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
+          
+          <!-- KEY INGREDIENT 1: RUBY HIBISCUS (Custom Animated SVG Illustration) -->
+          <div class="group rounded-3xl bg-gradient-to-b from-white via-rose-50/60 to-rose-100/50 border border-rose-300/60 p-6 shadow-xl hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between relative overflow-hidden">
+            <div class="absolute -right-8 -top-8 w-32 h-32 rounded-full bg-rose-400/15 blur-2xl pointer-events-none"></div>
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="text-[10px] font-mono font-bold uppercase tracking-widest px-2.5 py-1 rounded-full bg-rose-900/10 text-rose-900">
+                  Key Botanical 01
+                </span>
+                <span class="text-xs font-extrabold text-rose-700">Blood & Cramp Care</span>
+              </div>
+
+              <!-- Custom Animated SVG Illustration: Ruby Hibiscus Blossom -->
+              <div class="h-40 flex items-center justify-center my-2 relative">
+                <svg class="w-36 h-36 animate-petal-pulse" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <radialGradient id="hibiscusPetal" cx="50%" cy="50%" r="55%">
+                      <stop offset="0%" stop-color="#FF758F"/>
+                      <stop offset="55%" stop-color="#C9184A"/>
+                      <stop offset="100%" stop-color="#640D14"/>
+                    </radialGradient>
+                    <linearGradient id="hibiscusLeaf" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stop-color="#52B788"/>
+                      <stop offset="100%" stop-color="#1B4332"/>
+                    </linearGradient>
+                  </defs>
+                  <!-- Botanical Leaves behind blossom -->
+                  <path d="M26 115 C18 88, 42 74, 65 88 C48 106, 36 116, 26 115 Z" fill="url(#hibiscusLeaf)" opacity="0.85"/>
+                  <path d="M134 48 C142 74, 118 88, 96 74 C112 56, 124 46, 134 48 Z" fill="url(#hibiscusLeaf)" opacity="0.85"/>
+                  <!-- 5 Layered Hibiscus Petals -->
+                  <path d="M80 78 C58 34, 102 34, 80 78 Z" fill="url(#hibiscusPetal)" transform="rotate(0 80 80) scale(1.65) translate(-31 -32)"/>
+                  <path d="M80 78 C58 34, 102 34, 80 78 Z" fill="url(#hibiscusPetal)" transform="rotate(72 80 80) scale(1.65) translate(-31 -32)"/>
+                  <path d="M80 78 C58 34, 102 34, 80 78 Z" fill="url(#hibiscusPetal)" transform="rotate(144 80 80) scale(1.65) translate(-31 -32)"/>
+                  <path d="M80 78 C58 34, 102 34, 80 78 Z" fill="url(#hibiscusPetal)" transform="rotate(216 80 80) scale(1.65) translate(-31 -32)"/>
+                  <path d="M80 78 C58 34, 102 34, 80 78 Z" fill="url(#hibiscusPetal)" transform="rotate(288 80 80) scale(1.65) translate(-31 -32)"/>
+                  <!-- Delicate Petal Veins -->
+                  <circle cx="80" cy="80" r="16" fill="#590D22" opacity="0.7"/>
+                  <!-- Golden Stamen Pistil -->
+                  <path d="M80 80 Q96 62 110 48" stroke="#FFD166" stroke-width="3.5" stroke-linecap="round"/>
+                  <circle cx="112" cy="46" r="4.5" fill="#FFB703"/>
+                  <circle cx="104" cy="44" r="3" fill="#FFD166"/>
+                  <circle cx="114" cy="54" r="3" fill="#FFD166"/>
+                  <circle cx="99" cy="52" r="2.8" fill="#FCA311"/>
+                </svg>
+              </div>
+
+              <h4 class="text-lg font-extrabold text-neutral-950">Ruby Hibiscus</h4>
+              <p class="text-[11px] font-mono uppercase text-rose-800 mb-2">Hibiscus sabdariffa Infusion</p>
+              <p class="text-xs text-neutral-600 leading-relaxed">
+                Naturally rich in iron-supportive organic acids and anthocyanins—relaxes uterine cramps and supports healthy blood & hemoglobin restoration.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-rose-200/80 flex items-center justify-between text-[11px] font-bold text-rose-900">
+              <span>Blood Restoration</span>
+              <span>Cramp Soothing</span>
+            </div>
+          </div>
+
+          <!-- KEY INGREDIENT 2: TENDER COCONUT WATER (Custom Animated SVG Illustration) -->
+          <div class="group rounded-3xl bg-gradient-to-b from-white via-amber-50/50 to-emerald-50/40 border border-emerald-300/60 p-6 shadow-xl hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between relative overflow-hidden">
+            <div class="absolute -right-8 -top-8 w-32 h-32 rounded-full bg-emerald-400/15 blur-2xl pointer-events-none"></div>
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="text-[10px] font-mono font-bold uppercase tracking-widest px-2.5 py-1 rounded-full bg-emerald-900/10 text-emerald-900">
+                  Key Botanical 02
+                </span>
+                <span class="text-xs font-extrabold text-emerald-800">Cellular Energy</span>
+              </div>
+
+              <!-- Custom Animated SVG Illustration: Split Tender Coconut & Electrolyte Splash -->
+              <div class="h-40 flex items-center justify-center my-2 relative">
+                <svg class="w-36 h-36 animate-botanical-float" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="cocoHusk" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stop-color="#74C69D"/>
+                      <stop offset="60%" stop-color="#40916C"/>
+                      <stop offset="100%" stop-color="#1B4332"/>
+                    </linearGradient>
+                    <linearGradient id="cocoWater" x1="0" y1="0" x2="0" y2="1">
+                      <stop offset="0%" stop-color="#E0FBFC"/>
+                      <stop offset="100%" stop-color="#98C1D9"/>
+                    </linearGradient>
+                  </defs>
+                  <!-- Falling Electrolyte Water Droplets -->
+                  <path class="animate-droplet-fall" d="M80 18 C80 18 88 28 88 33 A8 8 0 1 1 72 33 C72 28 80 18 80 18 Z" fill="#48CAE4" opacity="0.85"/>
+                  <circle cx="52" cy="36" r="4" fill="#90E0EF" class="animate-droplet-fall"/>
+                  <circle cx="108" cy="34" r="3.5" fill="#48CAE4" class="animate-droplet-fall"/>
+                  <!-- Outer Green Tender Coconut Husk Bowl -->
+                  <path d="M28 78 C28 118, 56 138, 80 138 C104 138, 132 118, 132 78 Z" fill="url(#cocoHusk)"/>
+                  <!-- Top Rim of Split Coconut -->
+                  <ellipse cx="80" cy="78" rx="52" ry="18" fill="#52B788"/>
+                  <!-- Inner White Coconut Flesh Rim -->
+                  <ellipse cx="80" cy="78" rx="44" ry="14" fill="#FFFDF9"/>
+                  <!-- Shimmering Coconut Water Pool Inside -->
+                  <ellipse cx="80" cy="79" rx="37" ry="10.5" fill="url(#cocoWater)"/>
+                  <!-- Water Ripple Rings Inside Coconut -->
+                  <ellipse cx="80" cy="79" rx="22" ry="5.5" stroke="#FFFFFF" stroke-width="1.8" opacity="0.9"/>
+                  <ellipse cx="80" cy="79" rx="10" ry="2.5" stroke="#FFFFFF" stroke-width="1.5" opacity="0.8"/>
+                </svg>
+              </div>
+
+              <h4 class="text-lg font-extrabold text-neutral-950">Tender Coconut Water</h4>
+              <p class="text-[11px] font-mono uppercase text-emerald-800 mb-2">Bio-Electrolyte Hydration Base</p>
+              <p class="text-xs text-neutral-600 leading-relaxed">
+                Packed with natural potassium, magnesium, and cellular electrolytes to combat period exhaustion, dizziness, and dehydration with zero jittery stimulants.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-emerald-200/80 flex items-center justify-between text-[11px] font-bold text-emerald-900">
+              <span>Restorative Energy</span>
+              <span>Bio-Electrolytes</span>
+            </div>
+          </div>
+
+          <!-- KEY INGREDIENT 3: COASTAL KOKUM FRUIT (Custom Animated SVG Illustration) -->
+          <div class="group rounded-3xl bg-gradient-to-b from-white via-purple-50/50 to-rose-100/50 border border-purple-300/60 p-6 shadow-xl hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between relative overflow-hidden">
+            <div class="absolute -right-8 -top-8 w-32 h-32 rounded-full bg-purple-400/15 blur-2xl pointer-events-none"></div>
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="text-[10px] font-mono font-bold uppercase tracking-widest px-2.5 py-1 rounded-full bg-purple-900/10 text-purple-950">
+                  Key Botanical 03
+                </span>
+                <span class="text-xs font-extrabold text-purple-900">Nausea & Cravings</span>
+              </div>
+
+              <!-- Custom Animated SVG Illustration: Coastal Kokum Fruit & Ruby Cross-Section -->
+              <div class="h-40 flex items-center justify-center my-2 relative">
+                <svg class="w-36 h-36 animate-botanical-float" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <radialGradient id="kokumWhole" cx="35%" cy="30%" r="65%">
+                      <stop offset="0%" stop-color="#B5179E"/>
+                      <stop offset="50%" stop-color="#7209B7"/>
+                      <stop offset="100%" stop-color="#3C096C"/>
+                    </radialGradient>
+                    <radialGradient id="kokumInside" cx="50%" cy="50%" r="50%">
+                      <stop offset="0%" stop-color="#FFE5EC"/>
+                      <stop offset="65%" stop-color="#FF4D6D"/>
+                      <stop offset="100%" stop-color="#590D22"/>
+                    </radialGradient>
+                  </defs>
+                  <!-- Top Calyx Leaf Crown -->
+                  <path d="M54 42 C58 32, 72 32, 74 42" stroke="#2D6A4F" stroke-width="4" stroke-linecap="round"/>
+                  <path d="M52 44 C42 38, 56 28, 66 40 C76 28, 90 38, 78 44 Z" fill="#40916C"/>
+                  <!-- Whole Deep Purple-Ruby Kokum Fruit (Left/Back) -->
+                  <circle cx="64" cy="78" r="36" fill="url(#kokumWhole)"/>
+                  <!-- Glossy Highlight on Kokum Fruit -->
+                  <path d="M44 58 A24 24 0 0 1 68 48" stroke="rgba(255,255,255,0.45)" stroke-width="3.5" stroke-linecap="round"/>
+                  <!-- Halved Kokum Fruit Cross-Section (Right/Front) -->
+                  <circle cx="102" cy="96" r="32" fill="#4A0E2E"/>
+                  <circle cx="102" cy="96" r="27" fill="url(#kokumInside)"/>
+                  <!-- Kokum Segments -->
+                  <circle cx="102" cy="82" r="5" fill="#FFF0F3" opacity="0.9"/>
+                  <circle cx="115" cy="92" r="5" fill="#FFF0F3" opacity="0.9"/>
+                  <circle cx="110" cy="107" r="5" fill="#FFF0F3" opacity="0.9"/>
+                  <circle cx="94" cy="107" r="5" fill="#FFF0F3" opacity="0.9"/>
+                  <circle cx="89" cy="92" r="5" fill="#FFF0F3" opacity="0.9"/>
+                </svg>
+              </div>
+
+              <h4 class="text-lg font-extrabold text-neutral-950">Coastal Kokum</h4>
+              <p class="text-[11px] font-mono uppercase text-purple-900 mb-2">Garcinia indica Superfruit</p>
+              <p class="text-xs text-neutral-600 leading-relaxed">
+                Rich in natural garcinol and HCA—settles period nausea and digestive heat, stabilizes sudden mood drops, and naturally blocks hormonal sugar cravings.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-purple-200/80 flex items-center justify-between text-[11px] font-bold text-purple-950">
+              <span>Stops Nausea</span>
+              <span>Curbs Sugar Cravings</span>
+            </div>
+          </div>
+
+          <!-- KEY INGREDIENT 4: WARMING BOTANICAL SPICES (Custom Animated SVG Illustration) -->
+          <div class="group rounded-3xl bg-gradient-to-b from-white via-orange-50/60 to-amber-100/50 border border-amber-400/60 p-6 shadow-xl hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between relative overflow-hidden">
+            <div class="absolute -right-8 -top-8 w-32 h-32 rounded-full bg-amber-400/20 blur-2xl pointer-events-none"></div>
+            <div>
+              <div class="flex items-center justify-between mb-3">
+                <span class="text-[10px] font-mono font-bold uppercase tracking-widest px-2.5 py-1 rounded-full bg-amber-900/10 text-amber-950">
+                  Micro-Infusion 04
+                </span>
+                <span class="text-xs font-extrabold text-[#D35400]">Zero Added Sugar</span>
+              </div>
+
+              <!-- Custom Animated SVG Illustration: Warming Botanical Spices (Star Anise, Cinnamon & Cardamom) -->
+              <div class="h-40 flex items-center justify-center my-2 relative">
+                <svg class="w-36 h-36 animate-spice-orbit" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <defs>
+                    <linearGradient id="cinnamonBark" x1="0" y1="0" x2="1" y2="1">
+                      <stop offset="0%" stop-color="#D97706"/>
+                      <stop offset="100%" stop-color="#78350F"/>
+                    </linearGradient>
+                  </defs>
+                  <!-- Cinnamon Quill Stick -->
+                  <rect x="32" y="92" width="88" height="14" rx="7" transform="rotate(-28 32 92)" fill="url(#cinnamonBark)"/>
+                  <rect x="38" y="100" width="84" height="11" rx="5.5" transform="rotate(-22 38 100)" fill="#92400E"/>
+                  <!-- Star Anise Rosette -->
+                  <g transform="translate(88, 74)">
+                    <ellipse cx="0" cy="-20" rx="6" ry="15" fill="#7C2D12"/>
+                    <ellipse cx="0" cy="-20" rx="6" ry="15" transform="rotate(45)" fill="#9A3412"/>
+                    <ellipse cx="0" cy="-20" rx="6" ry="15" transform="rotate(90)" fill="#7C2D12"/>
+                    <ellipse cx="0" cy="-20" rx="6" ry="15" transform="rotate(135)" fill="#9A3412"/>
+                    <ellipse cx="0" cy="-20" rx="6" ry="15" transform="rotate(180)" fill="#7C2D12"/>
+                    <ellipse cx="0" cy="-20" rx="6" ry="15" transform="rotate(225)" fill="#9A3412"/>
+                    <ellipse cx="0" cy="-20" rx="6" ry="15" transform="rotate(270)" fill="#7C2D12"/>
+                    <ellipse cx="0" cy="-20" rx="6" ry="15" transform="rotate(315)" fill="#9A3412"/>
+                    <circle cx="0" cy="0" r="8" fill="#F59E0B"/>
+                  </g>
+                  <!-- Green Cardamom Pod -->
+                  <path d="M40 105 C36 90, 54 82, 66 96 C62 110, 46 116, 40 105 Z" fill="#84CC16" stroke="#3F6212" stroke-width="2"/>
+                  <!-- Golden Spice Aura Sparks -->
+                  <circle cx="48" cy="48" r="3" fill="#F59E0B"/>
+                  <circle cx="122" cy="44" r="2.5" fill="#EA580C"/>
+                  <circle cx="126" cy="108" r="3" fill="#F59E0B"/>
+                </svg>
+              </div>
+
+              <h4 class="text-lg font-extrabold text-neutral-950">Hint of Warming Spices</h4>
+              <p class="text-[11px] font-mono uppercase text-[#9C3404] mb-2">Aromatic Botanical Spice Note</p>
+              <p class="text-xs text-neutral-600 leading-relaxed">
+                A delicate micro-infusion of warming culinary spices enhances pelvic micro-circulation, deepens cramp relief, and satisfies the palate with <strong class="text-neutral-950">100% natural, zero added sugar</strong> purity.
+              </p>
+            </div>
+            <div class="mt-4 pt-3 border-t border-amber-200/80 flex items-center justify-between text-[11px] font-bold text-[#9C3404]">
+              <span>100% Natural</span>
+              <span>No Added Sugar</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- INVESTOR & RETAIL COMMERCIAL SNAPSHOT BAR FOR DILRU PINK -->
+      <div class="mt-12 sm:mt-14 rounded-3xl bg-gradient-to-r from-[#26120B] via-[#3A170C] to-[#26120B] text-white p-6 sm:p-10 shadow-2xl border border-amber-500/25">
+        <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 pb-8 border-b border-white/15">
+          <div>
+            <span class="text-xs font-mono uppercase tracking-[0.2em] text-amber-400 block mb-1">DILRU PINK • 300ML INVESTOR & PARTNER BRIEF</span>
+            <h3 class="text-2xl sm:text-3xl font-bold">Why DILRU PINK Commands Category Leadership</h3>
+          </div>
+          <div class="flex flex-wrap gap-3">
+            <button onclick="openConnectModal('Angel / Seed Investor (DILRU PINK)')" class="px-6 py-3.5 rounded-full bg-gradient-to-r from-[#FF5500] to-[#F69B11] hover:opacity-95 text-white font-extrabold text-xs tracking-wider uppercase shadow-lg transition flex items-center gap-2">
+              <span>Request DILRU Investor Deck</span>
+              <i class="ph-bold ph-arrow-up-right"></i>
+            </button>
+            <button onclick="openConnectModal('Retail, Hospitality & Distribution Inquiry')" class="px-5 py-3.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-semibold text-xs tracking-wider uppercase border border-white/20 transition">
+              Retail & Distribution Partner
+            </button>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 pt-8">
+          <div class="bg-white/5 rounded-2xl p-5 border border-white/10">
+            <div class="text-amber-400 font-mono text-xs uppercase mb-1">Category Whitespace</div>
+            <div class="text-lg sm:text-xl font-bold mb-1">FemCare × Functional RTD</div>
+            <p class="text-xs text-white/75 leading-relaxed">First-mover advantage in ready-to-drink botanical menstrual relief across D2C, Quick-Commerce, and modern retail.</p>
+          </div>
+          <div class="bg-white/5 rounded-2xl p-5 border border-white/10">
+            <div class="text-amber-400 font-mono text-xs uppercase mb-1">Packaging Format</div>
+            <div class="text-lg sm:text-xl font-bold mb-1">300ml Clear PET Can</div>
+            <p class="text-xs text-white/75 leading-relaxed">Crystal-clear 300ml shelf appeal, lightweight unit economics, shatterproof logistics, and 100% recyclable.</p>
+          </div>
+          <div class="bg-white/5 rounded-2xl p-5 border border-white/10">
+            <div class="text-amber-400 font-mono text-xs uppercase mb-1">Repeat Retention</div>
+            <div class="text-lg sm:text-xl font-bold mb-1">Cycle-Synced Subscriptions</div>
+            <p class="text-xs text-white/75 leading-relaxed">Built-in monthly recurring purchase cadence via 4-can and 6-can (300ml) cycle care subscription bundles.</p>
+          </div>
+          <div class="bg-white/5 rounded-2xl p-5 border border-white/10">
+            <div class="text-amber-400 font-mono text-xs uppercase mb-1">Clean Formulation</div>
+            <div class="text-lg sm:text-xl font-bold mb-1">100% Natural • Zero Sugar</div>
+            <p class="text-xs text-white/75 leading-relaxed">Powered by Hibiscus, Coconut Water, Kokum & warming spices with zero added sugar and zero artificial preservatives.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- SECTION 3: EXECUTIVE DOSSIER — SKILLS, KNOWLEDGE & VENTURES           -->
+  <!--            (FORGE Project Removed + Prominent Work Portfolio CTA)     -->
+  <!-- ===================================================================== -->
+  <section id="executive-dossier" class="py-20 sm:py-28 bg-[#14110F] text-white relative">
+    <div class="max-w-[1340px] mx-auto px-4 sm:px-8">
+      
+      <!-- Section Heading & Filter Tabs -->
+      <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-12 sm:mb-14">
+        <div>
+          <div class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.22em] text-omnic-accent mb-3">
+            <span class="w-2 h-2 rounded-full bg-omnic-accent"></span>
+            <span>EXECUTIVE DOSSIER • SKILLS, KNOWLEDGE & EXECUTION</span>
+          </div>
+          <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight">
+            Where DeepTech Engineering<br />
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#FF5500] via-[#F69B11] to-amber-200">Meets Consumer Venture Building.</span>
+          </h2>
+        </div>
+
+        <!-- Interactive Capability Filter Pills -->
+        <div class="flex flex-wrap gap-2 bg-white/5 p-1.5 rounded-2xl border border-white/10">
+          <button onclick="filterCapabilities('all')" class="cap-tab-btn px-4 py-2 rounded-xl text-xs font-bold bg-omnic-accent text-white transition" data-filter="all">All Domains</button>
+          <button onclick="filterCapabilities('venture')" class="cap-tab-btn px-4 py-2 rounded-xl text-xs font-bold text-white/70 hover:text-white transition" data-filter="venture">FMCG & Venture Strategy</button>
+          <button onclick="filterCapabilities('ai')" class="cap-tab-btn px-4 py-2 rounded-xl text-xs font-bold text-white/70 hover:text-white transition" data-filter="ai">AI & Autonomous Agents</button>
+          <button onclick="filterCapabilities('fullstack')" class="cap-tab-btn px-4 py-2 rounded-xl text-xs font-bold text-white/70 hover:text-white transition" data-filter="fullstack">Full-Stack Architecture</button>
+        </div>
+      </div>
+
+      <!-- THREE CORE PILLARS BENTO GRID -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-14" id="capabilities-grid">
+        
+        <!-- PILLAR 01: FMCG & Venture Building -->
+        <div class="cap-card rounded-3xl bg-gradient-to-b from-white/[0.08] to-white/[0.03] border border-white/10 p-7 sm:p-8 flex flex-col justify-between hover:border-omnic-accent/60 transition group" data-category="venture">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <span class="px-3 py-1 rounded-full bg-omnic-accent/20 text-amber-300 font-mono text-xs font-semibold">01 / VENTURE & CPG</span>
+              <i class="ph-duotone ph-flask text-3xl text-omnic-accent group-hover:scale-110 transition"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-3">Zero-to-One Consumer Brand & Product R&D</h3>
+            <p class="text-sm text-neutral-300 leading-relaxed mb-6">
+              Hands-on founder execution taking <strong class="text-white">DILRU PINK</strong> from 100% natural, zero-added-sugar beverage formulation to 300ml clear PET can packaging, MSME/FSSAI compliance, and retail positioning.
+            </p>
+          </div>
+
+          <div class="space-y-2.5 pt-4 border-t border-white/10">
+            <div class="text-[11px] font-mono uppercase tracking-wider text-neutral-400">Core Knowledge & Execution:</div>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2.5 py-1 rounded-lg bg-white/10 text-xs text-white/90">Beverage R&D</span>
+              <span class="px-2.5 py-1 rounded-lg bg-white/10 text-xs text-white/90">300ml PET Packaging</span>
+              <span class="px-2.5 py-1 rounded-lg bg-white/10 text-xs text-white/90">FSSAI & Clean-Label</span>
+              <span class="px-2.5 py-1 rounded-lg bg-white/10 text-xs text-white/90">Unit Economics & D2C</span>
+              <span class="px-2.5 py-1 rounded-lg bg-white/10 text-xs text-white/90">Go-To-Market Strategy</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- PILLAR 02: AI, Autonomous Agents & Data Science -->
+        <div class="cap-card rounded-3xl bg-gradient-to-b from-white/[0.08] to-white/[0.03] border border-white/10 p-7 sm:p-8 flex flex-col justify-between hover:border-amber-400/60 transition group" data-category="ai">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <span class="px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 font-mono text-xs font-semibold">02 / APPLIED AI & ML</span>
+              <i class="ph-duotone ph-brain text-3xl text-amber-400 group-hover:scale-110 transition"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-3">Autonomous AI Agents & Intelligent Systems</h3>
+            <p class="text-sm text-neutral-300 leading-relaxed mb-6">
+              Backed by a <strong class="text-white">B.Tech in AI & Data Science</strong> and enterprise systems engineering rigor—architecting multi-agent LLM workflows, self-healing QA engines, and graph neural network pipelines.
+            </p>
+          </div>
+
+          <div class="space-y-2.5 pt-4 border-t border-white/10">
+            <div class="text-[11px] font-mono uppercase tracking-wider text-neutral-400">AI & Data Stack:</div>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2.5 py-1 rounded-lg bg-white/10 text-xs text-white/90">Llama 3.2 / Ollama / Groq</span>
+              <span class="px-2.5 py-1 rounded-lg bg-white/10 text-xs text-white/90">Multi-Agent Orchestration</span>
+              <span class="px-2.5 py-1 rounded-lg bg-white/10 text-xs text-white/90">Self-Healing Playwright QA</span>
+              <span class="px-2.5 py-1 rounded-lg bg-white/10 text-xs text-white/90">PyTorch Geometric & DGL</span>
+              <span class="px-2.5 py-1 rounded-lg bg-white/10 text-xs text-white/90">Python / Scikit-Learn</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- PILLAR 03: Full-Stack Product Engineering -->
+        <div class="cap-card rounded-3xl bg-gradient-to-b from-white/[0.08] to-white/[0.03] border border-white/10 p-7 sm:p-8 flex flex-col justify-between hover:border-orange-400/60 transition group" data-category="fullstack">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <span class="px-3 py-1 rounded-full bg-orange-500/20 text-orange-300 font-mono text-xs font-semibold">03 / PRODUCT SYSTEMS</span>
+              <i class="ph-duotone ph-code-block text-3xl text-orange-400 group-hover:scale-110 transition"></i>
+            </div>
+            <h3 class="text-2xl font-bold mb-3">Full-Stack & Enterprise Software Architecture</h3>
+            <p class="text-sm text-neutral-300 leading-relaxed mb-6">
+              Building production-grade web applications, high-concurrency REST APIs, interactive brand platforms, and containerized cloud deployments with modern JavaScript and Python frameworks.
+            </p>
+          </div>
+
+          <div class="space-y-2.5 pt-4 border-t border-white/10">
+            <div class="text-[11px] font-mono uppercase tracking-wider text-neutral-400">Engineering Stack:</div>
+            <div class="flex flex-wrap gap-1.5">
+              <span class="px-2.5 py-1 rounded-lg bg-white/10 text-xs text-white/90">React.js & Modern JS</span>
+              <span class="px-2.5 py-1 rounded-lg bg-white/10 text-xs text-white/90">FastAPI / Django / Flask</span>
+              <span class="px-2.5 py-1 rounded-lg bg-white/10 text-xs text-white/90">PostgreSQL & MongoDB</span>
+              <span class="px-2.5 py-1 rounded-lg bg-white/10 text-xs text-white/90">System Design</span>
+              <span class="px-2.5 py-1 rounded-lg bg-white/10 text-xs text-white/90">Docker & DevSecOps</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- SELECTED VENTURES & TECHNICAL BUILDS (With Dedicated Work Portfolio Redirect Banner) -->
+      <div class="rounded-3xl bg-white/[0.04] border border-white/10 p-6 sm:p-10">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8 pb-6 border-b border-white/10">
+          <div>
+            <span class="text-xs font-mono uppercase tracking-widest text-amber-400">PROOF OF EXECUTION</span>
+            <h3 class="text-2xl sm:text-3xl font-bold mt-1">Selected Ventures & Engineered Systems</h3>
+          </div>
+
+          <!-- PROMINENT REDIRECT BUTTON TO FULL WORK PORTFOLIO -->
+          <div class="flex flex-wrap items-center gap-2.5">
+            <a
+              href="https://github.com/farhanabhi"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="work-portfolio-link inline-flex items-center gap-2 px-5 py-3 rounded-full bg-gradient-to-r from-[#FF5500] to-[#F69B11] hover:opacity-95 text-white font-extrabold text-xs uppercase tracking-wider shadow-lg shadow-orange-600/25 hover:scale-105 transition"
+            >
+              <span>Visit Full Work Portfolio Website</span>
+              <i class="ph-bold ph-arrow-up-right text-sm"></i>
+            </a>
+            <button onclick="openPortfolioLinkModal()" class="px-3.5 py-3 rounded-full bg-white/10 hover:bg-white/15 text-white/80 text-xs font-mono transition" title="Edit Portfolio Redirect URL">
+              <i class="ph-bold ph-gear"></i>
+            </button>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+          <!-- Venture 1: DILRU PINK (300ml) -->
+          <div class="rounded-2xl bg-gradient-to-br from-[#521A08]/90 to-[#1F0B05] border border-omnic-accent/40 p-6 flex flex-col justify-between hover:scale-[1.01] transition">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span class="px-3 py-1 rounded-full bg-omnic-accent/30 text-amber-200 font-mono text-[11px] font-bold">FLAGSHIP FMCG VENTURE</span>
+                <span class="text-xs font-mono text-amber-300">300ml Clear PET • Zero Sugar</span>
+              </div>
+              <h4 class="text-xl font-bold text-white">DILRU PINK — Botanical Period Relief Beverage</h4>
+              <p class="mt-2 text-xs sm:text-sm text-amber-100/80 leading-relaxed">
+                100% natural, no-added-sugar functional beverage crafted with Hibiscus, Tender Coconut Water, Kokum, and warming spices for period cramp relief, nausea calm, mood balance, and blood restoration in a 300ml clear PET can.
+              </p>
+            </div>
+            <div class="mt-5 pt-4 border-t border-white/10 flex items-center justify-between">
+              <span class="text-xs font-mono text-amber-200">Role: Founder & Product Architect</span>
+              <a href="#dilru-showcase" class="text-xs font-bold uppercase tracking-wider text-white hover:text-amber-300 flex items-center gap-1">
+                <span>View Product Showcase</span>
+                <i class="ph-bold ph-arrow-up-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- System 2: Autonomous AI QA & Self-Healing Regression Engine -->
+          <div class="rounded-2xl bg-white/[0.04] border border-white/10 p-6 flex flex-col justify-between hover:border-amber-400/40 hover:scale-[1.01] transition">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span class="px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 font-mono text-[11px] font-bold">AUTONOMOUS AI QA</span>
+                <span class="text-xs font-mono text-neutral-400">Llama 3.2 • Playwright</span>
+              </div>
+              <h4 class="text-xl font-bold text-white">AI-Powered Self-Healing QA Regression Engine</h4>
+              <p class="mt-2 text-xs sm:text-sm text-neutral-300 leading-relaxed">
+                Autonomous software quality architecture that detects broken DOM selectors during E2E test execution, queries local/cloud LLMs, and dynamically self-heals test suites with zero downtime.
+              </p>
+            </div>
+            <div class="mt-5 pt-4 border-t border-white/10 flex items-center justify-between">
+              <span class="text-xs font-mono text-neutral-400">Python • Pytest • Ollama / Groq</span>
+              <a href="https://github.com/farhanabhi" target="_blank" rel="noopener noreferrer" class="work-portfolio-link text-xs font-bold uppercase tracking-wider text-amber-400 hover:text-amber-300 flex items-center gap-1">
+                <span>View in Work Portfolio</span>
+                <i class="ph-bold ph-arrow-up-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- System 3: Autonomous Multi-Agent DevSecOps Refactoring Fleet -->
+          <div class="rounded-2xl bg-white/[0.04] border border-white/10 p-6 flex flex-col justify-between hover:border-amber-400/40 hover:scale-[1.01] transition">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span class="px-3 py-1 rounded-full bg-orange-500/20 text-orange-300 font-mono text-[11px] font-bold">MULTI-AGENT DEVSECOPS</span>
+                <span class="text-xs font-mono text-neutral-400">AST • LLM Agents • Security</span>
+              </div>
+              <h4 class="text-xl font-bold text-white">Autonomous Multi-Agent Code & Security Fleet</h4>
+              <p class="mt-2 text-xs sm:text-sm text-neutral-300 leading-relaxed">
+                Coordinated multi-agent engineering pipeline combining static AST code analysis, automated vulnerability remediation, and verification agents for enterprise repositories.
+              </p>
+            </div>
+            <div class="mt-5 pt-4 border-t border-white/10 flex items-center justify-between">
+              <span class="text-xs font-mono text-neutral-400">Multi-Agent AI • Python • CI/CD</span>
+              <a href="https://github.com/farhanabhi" target="_blank" rel="noopener noreferrer" class="work-portfolio-link text-xs font-bold uppercase tracking-wider text-orange-400 hover:text-orange-300 flex items-center gap-1">
+                <span>View in Work Portfolio</span>
+                <i class="ph-bold ph-arrow-up-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- System 4: Zero-Latency Executive CRM & Full-Stack Web Systems (Replaces Heaven & Hill) -->
+          <div class="rounded-2xl bg-white/[0.04] border border-white/10 p-6 flex flex-col justify-between hover:border-amber-400/40 hover:scale-[1.01] transition">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span class="px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 font-mono text-[11px] font-bold">FULL-STACK ARCHITECTURE</span>
+                <span class="text-xs font-mono text-neutral-400">React.js • FastAPI • Docker</span>
+              </div>
+              <h4 class="text-xl font-bold text-white">Zero-Latency Executive CRM & Cloud Web Systems</h4>
+              <p class="mt-2 text-xs sm:text-sm text-neutral-300 leading-relaxed">
+                High-concurrency full-stack web architectures, RESTful APIs, and containerized cloud microservices engineered with Infosys enterprise systems discipline and modern Python/JS stacks.
+              </p>
+            </div>
+            <div class="mt-5 pt-4 border-t border-white/10 flex items-center justify-between">
+              <span class="text-xs font-mono text-neutral-400">React • FastAPI • PostgreSQL • Docker</span>
+              <a href="https://github.com/farhanabhi" target="_blank" rel="noopener noreferrer" class="work-portfolio-link text-xs font-bold uppercase tracking-wider text-amber-400 hover:text-amber-300 flex items-center gap-1">
+                <span>Explore Work Portfolio</span>
+                <i class="ph-bold ph-arrow-up-right"></i>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- SECTION 4: INVESTOR, FOUNDER & BUSINESS PARTNER CONNECT HUB           -->
+  <!-- ===================================================================== -->
+  <section id="connect" class="py-20 sm:py-28 bg-gradient-to-b from-[#14110F] to-[#0A0807] text-white border-t border-white/10 relative overflow-hidden">
+    <div class="max-w-[1160px] mx-auto px-4 sm:px-8 relative z-10">
+      
+      <div class="rounded-[28px] sm:rounded-[32px] bg-gradient-to-br from-[#2B1408] via-[#18120F] to-[#241008] border border-amber-500/25 p-6 sm:p-12 lg:p-14 shadow-2xl">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+          
+          <!-- Left Pitch Column -->
+          <div class="lg:col-span-6 space-y-5">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-omnic-accent/20 border border-omnic-accent/40 text-amber-300 text-xs font-mono uppercase tracking-widest">
+              <span class="w-2 h-2 rounded-full bg-omnic-accent animate-ping"></span>
+              <span>Direct Founder Line</span>
+            </div>
+
+            <h2 class="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight">
+              Let’s Build the Next Category Leader.
+            </h2>
+
+            <p class="text-sm sm:text-base text-neutral-300 leading-relaxed">
+              Whether you are an <strong class="text-white">angel investor or seed fund</strong> evaluating <strong class="text-amber-300">DILRU PINK</strong>, a retail/hospitality partner looking to stock our 300ml clear PET cans, or a founder seeking an AI & full-stack technical partner—select your intent below.
+            </p>
+            </div>
+            <div class="mt-5 pt-4 border-t border-white/10 flex items-center justify-between">
+              <span class="text-xs font-mono text-amber-200">Role: Founder & Product Architect</span>
+              <a href="#dilru-showcase" class="text-xs font-bold uppercase tracking-wider text-white hover:text-amber-300 flex items-center gap-1">
+                <span>View Product Showcase</span>
+                <i class="ph-bold ph-arrow-up-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- System 2: Autonomous AI QA & Self-Healing Regression Engine -->
+          <div class="rounded-2xl bg-white/[0.04] border border-white/10 p-6 flex flex-col justify-between hover:border-amber-400/40 hover:scale-[1.01] transition">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span class="px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 font-mono text-[11px] font-bold">AUTONOMOUS AI QA</span>
+                <span class="text-xs font-mono text-neutral-400">Llama 3.2 • Playwright</span>
+              </div>
+              <h4 class="text-xl font-bold text-white">AI-Powered Self-Healing QA Regression Engine</h4>
+              <p class="mt-2 text-xs sm:text-sm text-neutral-300 leading-relaxed">
+                Autonomous software quality architecture that detects broken DOM selectors during E2E test execution, queries local/cloud LLMs, and dynamically self-heals test suites with zero downtime.
+              </p>
+            </div>
+            <div class="mt-5 pt-4 border-t border-white/10 flex items-center justify-between">
+              <span class="text-xs font-mono text-neutral-400">Python • Pytest • Ollama / Groq</span>
+              <a href="https://github.com/farhanabhi" target="_blank" rel="noopener noreferrer" class="work-portfolio-link text-xs font-bold uppercase tracking-wider text-amber-400 hover:text-amber-300 flex items-center gap-1">
+                <span>View in Work Portfolio</span>
+                <i class="ph-bold ph-arrow-up-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- System 3: Autonomous Multi-Agent DevSecOps Refactoring Fleet -->
+          <div class="rounded-2xl bg-white/[0.04] border border-white/10 p-6 flex flex-col justify-between hover:border-amber-400/40 hover:scale-[1.01] transition">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span class="px-3 py-1 rounded-full bg-orange-500/20 text-orange-300 font-mono text-[11px] font-bold">MULTI-AGENT DEVSECOPS</span>
+                <span class="text-xs font-mono text-neutral-400">AST • LLM Agents • Security</span>
+              </div>
+              <h4 class="text-xl font-bold text-white">Autonomous Multi-Agent Code & Security Fleet</h4>
+              <p class="mt-2 text-xs sm:text-sm text-neutral-300 leading-relaxed">
+                Coordinated multi-agent engineering pipeline combining static AST code analysis, automated vulnerability remediation, and verification agents for enterprise repositories.
+              </p>
+            </div>
+            <div class="mt-5 pt-4 border-t border-white/10 flex items-center justify-between">
+              <span class="text-xs font-mono text-neutral-400">Multi-Agent AI • Python • CI/CD</span>
+              <a href="https://github.com/farhanabhi" target="_blank" rel="noopener noreferrer" class="work-portfolio-link text-xs font-bold uppercase tracking-wider text-orange-400 hover:text-orange-300 flex items-center gap-1">
+                <span>View in Work Portfolio</span>
+                <i class="ph-bold ph-arrow-up-right"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- System 4: Heaven & Hill + Enterprise Systems -->
+          <div class="rounded-2xl bg-white/[0.04] border border-white/10 p-6 flex flex-col justify-between hover:border-amber-400/40 hover:scale-[1.01] transition">
+            <div>
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span class="px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 font-mono text-[11px] font-bold">DIGITAL PLATFORMS & ENTERPRISE</span>
+                <span class="text-xs font-mono text-neutral-400">Infosys Trained • B.Tech AI & DS</span>
+              </div>
+              <h4 class="text-xl font-bold text-white">Heaven & Hill Platform & Enterprise Systems</h4>
+              <p class="mt-2 text-xs sm:text-sm text-neutral-300 leading-relaxed">
+                Unites disciplined enterprise software engineering training (Infosys Systems Engineer track) with curated digital commerce and regional discovery platforms like <strong class="text-white">Heaven & Hill</strong>.
+              </p>
+            </div>
+            <div class="mt-5 pt-4 border-t border-white/10 flex items-center justify-between">
+              <span class="text-xs font-mono text-neutral-400">Full-Stack • Cloud • Data Pipelines</span>
+              <a href="https://github.com/farhanabhi" target="_blank" rel="noopener noreferrer" class="work-portfolio-link text-xs font-bold uppercase tracking-wider text-amber-400 hover:text-amber-300 flex items-center gap-1">
+                <span>Explore Work Portfolio</span>
+                <i class="ph-bold ph-arrow-up-right"></i>
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================================================================== -->
+  <!-- JAVASCRIPT: CENTRALIZED IMAGE CONFIG, CUTOUT, WATER RIPPLE & BENEFITS -->
+  <!-- ===================================================================== -->
+  <script>
+    // =========================================================================
+    // 0. CENTRALIZED IMAGE FILE CONFIGURATION (EDIT FILENAMES HERE IN 1 PLACE!)
+    //    Place these 4 image files in the exact same folder as `index.html`
+    //    when uploading to GitHub Pages.
+    // =========================================================================
+    const IMAGE_CONFIG = {
+      // 1) Your Black & White Cutout Portrait (used in the Hero center/bottom stage)
+      PORTRAIT_BW: 'Gemini_Generated_Image_kl05a4kl05a4kl05.png',
+
+      // 2) Your Original Color Lifestyle Photo (used in Hero toggle & testimonial avatar)
+      PORTRAIT_COLOR: 'IMG_1113.jpg',
+
+      // 3) DILRU PINK 300ml Can on Sandstone Podium with Palm Shadows
+      DILRU_STONE_PHOTO: '1000438210.png',
+
+      // 4) DILRU PINK 300ml Can Minimalist Studio Close-Up with Chilled Dew
+      DILRU_MINIMAL_PHOTO: '1000438211.png'
+    };
+
+    // Sync all <img data-img-key="..."> elements with IMAGE_CONFIG automatically
+    function applyCentralizedImageConfig() {
+      document.querySelectorAll('[data-img-key]').forEach(imgEl => {
+        const key = imgEl.getAttribute('data-img-key');
+        if (IMAGE_CONFIG[key]) {
+          imgEl.setAttribute('src', IMAGE_CONFIG[key]);
+        }
+      });
+    }
+
+    // -------------------------------------------------------------------------
+    // 1. AUTOMATIC WHITE-BACKGROUND REMOVAL FOR BOTH DESKTOP & MOBILE CANVASES
+    //    Renders Farhan's B&W cutout (`IMAGE_CONFIG.PORTRAIT_BW`)
+    //    cleanly onto both the desktop overlap stage and mobile bottom stage.
+    // -------------------------------------------------------------------------
+    function processCutoutPortrait() {
+      const desktopCanvas = document.getElementById('cutout-canvas');
+      const mobileCanvas = document.getElementById('cutout-canvas-mobile');
+      const fallbackImg = document.getElementById('fallback-cutout-img');
+
+      const img = new Image();
+      img.crossOrigin = 'anonymous';
+      img.onload = function () {
+        const w = img.naturalWidth || 900;
+        const h = img.naturalHeight || 820;
+
+        // Offscreen processing canvas
+        const offCanvas = document.createElement('canvas');
+        offCanvas.width = w;
+        offCanvas.height = h;
+        const ctx = offCanvas.getContext('2d', { willReadFrequently: true });
+        ctx.drawImage(img, 0, 0, w, h);
+
+        try {
+          const imgData = ctx.getImageData(0, 0, w, h);
+          const data = imgData.data;
+          const visited = new Uint8Array(w * h);
+          const queue = new Int32Array(w * h);
+          let head = 0;
+          let tail = 0;
+
+          function isBgWhite(idx) {
+            return data[idx] > 232 && data[idx + 1] > 232 && data[idx + 2] > 232;
+          }
+
+          for (let x = 0; x < w; x++) {
+            if (isBgWhite(x * 4)) {
+              visited[x] = 1;
+              queue[tail++] = x;
+            }
+          }
+          for (let y = 0; y < h; y++) {
+            const leftIdx = y * w;
+            if (!visited[leftIdx] && isBgWhite(leftIdx * 4)) {
+              visited[leftIdx] = 1;
+              queue[tail++] = leftIdx;
+            }
+            const rightIdx = y * w + (w - 1);
+            if (!visited[rightIdx] && isBgWhite(rightIdx * 4)) {
+              visited[rightIdx] = 1;
+              queue[tail++] = rightIdx;
+            }
+          }
+
+          while (head < tail) {
+            const curr = queue[head++];
+            data[curr * 4 + 3] = 0;
+
+            const cx = curr % w;
+            const cy = (curr / w) | 0;
+            const neighbors = [
+              cx > 0 ? curr - 1 : -1,
+              cx < w - 1 ? curr + 1 : -1,
+              cy > 0 ? curr - w : -1,
+              cy < h - 1 ? curr + w : -1
+            ];
+
+            for (let i = 0; i < 4; i++) {
+              const n = neighbors[i];
+              if (n !== -1 && !visited[n]) {
+                const nIdx = n * 4;
+                if (isBgWhite(nIdx)) {
+                  visited[n] = 1;
+                  queue[tail++] = n;
+                } else {
+                  const lum = (data[nIdx] + data[nIdx + 1] + data[nIdx + 2]) / 3;
+                  if (lum > 205) {
+                    const alphaFactor = Math.max(0, (235 - lum) / 30);
+                    data[nIdx + 3] = Math.round(data[nIdx + 3] * alphaFactor);
+                  }
+                }
+              }
+            }
+          }
+
+          ctx.putImageData(imgData, 0, 0);
+        } catch (err) {
+          console.log('Standard image rendering applied.');
+        }
+
+        // Copy processed transparent cutout to both Desktop and Mobile canvases
+        [desktopCanvas, mobileCanvas].forEach(target => {
+          if (!target) return;
+          target.width = w;
+          target.height = h;
+          const tCtx = target.getContext('2d');
+          tCtx.drawImage(offCanvas, 0, 0);
+        });
+      };
+
+      img.onerror = function () {
+        if (desktopCanvas) desktopCanvas.classList.add('hidden');
+        if (fallbackImg) fallbackImg.classList.remove('hidden');
+      };
+
+      img.src = IMAGE_CONFIG.PORTRAIT_BW;
+    }
+
+    // -------------------------------------------------------------------------
+    // 2. HERO CONTROLS (Word Switcher & Portrait Mode Toggle)
+    // -------------------------------------------------------------------------
+    function setHeroWord(word) {
+      const heading = document.getElementById('hero-giant-word');
+      if (heading) {
+        heading.style.opacity = '0';
+        heading.style.transform = 'translateY(8px)';
+        setTimeout(() => {
+          heading.textContent = word;
+          heading.style.opacity = '1';
+          heading.style.transform = 'translateY(0)';
+        }, 160);
+      }
+      document.querySelectorAll('.hero-word-btn').forEach(btn => {
+        if (btn.dataset.word === word) {
+          btn.className = 'hero-word-btn px-2.5 py-0.5 rounded-full bg-white text-neutral-950 font-bold transition';
+        } else {
+          btn.className = 'hero-word-btn px-2.5 py-0.5 rounded-full text-white/80 hover:text-white transition';
+        }
+      });
+    }
+
+    function setPortraitStyle(style) {
+      const desktopCanvas = document.getElementById('cutout-canvas');
+      const naturalFrame = document.getElementById('natural-photo-frame');
+      const lensGlow = document.getElementById('sunglasses-glow');
+
+      const mobCutoutWrap = document.getElementById('mobile-cutout-wrap');
+      const mobNaturalWrap = document.getElementById('mobile-natural-wrap');
+
+      const btnEditorial = document.getElementById('btn-style-editorial');
+      const btnNatural = document.getElementById('btn-style-natural');
+      const mobBtnEditorial = document.getElementById('mob-btn-editorial');
+      const mobBtnNatural = document.getElementById('mob-btn-natural');
+
+      if (style === 'editorial') {
+        if (btnEditorial) btnEditorial.className = 'px-2.5 py-1 rounded-full text-[10px] font-bold bg-omnic-accent text-white transition';
+        if (btnNatural) btnNatural.className = 'px-2.5 py-1 rounded-full text-[10px] font-medium text-white/75 hover:text-white transition';
+        if (mobBtnEditorial) mobBtnEditorial.className = 'px-3 py-1 rounded-full text-[10px] font-bold bg-white text-neutral-900 transition';
+        if (mobBtnNatural) mobBtnNatural.className = 'px-3 py-1 rounded-full text-[10px] font-semibold text-white/85 transition';
+
+        if (desktopCanvas) desktopCanvas.classList.remove('hidden');
+        if (naturalFrame) naturalFrame.classList.add('hidden');
+        if (lensGlow) lensGlow.style.opacity = '0.85';
+
+        if (mobCutoutWrap) mobCutoutWrap.classList.remove('hidden');
+        if (mobNaturalWrap) mobNaturalWrap.classList.add('hidden');
+      } else {
+        if (btnNatural) btnNatural.className = 'px-2.5 py-1 rounded-full text-[10px] font-bold bg-omnic-accent text-white transition';
+        if (btnEditorial) btnEditorial.className = 'px-2.5 py-1 rounded-full text-[10px] font-medium text-white/75 hover:text-white transition';
+        if (mobBtnNatural) mobBtnNatural.className = 'px-3 py-1 rounded-full text-[10px] font-bold bg-white text-neutral-900 transition';
+        if (mobBtnEditorial) mobBtnEditorial.className = 'px-3 py-1 rounded-full text-[10px] font-semibold text-white/85 transition';
+
+        if (desktopCanvas) desktopCanvas.classList.add('hidden');
+        if (naturalFrame) naturalFrame.classList.remove('hidden');
+        if (lensGlow) lensGlow.style.opacity = '0';
+
+        if (mobCutoutWrap) mobCutoutWrap.classList.add('hidden');
+        if (mobNaturalWrap) mobNaturalWrap.classList.remove('hidden');
+      }
+    }
+
+    // Subtle Desktop Parallax on Hero Portrait
+    document.addEventListener('mousemove', (e) => {
+      if (window.innerWidth < 1024) return;
+      const xRatio = (e.clientX / window.innerWidth - 0.5) * 2;
+      const yRatio = (e.clientY / window.innerHeight - 0.5) * 2;
+      const portrait = document.getElementById('portrait-parallax');
+      if (portrait) {
+        portrait.style.transform = `translate3d(${xRatio * 8}px, ${yRatio * 5}px, 0)`;
+      }
+    });
+
+    // -------------------------------------------------------------------------
+    // 3. REALISTIC WATER MOVEMENT & LIQUID RIPPLE ENGINE FOR DILRU PINK PHOTOS
+    //    Uses smooth sine-wave caustics on HTML5 Canvas + SVG feDisplacementMap
+    //    refraction pulses + expanding water ripple rings over `1000438210.png`
+    //    and `1000438211.png`.
+    // -------------------------------------------------------------------------
+    let waterRipples = [];
+    let refractionEnergy = 0;
+    let refractionPhase = 0;
+
+    function initWaterMovementEngine() {
+      const canvas = document.getElementById('water-caustics-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+
+      function resizeCanvas() {
+        const rect = canvas.parentElement.getBoundingClientRect();
+        canvas.width = Math.max(300, Math.floor(rect.width));
+        canvas.height = Math.max(320, Math.floor(rect.height));
+      }
+      resizeCanvas();
+      window.addEventListener('resize', resizeCanvas);
+
+      let t = 0;
+      const displacementEl = document.getElementById('water-displacement');
+      const turbulenceEl = document.getElementById('water-turbulence');
+
+      function animateWater() {
+        t += 0.025;
+        const w = canvas.width;
+        const h = canvas.height;
+        ctx.clearRect(0, 0, w, h);
+
+        // 1. Draw soft undulating horizontal water wave ribbons across the stage
+        for (let layer = 0; layer < 3; layer++) {
+          ctx.beginPath();
+          const baseY = h * (0.35 + layer * 0.24);
+          ctx.moveTo(0, baseY);
+          for (let x = 0; x <= w; x += 20) {
+            const y = baseY + Math.sin(x * 0.014 + t + layer * 1.7) * (8 + layer * 4) + Math.cos(x * 0.008 - t * 0.8) * 5;
+            ctx.lineTo(x, y);
+          }
+          ctx.lineTo(w, h);
+          ctx.lineTo(0, h);
+          ctx.closePath();
+
+          const grad = ctx.createLinearGradient(0, baseY - 20, 0, h);
+          grad.addColorStop(0, `rgba(255, 240, 230, ${0.07 - layer * 0.015})`);
+          grad.addColorStop(0.5, `rgba(255, 185, 155, ${0.05})`);
+          grad.addColorStop(1, 'rgba(255, 255, 255, 0)');
+          ctx.fillStyle = grad;
+          ctx.fill();
+        }
+
+        // 2. Draw interactive expanding water ripples on canvas
+        for (let i = waterRipples.length - 1; i >= 0; i--) {
+          const rp = waterRipples[i];
+          rp.r += rp.speed;
+          rp.alpha *= 0.96;
+
+          ctx.save();
+          ctx.beginPath();
+          ctx.arc(rp.x, rp.y, rp.r, 0, Math.PI * 2);
+          ctx.strokeStyle = `rgba(255, 250, 245, ${rp.alpha})`;
+          ctx.lineWidth = 2.2;
+          ctx.stroke();
+
+          if (rp.r > 18) {
+            ctx.beginPath();
+            ctx.arc(rp.x, rp.y, rp.r * 0.68, 0, Math.PI * 2);
+            ctx.strokeStyle = `rgba(255, 195, 170, ${rp.alpha * 0.65})`;
+            ctx.lineWidth = 1.2;
+            ctx.stroke();
+          }
+          ctx.restore();
+
+          if (rp.alpha < 0.03) {
+            waterRipples.splice(i, 1);
+          }
+        }
+
+        // 3. Smoothly decay SVG liquid refraction filter so product typography stays razor-sharp
+        if (refractionEnergy > 0.15) {
+          refractionPhase += 0.04;
+          refractionEnergy *= 0.94;
+          if (displacementEl) {
+            displacementEl.setAttribute('scale', refractionEnergy.toFixed(2));
+          }
+          if (turbulenceEl) {
+            const freqX = (0.012 + Math.sin(refractionPhase) * 0.003).toFixed(4);
+            const freqY = (0.024 + Math.cos(refractionPhase) * 0.004).toFixed(4);
+            turbulenceEl.setAttribute('baseFrequency', `${freqX} ${freqY}`);
+          }
+        } else if (displacementEl && refractionEnergy > 0) {
+          refractionEnergy = 0;
+          displacementEl.setAttribute('scale', '0');
+        }
+
+        requestAnimationFrame(animateWater);
+      }
+
+      animateWater();
+    }
+
+    function spawnWaterRippleAt(x, y, strong = false) {
+      const container = document.getElementById('water-stage-container');
+      const ringsLayer = document.getElementById('ripple-rings-layer');
+      if (!container) return;
+
+      waterRipples.push({
+        x: x,
+        y: y,
+        r: 6,
+        speed: strong ? 3.8 : 2.6,
+        alpha: strong ? 0.75 : 0.45
+      });
+
+      if (strong) {
+        refractionEnergy = 11;
+        if (ringsLayer) {
+          const ring = document.createElement('div');
+          ring.className = 'water-ripple-ring';
+          ring.style.left = `${x}px`;
+          ring.style.top = `${y}px`;
+          ringsLayer.appendChild(ring);
+          setTimeout(() => ring.remove(), 1350);
+        }
+      } else {
+        refractionEnergy = Math.max(refractionEnergy, 4.5);
+      }
+    }
+
+    let lastMoveTime = 0;
+    function handleStageWaterMove(e) {
+      const now = Date.now();
+      if (now - lastMoveTime < 75) return;
+      lastMoveTime = now;
+      const rect = e.currentTarget.getBoundingClientRect();
+      spawnWaterRippleAt(e.clientX - rect.left, e.clientY - rect.top, false);
+    }
+
+    function handleStageWaterTouch(e) {
+      const now = Date.now();
+      if (now - lastMoveTime < 90) return;
+      lastMoveTime = now;
+      if (!e.touches || !e.touches[0]) return;
+      const rect = e.currentTarget.getBoundingClientRect();
+      spawnWaterRippleAt(e.touches[0].clientX - rect.left, e.touches[0].clientY - rect.top, false);
+    }
+
+    function triggerWaterPulse(e) {
+      const container = document.getElementById('water-stage-container');
+      if (!container) return;
+      const rect = container.getBoundingClientRect();
+      let x = rect.width / 2;
+      let y = rect.height / 2;
+      if (e && e.clientX && e.currentTarget === container) {
+        x = e.clientX - rect.left;
+        y = e.clientY - rect.top;
+      }
+      spawnWaterRippleAt(x, y, true);
+    }
+
+    // Switch between Dual Photo View, Stone Podium Campaign Shot (1000438210.png), and Minimalist Dew Shot (1000438211.png)
+    function switchDilruPhotoView(mode) {
+      const grid = document.getElementById('dilru-photos-grid');
+      const cardCampaign = document.getElementById('card-photo-campaign');
+      const cardMinimal = document.getElementById('card-photo-minimal');
+
+      const btnDual = document.getElementById('photo-btn-dual');
+      const btnCampaign = document.getElementById('photo-btn-campaign');
+      const btnMinimal = document.getElementById('photo-btn-minimal');
+
+      [btnDual, btnCampaign, btnMinimal].forEach(b => {
+        if (b) b.className = 'px-3 sm:px-3.5 py-1.5 rounded-full text-[11px] font-bold text-white/90 hover:text-white transition';
+      });
+
+      if (mode === 'dual') {
+        btnDual.className = 'px-3 sm:px-3.5 py-1.5 rounded-full text-[11px] font-extrabold bg-white text-neutral-950 shadow transition';
+        grid.className = 'grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 relative z-10 transition-all duration-500';
+        cardCampaign.classList.remove('hidden');
+        cardMinimal.classList.remove('hidden');
+      } else if (mode === 'campaign') {
+        btnCampaign.className = 'px-3 sm:px-3.5 py-1.5 rounded-full text-[11px] font-extrabold bg-white text-neutral-950 shadow transition';
+        grid.className = 'grid grid-cols-1 max-w-md mx-auto relative z-10 transition-all duration-500';
+        cardCampaign.classList.remove('hidden');
+        cardMinimal.classList.add('hidden');
+      } else if (mode === 'minimal') {
+        btnMinimal.className = 'px-3 sm:px-3.5 py-1.5 rounded-full text-[11px] font-extrabold bg-white text-neutral-950 shadow transition';
+        grid.className = 'grid grid-cols-1 max-w-md mx-auto relative z-10 transition-all duration-500';
+        cardCampaign.classList.add('hidden');
+        cardMinimal.classList.remove('hidden');
+      }
+      triggerWaterPulse();
+    }
+
+    function selectDilruFeature(idx) {
+      const cards = document.querySelectorAll('.dilru-feature-card');
+      cards.forEach((card, i) => {
+        if (i === idx) {
+          card.className = 'dilru-feature-card cursor-pointer rounded-2xl p-4 border-2 border-[#FF5500] bg-orange-50/70 shadow-md transition-all';
+        } else {
+          card.className = 'dilru-feature-card cursor-pointer rounded-2xl p-4 border border-neutral-200 bg-white hover:border-[#FF5500]/60 transition-all';
+        }
+      });
+      triggerWaterPulse();
+    }
+
+    // -------------------------------------------------------------------------
+    // 3B. INTERACTIVE "WHAT DILRU PINK DOES TO YOUR BODY" SPOTLIGHT EXPLORER
+    // -------------------------------------------------------------------------
+    const BODY_BENEFITS_DATA = [
+      {
+        badge: 'PATHWAY 01 / 06',
+        timing: 'Fast-Acting Botanical Absorption • Within 15–25 Mins',
+        title: '1. Deep Period Cramp & Pelvic Tension Relief',
+        desc: 'Organic hibiscus organic acids and warming botanical spices naturally relax smooth uterine muscle contractions (prostaglandin-induced spasms), easing lower abdominal and back cramps without harsh synthetic painkillers.',
+        driver: 'Active Driver: Ruby Hibiscus + Warming Spices'
+      },
+      {
+        badge: 'PATHWAY 02 / 06',
+        timing: 'Soothing Gut-Brain Calming • Within 10–20 Mins',
+        title: '2. Nausea, Queasiness & Cycle Bloating Calm',
+        desc: 'Coastal Kokum (rich in natural garcinol) and aromatic spice notes gently settle hormone-triggered nausea, morning queasiness, acidity, and abdominal water retention.',
+        driver: 'Active Driver: Coastal Kokum + Aromatic Spices'
+      },
+      {
+        badge: 'PATHWAY 03 / 06',
+        timing: 'Neuro-Botanical Equilibrium • Sustained Relief',
+        title: '3. Sudden Mood Swing & Irritability Balancing',
+        desc: 'Combats sudden hormonal mood drops, emotional exhaustion, and cycle irritability by cooling internal body stress and supplying bio-available magnesium and potassium.',
+        driver: 'Active Driver: Kokum + Coconut Water Electrolytes'
+      },
+      {
+        badge: 'PATHWAY 04 / 06',
+        timing: 'Glycemic & Craving Control • 0g Added Sugar',
+        title: '4. Prevents Intense Hormonal Sugar Cravings',
+        desc: 'Kokum’s natural hydroxycitric acid (HCA) and warming cinnamon/cardamom spice notes curb sudden period cravings for refined sweets while keeping blood sugar completely steady—with zero added sugar.',
+        driver: 'Active Driver: Kokum HCA + Zero Added Sugar'
+      },
+      {
+        badge: 'PATHWAY 05 / 06',
+        timing: 'Cellular Hydration • Zero Caffeine Crash',
+        title: '5. Clean, Restorative Cellular Energy',
+        desc: 'Tender coconut water electrolytes rapidly replenish cellular hydration and banish heavy menstrual fatigue and brain fog—giving clean, sustained energy with zero synthetic caffeine jitters.',
+        driver: 'Active Driver: Tender Coconut Water Electrolytes'
+      },
+      {
+        badge: 'PATHWAY 06 / 06',
+        timing: 'Hematopoietic & Iron Support • Cycle Recovery',
+        title: '6. Supports Blood & Iron Restoration',
+        desc: 'Ruby Hibiscus and Kokum provide dense anthocyanins, bio-flavonoids, and organic Vitamin C co-factors that aid iron absorption and support healthy hemoglobin and blood replenishment during and after menstruation.',
+        driver: 'Active Driver: Ruby Hibiscus + Kokum Bio-Flavonoids'
+      }
+    ];
+
+    function selectBodyBenefit(index) {
+      const data = BODY_BENEFITS_DATA[index];
+      if (!data) return;
+
+      document.getElementById('spotlight-step-badge').textContent = data.badge;
+      document.getElementById('spotlight-timing').textContent = data.timing;
+      document.getElementById('spotlight-title').textContent = data.title;
+      document.getElementById('spotlight-desc').textContent = data.desc;
+      document.getElementById('spotlight-Driver').innerHTML = `<i class="ph-fill ph-sparkle text-amber-400"></i><span>${data.driver}</span>`;
+
+      document.querySelectorAll('.body-benefit-card').forEach((card, i) => {
+        if (i === index) {
+          card.className = 'body-benefit-card cursor-pointer rounded-2xl p-5 border-2 border-[#FF5500] bg-gradient-to-br from-orange-50/90 to-rose-50/60 shadow-md -translate-y-1 transition-all duration-300';
+        } else {
+          card.className = 'body-benefit-card cursor-pointer rounded-2xl p-5 border border-neutral-200/90 bg-white hover:border-[#FF5500]/60 hover:-translate-y-1 transition-all duration-300';
+        }
+      });
+    }
+
+    // -------------------------------------------------------------------------
+    // 4. WORK PORTFOLIO URL CONFIGURER & EXECUTIVE OUTREACH GENERATOR
+    // -------------------------------------------------------------------------
+    function openPortfolioLinkModal() {
+      const modal = document.getElementById('portfolio-url-modal');
+      if (modal) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      }
+    }
+
+    function closePortfolioLinkModal() {
+      const modal = document.getElementById('portfolio-url-modal');
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
+    }
+
+    function savePortfolioUrl() {
+      const input = document.getElementById('custom-portfolio-url-input');
+      let url = input.value.trim();
+      if (!url) url = 'https://github.com/farhanabhi';
+      if (!/^https?:\/\//i.test(url)) {
+        url = 'https://' + url;
+      }
+      document.querySelectorAll('.work-portfolio-link, #nav-work-portfolio-btn').forEach(el => {
+        el.setAttribute('href', url);
+      });
+      localStorage.setItem('farhan_work_portfolio_url', url);
+      closePortfolioLinkModal();
+    }
+
+    function filterCapabilities(category) {
+      document.querySelectorAll('.cap-tab-btn').forEach(btn => {
+        if (btn.dataset.filter === category) {
+          btn.className = 'cap-tab-btn px-4 py-2 rounded-xl text-xs font-bold bg-omnic-accent text-white transition';
+        } else {
+          btn.className = 'cap-tab-btn px-4 py-2 rounded-xl text-xs font-bold text-white/70 hover:text-white transition';
+        }
+      });
+
+      document.querySelectorAll('.cap-card').forEach(card => {
+        if (category === 'all' || card.dataset.category === category) {
+          card.style.display = 'flex';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+
+    let currentIntent = 'Angel / Seed Investor (DILRU PINK)';
+
+    function setConnectIntent(intent) {
+      currentIntent = intent;
+      document.querySelectorAll('.intent-btn').forEach(btn => {
+        if (btn.textContent.trim().includes(intent.split(' ')[0])) {
+          btn.className = 'intent-btn text-left p-3 rounded-xl border border-omnic-accent bg-omnic-accent/20 text-white text-xs font-bold transition';
+        } else {
+          btn.className = 'intent-btn text-left p-3 rounded-xl border border-white/15 bg-white/5 hover:bg-white/10 text-white/80 text-xs font-semibold transition';
+        }
+      });
+      updateGeneratedMessage();
+    }
+
+    function updateGeneratedMessage() {
+      const nameInput = document.getElementById('sender-name').value.trim();
+      const sender = nameInput ? nameInput : '[Your Name / Organization]';
+      const textarea = document.getElementById('generated-message');
+
+      const templates = {
+        'Angel / Seed Investor (DILRU PINK)': `Hi Farhan, I’m ${sender}. I reviewed your executive portfolio and the DILRU PINK (300ml 100% Natural, No Added Sugar Period Relief beverage) showcase. I’d love to view your seed/investor brief and discuss your roadmap and unit economics.`,
+        'Retail, Hospitality & Distribution Inquiry': `Hi Farhan, I’m ${sender}. We’re impressed by DILRU PINK’s 300ml clear PET can presentation and 100% natural, zero-added-sugar period relief positioning. Let’s connect regarding retail/distribution and sampling opportunities.`,
+        'Co-Founder / Technical Venture Partner': `Hi Farhan, I’m ${sender}. Your combination of Applied AI (Multi-Agent LLMs, Self-Healing QA) and zero-to-one product execution stood out. Let’s schedule a call to discuss a technical venture collaboration.`,
+        'Strategic Advisory & Networking': `Hi Farhan, I’m ${sender}. Loved exploring your portfolio and DILRU PINK brand showcase. Would be great to connect and exchange notes on venture building and AI systems.`
+      };
+
+      textarea.value = templates[currentIntent] || templates['Angel / Seed Investor (DILRU PINK)'];
+    }
+
+    function openConnectModal(intent) {
+      setConnectIntent(intent);
+      const connectSection = document.getElementById('connect');
+      if (connectSection) {
+        connectSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    function copyOutreachMessage() {
+      const textarea = document.getElementById('generated-message');
+      textarea.select();
+      textarea.setSelectionRange(0, 99999);
+      document.execCommand('copy');
+
+      const toast = document.getElementById('copy-toast');
+      const label = document.getElementById('copy-btn-label');
+      toast.classList.remove('hidden');
+      label.textContent = 'Copied Brief to Clipboard!';
+      setTimeout(() => {
+        toast.classList.add('hidden');
+        label.textContent = 'Copy Message & Connect';
+      }, 3500);
+    }
+
+    window.addEventListener('DOMContentLoaded', () => {
+      applyCentralizedImageConfig();
+
+      const savedUrl = localStorage.getItem('farhan_work_portfolio_url');
+      if (savedUrl) {
+        document.querySelectorAll('.work-portfolio-link, #nav-work-portfolio-btn').forEach(el => {
+          el.setAttribute('href', savedUrl);
+        });
+        const urlInput = document.getElementById('custom-portfolio-url-input');
+        if (urlInput) urlInput.value = savedUrl;
+      }
+
+      processCutoutPortrait();
+      initWaterMovementEngine();
+      updateGeneratedMessage();
+      document.getElementById('year-span').textContent = new Date().getFullYear();
+    });
+  </script>
+</body>
+</html>
+```
