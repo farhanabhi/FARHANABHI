@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
@@ -244,18 +243,12 @@
 
       <!-- Quick Navigation & Prominent Work Portfolio Button -->
       <div class="flex items-center gap-1.5 sm:gap-2.5 ml-auto">
-        <!-- Portrait Photo Toggle -->
-        <div class="hidden sm:flex items-center bg-white/10 rounded-full p-0.5 border border-white/10">
-          <button onclick="setPortraitStyle('editorial')" id="btn-style-editorial" class="px-2.5 py-1 rounded-full text-[10px] font-bold bg-omnic-accent text-white transition">
-            Cutout Portrait
-          </button>
-          <button onclick="setPortraitStyle('natural')" id="btn-style-natural" class="px-2.5 py-1 rounded-full text-[10px] font-medium text-white/75 hover:text-white transition">
-            Lifestyle Photo
-          </button>
-        </div>
-
-        <a href="#dilru-showcase" class="hidden lg:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 text-amber-200 font-semibold text-[11px] transition">
+        <a href="#dilru-showcase" class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 text-amber-200 font-semibold text-[11px] transition">
           <span>DILRU PINK</span>
+        </a>
+
+        <a href="#executive-dossier" class="hidden md:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 hover:bg-white/15 text-white/80 hover:text-white font-semibold text-[11px] transition">
+          <span>Skills & Ventures</span>
         </a>
 
         <!-- PROMINENT REDIRECT BUTTON TO WORK PORTFOLIO WEBSITE -->
@@ -383,35 +376,28 @@
             </p>
           </div>
 
-          <!-- MOBILE & TABLET DEDICATED PORTRAIT STAGE (< 1024px) -->
-          <!-- Ensures the cutout portrait sits cleanly centered at the bottom of the orange section on phones with zero text overlap -->
+          <!-- MOBILE & TABLET DEDICATED CUTOUT PORTRAIT STAGE (< 1024px) -->
+          <!-- Permanently displays the B&W cutout portrait centered at the bottom of the orange hero card on phones -->
           <div class="lg:hidden mt-6 -mx-5 sm:-mx-9 -mb-5 sm:-mb-9 pt-2 flex flex-col items-center justify-end relative overflow-hidden">
             <div class="absolute bottom-6 w-60 h-60 rounded-full bg-amber-400/35 blur-2xl pointer-events-none"></div>
-            
-            <!-- Mobile Portrait Style Switcher Pill -->
-            <div class="relative z-30 mb-2 flex items-center gap-1 bg-black/35 backdrop-blur-md border border-white/20 rounded-full p-1">
-              <button onclick="setPortraitStyle('editorial')" id="mob-btn-editorial" class="px-3 py-1 rounded-full text-[10px] font-bold bg-white text-neutral-900 transition">
-                Cutout Portrait
-              </button>
-              <button onclick="setPortraitStyle('natural')" id="mob-btn-natural" class="px-3 py-1 rounded-full text-[10px] font-semibold text-white/85 transition">
-                Original Photo
-              </button>
-            </div>
-            <!-- Mobile Cutout Canvas (Uses IMAGE_CONFIG.PORTRAIT_BW) -->
+
+            <!-- Mobile Cutout Canvas + Automatic Image Fallback (Uses IMAGE_CONFIG.PORTRAIT_BW) -->
             <div id="mobile-cutout-wrap" class="relative z-20 w-[86%] max-w-[340px] sm:max-w-[400px] flex items-end justify-center portrait-stage">
               <canvas id="cutout-canvas-mobile" class="w-full h-auto object-contain object-bottom portrait-warm-grade block"></canvas>
-            </div>
-
-            <!-- IMAGE FILE #2 (Mobile Natural Photo): IMG_1113.jpg -->
-            <div id="mobile-natural-wrap" class="hidden relative z-20 w-[86%] max-w-[320px] mb-5 rounded-2xl overflow-hidden border-2 border-white shadow-2xl">
-              <img data-img-key="PORTRAIT_COLOR" src="IMG_1113.jpg" alt="Farhan M Hameed" class="w-full h-[340px] object-cover object-center" />
+              <img
+                id="fallback-cutout-img-mobile"
+                data-img-key="PORTRAIT_BW"
+                src="Gemini_Generated_Image_kl05a4kl05a4kl05.png"
+                alt="Farhan M Hameed Portrait"
+                class="hidden w-full h-auto object-contain object-bottom portrait-warm-grade"
+              />
             </div>
           </div>
 
         </div>
 
         <!-- =============================================================== -->
-        <!-- DESKTOP CENTER OVERLAPPING PORTRAIT (lg: >= 1024px only)        -->
+        <!-- DESKTOP CENTER OVERLAPPING CUTOUT PORTRAIT (lg: >= 1024px only) -->
         <!-- =============================================================== -->
         <div class="hidden lg:flex lg:absolute lg:inset-y-0 lg:left-[53%] lg:-translate-x-1/2 lg:w-[560px] xl:w-[610px] items-end justify-center pointer-events-none z-30">
           <!-- Warm Backlight Halo behind Farhan's head/sunglasses -->
@@ -425,30 +411,10 @@
             <img
               id="fallback-cutout-img"
               data-img-key="PORTRAIT_BW"
-              src="BW.png"
+              src="Gemini_Generated_Image_kl05a4kl05a4kl05.png"
               alt="Farhan M Hameed Portrait"
-              class="hidden w-full h-auto object-contain object-bottom"
+              class="hidden w-full h-auto object-contain object-bottom portrait-warm-grade"
             />
-
-            <!-- IMAGE FILE #2 (Desktop Natural Lifestyle Card): IMG_1113.jpg -->
-            <div id="natural-photo-frame" class="hidden w-[380px] mb-8 rounded-3xl overflow-hidden border-4 border-white shadow-2xl pointer-events-auto relative group">
-              <img
-                data-img-key="PORTRAIT_COLOR"
-                src="IMG_1113.jpg"
-                alt="Farhan M Hameed Lifestyle Portrait"
-                class="w-full h-[470px] object-cover object-center group-hover:scale-105 transition duration-700"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent"></div>
-              <div class="absolute bottom-4 left-4 right-4 text-white flex items-center justify-between">
-                <div>
-                  <span class="text-[10px] font-mono uppercase tracking-widest text-amber-300 block">Original Portrait</span>
-                  <span class="text-sm font-bold">Farhan M Hameed</span>
-                </div>
-                <button onclick="setPortraitStyle('editorial')" class="px-3 py-1.5 rounded-full bg-white text-neutral-950 text-xs font-bold hover:bg-amber-100 transition">
-                  Use Cutout
-                </button>
-              </div>
-            </div>
 
             <!-- Warm Sunset Amber Reflection on Sunglasses -->
             <div id="sunglasses-glow" class="absolute top-[27.5%] left-[51.5%] w-[16%] h-[6.5%] rounded-full pointer-events-none blur-[6px] opacity-85 transition-opacity duration-500" style="background: var(--lens-tint); transform: rotate(-6deg);"></div>
@@ -585,7 +551,7 @@
       <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
         <div class="inline-flex flex-wrap items-center justify-center gap-2 px-4 py-1.5 rounded-full bg-[#D35400]/10 border border-[#D35400]/25 text-[#9C3404] text-[11px] font-extrabold tracking-[0.18em] uppercase mb-4">
           <span class="w-2 h-2 rounded-full bg-[#FF5500] animate-ping"></span>
-          <span>100% Natural • No Added Sugar • 300ml Clear PET Can</span>
+          <span>Natural • No Added Sugar • 300ml Clear PET Can</span>
         </div>
 
         <h2 class="text-4xl sm:text-6xl font-extrabold tracking-[0.26em] uppercase text-[#24130E] pl-[0.26em]">
@@ -602,7 +568,7 @@
         <!-- Clean-Label Trust Pills -->
         <div class="mt-4 flex flex-wrap items-center justify-center gap-2">
           <span class="px-3.5 py-1 rounded-full bg-white/85 border border-amber-900/15 text-[#3B1D12] text-xs font-extrabold tracking-wide shadow-sm">
-            🌿 100% Natural Botanicals
+            🌿 Natural Botanicals
           </span>
           <span class="px-3.5 py-1 rounded-full bg-rose-950 text-rose-100 text-xs font-extrabold tracking-wide shadow-sm">
             🚫 No Added Sugar • Zero Refined Sugar
@@ -738,7 +704,7 @@
               Complete Cycle Relief, Mood Balance & Blood Restoration in 300ml.
             </h3>
             <p class="mt-3 text-sm text-neutral-600 leading-relaxed">
-              During their cycle, millions of women face painful cramps, nausea, sudden mood drops, and intense sugar cravings. <strong class="text-neutral-950">DILRU PINK</strong> is a <strong class="text-[#9C3404]">100% natural, no-added-sugar</strong> functional botanical beverage crafted in a crystal-clear 300ml PET can for complete physiological comfort and vitality.
+              During their cycle, millions of women face painful cramps, nausea, sudden mood drops, and intense sugar cravings. <strong class="text-neutral-950">DILRU PINK</strong> is a <strong class="text-[#9C3404]">natural, no-added-sugar</strong> functional botanical beverage crafted in a crystal-clear 300ml PET can for complete physiological comfort and vitality.
             </p>
 
             <!-- Interactive 4-Pillar Product Highlights (Triggers Water Ripple on Click) -->
@@ -970,13 +936,13 @@
       <div class="mt-14 sm:mt-16">
         <div class="text-center max-w-3xl mx-auto mb-10">
           <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-950 text-emerald-200 text-[11px] font-extrabold tracking-[0.2em] uppercase mb-3 shadow">
-            <span>🌿 100% NATURAL • NO SUGAR • NO ADDED SUGAR</span>
+            <span>🌿 NATURAL • NO SUGAR • NO ADDED SUGAR</span>
           </div>
           <h3 class="text-2xl sm:text-4xl font-extrabold text-[#24130E] tracking-tight">
             Crafted with 3 Signature Botanicals & Warming Spices
           </h3>
           <p class="mt-2.5 text-xs sm:text-sm text-[#5A3A2E] leading-relaxed">
-            We don’t mask period fatigue with refined sugar or artificial syrups. Every 300ml can of <strong class="text-[#24130E]">DILRU PINK</strong> derives its rose-blush hue and therapeutic power from pure botanical infusions.
+            We don’t mask period fatigue with refined sugar or artificial syrups. Every 300ml can of <strong class="text-[#24130E]">DILRU PINK</strong> derives its rose-blush hue and therapeutic power from natural botanical infusions.
           </p>
         </div>
 
@@ -1199,11 +1165,11 @@
               <h4 class="text-lg font-extrabold text-neutral-950">Hint of Warming Spices</h4>
               <p class="text-[11px] font-mono uppercase text-[#9C3404] mb-2">Aromatic Botanical Spice Note</p>
               <p class="text-xs text-neutral-600 leading-relaxed">
-                A delicate micro-infusion of warming culinary spices enhances pelvic micro-circulation, deepens cramp relief, and satisfies the palate with <strong class="text-neutral-950">100% natural, zero added sugar</strong> purity.
+                A delicate micro-infusion of warming culinary spices enhances pelvic micro-circulation, deepens cramp relief, and satisfies the palate with <strong class="text-neutral-950">natural, zero added sugar</strong> purity.
               </p>
             </div>
             <div class="mt-4 pt-3 border-t border-amber-200/80 flex items-center justify-between text-[11px] font-bold text-[#9C3404]">
-              <span>100% Natural</span>
+              <span>Natural</span>
               <span>No Added Sugar</span>
             </div>
           </div>
@@ -1238,7 +1204,7 @@
           <div class="bg-white/5 rounded-2xl p-5 border border-white/10">
             <div class="text-amber-400 font-mono text-xs uppercase mb-1">Packaging Format</div>
             <div class="text-lg sm:text-xl font-bold mb-1">300ml Clear PET Can</div>
-            <p class="text-xs text-white/75 leading-relaxed">Crystal-clear 300ml shelf appeal, lightweight unit economics, shatterproof logistics, and 100% recyclable.</p>
+            <p class="text-xs text-white/75 leading-relaxed">Crystal-clear 300ml shelf appeal, lightweight unit economics, shatterproof logistics, and recyclable PET construction.</p>
           </div>
           <div class="bg-white/5 rounded-2xl p-5 border border-white/10">
             <div class="text-amber-400 font-mono text-xs uppercase mb-1">Repeat Retention</div>
@@ -1247,7 +1213,7 @@
           </div>
           <div class="bg-white/5 rounded-2xl p-5 border border-white/10">
             <div class="text-amber-400 font-mono text-xs uppercase mb-1">Clean Formulation</div>
-            <div class="text-lg sm:text-xl font-bold mb-1">100% Natural • Zero Sugar</div>
+            <div class="text-lg sm:text-xl font-bold mb-1">Natural • Zero Sugar</div>
             <p class="text-xs text-white/75 leading-relaxed">Powered by Hibiscus, Coconut Water, Kokum & warming spices with zero added sugar and zero artificial preservatives.</p>
           </div>
         </div>
@@ -1297,7 +1263,7 @@
             </div>
             <h3 class="text-2xl font-bold mb-3">Zero-to-One Consumer Brand & Product R&D</h3>
             <p class="text-sm text-neutral-300 leading-relaxed mb-6">
-              Hands-on founder execution taking <strong class="text-white">DILRU PINK</strong> from 100% natural, zero-added-sugar beverage formulation to 300ml clear PET can packaging, MSME/FSSAI compliance, and retail positioning.
+              Hands-on founder execution taking <strong class="text-white">DILRU PINK</strong> from natural, zero-added-sugar beverage formulation to 300ml clear PET can packaging, MSME/FSSAI compliance, and retail positioning.
             </p>
           </div>
 
@@ -1401,7 +1367,7 @@
               </div>
               <h4 class="text-xl font-bold text-white">DILRU PINK — Botanical Period Relief Beverage</h4>
               <p class="mt-2 text-xs sm:text-sm text-amber-100/80 leading-relaxed">
-                100% natural, no-added-sugar functional beverage crafted with Hibiscus, Tender Coconut Water, Kokum, and warming spices for period cramp relief, nausea calm, mood balance, and blood restoration in a 300ml clear PET can.
+                Natural, no-added-sugar functional beverage crafted with Hibiscus, Tender Coconut Water, Kokum, and warming spices for period cramp relief, nausea calm, mood balance, and blood restoration in a 300ml clear PET can.
               </p>
             </div>
             <div class="mt-5 pt-4 border-t border-white/10 flex items-center justify-between">
@@ -1505,84 +1471,161 @@
             <p class="text-sm sm:text-base text-neutral-300 leading-relaxed">
               Whether you are an <strong class="text-white">angel investor or seed fund</strong> evaluating <strong class="text-amber-300">DILRU PINK</strong>, a retail/hospitality partner looking to stock our 300ml clear PET cans, or a founder seeking an AI & full-stack technical partner—select your intent below.
             </p>
+
+            <!-- Direct Channels -->
+            <div class="pt-3 space-y-2.5 text-xs sm:text-sm">
+              <div class="flex items-center gap-3 text-neutral-200">
+                <span class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-amber-400">
+                  <i class="ph-bold ph-map-pin"></i>
+                </span>
+                <span>Kochi, Kerala, India • Open to Global Investors & Remote Ventures</span>
+              </div>
+              <div class="flex items-center gap-3 text-neutral-200">
+                <span class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-amber-400">
+                  <i class="ph-bold ph-briefcase"></i>
+                </span>
+                <span>Founder @ DILRU • B.Tech AI & Data Science • Systems Engineer</span>
+              </div>
             </div>
-            <div class="mt-5 pt-4 border-t border-white/10 flex items-center justify-between">
-              <span class="text-xs font-mono text-amber-200">Role: Founder & Product Architect</span>
-              <a href="#dilru-showcase" class="text-xs font-bold uppercase tracking-wider text-white hover:text-amber-300 flex items-center gap-1">
-                <span>View Product Showcase</span>
+
+            <!-- Social & Work Portfolio Links -->
+            <div class="pt-3 flex flex-wrap items-center gap-3">
+              <a
+                href="https://github.com/farhanabhi"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="work-portfolio-link inline-flex items-center gap-2 px-5 py-3 rounded-full bg-gradient-to-r from-[#FF5500] to-[#F69B11] text-white font-extrabold text-xs uppercase tracking-wider shadow-lg hover:scale-105 transition"
+              >
+                <i class="ph-bold ph-globe text-base"></i>
+                <span>Open Work Portfolio</span>
                 <i class="ph-bold ph-arrow-up-right"></i>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/farhan-m-hameed"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 px-4 py-3 rounded-full bg-white/10 hover:bg-white/20 text-white font-bold text-xs uppercase tracking-wider border border-white/15 transition"
+              >
+                <i class="ph-bold ph-linkedin-logo text-base text-amber-300"></i>
+                <span>LinkedIn</span>
               </a>
             </div>
           </div>
 
-          <!-- System 2: Autonomous AI QA & Self-Healing Regression Engine -->
-          <div class="rounded-2xl bg-white/[0.04] border border-white/10 p-6 flex flex-col justify-between hover:border-amber-400/40 hover:scale-[1.01] transition">
-            <div>
-              <div class="flex items-center justify-between gap-2 mb-3">
-                <span class="px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 font-mono text-[11px] font-bold">AUTONOMOUS AI QA</span>
-                <span class="text-xs font-mono text-neutral-400">Llama 3.2 • Playwright</span>
-              </div>
-              <h4 class="text-xl font-bold text-white">AI-Powered Self-Healing QA Regression Engine</h4>
-              <p class="mt-2 text-xs sm:text-sm text-neutral-300 leading-relaxed">
-                Autonomous software quality architecture that detects broken DOM selectors during E2E test execution, queries local/cloud LLMs, and dynamically self-heals test suites with zero downtime.
-              </p>
+          <!-- Right Interactive Outreach Brief Generator Column -->
+          <div class="lg:col-span-6 bg-black/45 backdrop-blur-xl rounded-2xl sm:rounded-3xl p-5 sm:p-7 border border-white/15 space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono uppercase tracking-wider text-amber-300">1. Select Your Connection Intent</span>
+              <span class="text-[11px] font-mono text-white/50">Instant Brief</span>
             </div>
-            <div class="mt-5 pt-4 border-t border-white/10 flex items-center justify-between">
-              <span class="text-xs font-mono text-neutral-400">Python • Pytest • Ollama / Groq</span>
-              <a href="https://github.com/farhanabhi" target="_blank" rel="noopener noreferrer" class="work-portfolio-link text-xs font-bold uppercase tracking-wider text-amber-400 hover:text-amber-300 flex items-center gap-1">
-                <span>View in Work Portfolio</span>
-                <i class="ph-bold ph-arrow-up-right"></i>
-              </a>
-            </div>
-          </div>
 
-          <!-- System 3: Autonomous Multi-Agent DevSecOps Refactoring Fleet -->
-          <div class="rounded-2xl bg-white/[0.04] border border-white/10 p-6 flex flex-col justify-between hover:border-amber-400/40 hover:scale-[1.01] transition">
-            <div>
-              <div class="flex items-center justify-between gap-2 mb-3">
-                <span class="px-3 py-1 rounded-full bg-orange-500/20 text-orange-300 font-mono text-[11px] font-bold">MULTI-AGENT DEVSECOPS</span>
-                <span class="text-xs font-mono text-neutral-400">AST • LLM Agents • Security</span>
-              </div>
-              <h4 class="text-xl font-bold text-white">Autonomous Multi-Agent Code & Security Fleet</h4>
-              <p class="mt-2 text-xs sm:text-sm text-neutral-300 leading-relaxed">
-                Coordinated multi-agent engineering pipeline combining static AST code analysis, automated vulnerability remediation, and verification agents for enterprise repositories.
-              </p>
+            <!-- 4 Intent Buttons -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+              <button onclick="setConnectIntent('Angel / Seed Investor (DILRU PINK)')" class="intent-btn text-left p-3 rounded-xl border border-omnic-accent bg-omnic-accent/20 text-white text-xs font-bold transition">
+                Angel / Seed Investor (DILRU PINK)
+              </button>
+              <button onclick="setConnectIntent('Retail, Hospitality & Distribution Inquiry')" class="intent-btn text-left p-3 rounded-xl border border-white/15 bg-white/5 hover:bg-white/10 text-white/80 text-xs font-semibold transition">
+                Retail, Hospitality & Distribution
+              </button>
+              <button onclick="setConnectIntent('Co-Founder / Technical Venture Partner')" class="intent-btn text-left p-3 rounded-xl border border-white/15 bg-white/5 hover:bg-white/10 text-white/80 text-xs font-semibold transition">
+                Co-Founder / AI Venture Partner
+              </button>
+              <button onclick="setConnectIntent('Strategic Advisory & Networking')" class="intent-btn text-left p-3 rounded-xl border border-white/15 bg-white/5 hover:bg-white/10 text-white/80 text-xs font-semibold transition">
+                Strategic Advisory & Networking
+              </button>
             </div>
-            <div class="mt-5 pt-4 border-t border-white/10 flex items-center justify-between">
-              <span class="text-xs font-mono text-neutral-400">Multi-Agent AI • Python • CI/CD</span>
-              <a href="https://github.com/farhanabhi" target="_blank" rel="noopener noreferrer" class="work-portfolio-link text-xs font-bold uppercase tracking-wider text-orange-400 hover:text-orange-300 flex items-center gap-1">
-                <span>View in Work Portfolio</span>
-                <i class="ph-bold ph-arrow-up-right"></i>
-              </a>
-            </div>
-          </div>
 
-          <!-- System 4: Heaven & Hill + Enterprise Systems -->
-          <div class="rounded-2xl bg-white/[0.04] border border-white/10 p-6 flex flex-col justify-between hover:border-amber-400/40 hover:scale-[1.01] transition">
+            <!-- Sender Name Input -->
             <div>
-              <div class="flex items-center justify-between gap-2 mb-3">
-                <span class="px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 font-mono text-[11px] font-bold">DIGITAL PLATFORMS & ENTERPRISE</span>
-                <span class="text-xs font-mono text-neutral-400">Infosys Trained • B.Tech AI & DS</span>
-              </div>
-              <h4 class="text-xl font-bold text-white">Heaven & Hill Platform & Enterprise Systems</h4>
-              <p class="mt-2 text-xs sm:text-sm text-neutral-300 leading-relaxed">
-                Unites disciplined enterprise software engineering training (Infosys Systems Engineer track) with curated digital commerce and regional discovery platforms like <strong class="text-white">Heaven & Hill</strong>.
-              </p>
+              <label for="sender-name" class="block text-[11px] font-mono uppercase tracking-wider text-neutral-400 mb-1.5">
+                2. Your Name & Organization / Fund
+              </label>
+              <input
+                type="text"
+                id="sender-name"
+                oninput="updateGeneratedMessage()"
+                placeholder="e.g. Rahul Verma — Partner at Horizon Seed Ventures"
+                class="w-full rounded-xl bg-white/10 border border-white/15 px-4 py-2.5 text-xs sm:text-sm text-white placeholder-white/40 focus:outline-none focus:border-omnic-accent transition"
+              />
             </div>
-            <div class="mt-5 pt-4 border-t border-white/10 flex items-center justify-between">
-              <span class="text-xs font-mono text-neutral-400">Full-Stack • Cloud • Data Pipelines</span>
-              <a href="https://github.com/farhanabhi" target="_blank" rel="noopener noreferrer" class="work-portfolio-link text-xs font-bold uppercase tracking-wider text-amber-400 hover:text-amber-300 flex items-center gap-1">
-                <span>Explore Work Portfolio</span>
-                <i class="ph-bold ph-arrow-up-right"></i>
-              </a>
+
+            <!-- Generated Message Box -->
+            <div>
+              <label for="generated-message" class="block text-[11px] font-mono uppercase tracking-wider text-neutral-400 mb-1.5">
+                3. Ready-to-Send Executive Note
+              </label>
+              <textarea
+                id="generated-message"
+                rows="4"
+                class="w-full rounded-xl bg-white/5 border border-white/15 p-3.5 text-xs sm:text-sm text-amber-50 leading-relaxed focus:outline-none focus:border-omnic-accent transition"
+              ></textarea>
+            </div>
+
+            <!-- Copy Action & Toast -->
+            <div class="pt-1 flex flex-wrap items-center justify-between gap-3">
+              <button
+                onclick="copyOutreachMessage()"
+                class="w-full sm:w-auto flex-1 inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-full bg-gradient-to-r from-[#FF5500] to-[#F69B11] hover:opacity-95 text-white font-extrabold text-xs uppercase tracking-wider shadow-lg transition active:scale-95"
+              >
+                <i class="ph-bold ph-copy text-sm"></i>
+                <span id="copy-btn-label">Copy Message & Connect</span>
+              </button>
+              <span id="copy-toast" class="hidden text-xs font-mono text-emerald-400">
+                ✓ Copied to clipboard!
+              </span>
             </div>
           </div>
 
         </div>
       </div>
 
+      <!-- Footer -->
+      <footer class="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-neutral-400">
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-omnic-accent"></span>
+          <span>© <span id="year-span">2026</span> Farhan M Hameed (Farhan Abhi). All rights reserved.</span>
+        </div>
+        <div class="flex flex-wrap items-center gap-4">
+          <a href="#top" class="hover:text-white transition">Top</a>
+          <a href="#dilru-showcase" class="hover:text-amber-300 transition">DILRU PINK (300ml)</a>
+          <a href="#executive-dossier" class="hover:text-white transition">Executive Dossier</a>
+          <a href="https://github.com/farhanabhi" target="_blank" rel="noopener noreferrer" class="work-portfolio-link text-amber-400 hover:underline">Work Portfolio ↗</a>
+        </div>
+      </footer>
+
     </div>
   </section>
+
+  <!-- MODAL FOR SETTING LIVE WORK PORTFOLIO REDIRECT URL -->
+  <div id="portfolio-url-modal" class="hidden fixed inset-0 z-50 bg-black/75 backdrop-blur-md items-center justify-center p-4">
+    <div class="bg-[#1B1613] border border-amber-500/30 rounded-3xl max-w-md w-full p-6 sm:p-7 text-white shadow-2xl space-y-4">
+      <div class="flex items-center justify-between">
+        <span class="text-xs font-mono uppercase tracking-widest text-amber-400">Configure Redirect Link</span>
+        <button onclick="closePortfolioLinkModal()" class="text-white/60 hover:text-white">
+          <i class="ph-bold ph-x text-lg"></i>
+        </button>
+      </div>
+      <h3 class="text-xl font-bold">Work Portfolio Website URL</h3>
+      <p class="text-xs text-neutral-300 leading-relaxed">
+        Enter the live URL of your Work Portfolio website. All <strong>“Work Portfolio ↗”</strong> buttons across the page will redirect visitors there.
+      </p>
+      <input
+        type="url"
+        id="custom-portfolio-url-input"
+        placeholder="https://github.com/farhanabhi"
+        value="https://github.com/farhanabhi"
+        class="w-full rounded-xl bg-white/10 border border-white/20 px-4 py-3 text-xs sm:text-sm text-white focus:outline-none focus:border-omnic-accent"
+      />
+      <div class="flex items-center justify-end gap-2 pt-2">
+        <button onclick="closePortfolioLinkModal()" class="px-4 py-2.5 rounded-full bg-white/10 hover:bg-white/15 text-xs font-bold">
+          Cancel
+        </button>
+        <button onclick="savePortfolioUrl()" class="px-5 py-2.5 rounded-full bg-gradient-to-r from-[#FF5500] to-[#F69B11] text-white text-xs font-extrabold uppercase tracking-wider">
+          Save Portfolio Link
+        </button>
+      </div>
+    </div>
+  </div>
 
   <!-- ===================================================================== -->
   <!-- JAVASCRIPT: CENTRALIZED IMAGE CONFIG, CUTOUT, WATER RIPPLE & BENEFITS -->
@@ -1594,10 +1637,10 @@
     //    when uploading to GitHub Pages.
     // =========================================================================
     const IMAGE_CONFIG = {
-      // 1) Your Black & White Cutout Portrait (used in the Hero center/bottom stage)
+      // 1) Your Black & White Cutout Portrait (permanent default Hero portrait)
       PORTRAIT_BW: 'Gemini_Generated_Image_kl05a4kl05a4kl05.png',
 
-      // 2) Your Original Color Lifestyle Photo (used in Hero toggle & testimonial avatar)
+      // 2) Your Original Color Photo (used for the circular executive quote avatar)
       PORTRAIT_COLOR: 'IMG_1113.jpg',
 
       // 3) DILRU PINK 300ml Can on Sandstone Podium with Palm Shadows
@@ -1619,13 +1662,14 @@
 
     // -------------------------------------------------------------------------
     // 1. AUTOMATIC WHITE-BACKGROUND REMOVAL FOR BOTH DESKTOP & MOBILE CANVASES
-    //    Renders Farhan's B&W cutout (`IMAGE_CONFIG.PORTRAIT_BW`)
-    //    cleanly onto both the desktop overlap stage and mobile bottom stage.
+    //    Renders Farhan's B&W cutout (`IMAGE_CONFIG.PORTRAIT_BW`) permanently
+    //    onto both the desktop overlap stage and mobile bottom stage.
     // -------------------------------------------------------------------------
     function processCutoutPortrait() {
       const desktopCanvas = document.getElementById('cutout-canvas');
       const mobileCanvas = document.getElementById('cutout-canvas-mobile');
       const fallbackImg = document.getElementById('fallback-cutout-img');
+      const fallbackImgMobile = document.getElementById('fallback-cutout-img-mobile');
 
       const img = new Image();
       img.crossOrigin = 'anonymous';
@@ -1719,14 +1763,16 @@
 
       img.onerror = function () {
         if (desktopCanvas) desktopCanvas.classList.add('hidden');
+        if (mobileCanvas) mobileCanvas.classList.add('hidden');
         if (fallbackImg) fallbackImg.classList.remove('hidden');
+        if (fallbackImgMobile) fallbackImgMobile.classList.remove('hidden');
       };
 
       img.src = IMAGE_CONFIG.PORTRAIT_BW;
     }
 
     // -------------------------------------------------------------------------
-    // 2. HERO CONTROLS (Word Switcher & Portrait Mode Toggle)
+    // 2. HERO WORD SWITCHER (CREATE / VENTURE / ENGINEER)
     // -------------------------------------------------------------------------
     function setHeroWord(word) {
       const heading = document.getElementById('hero-giant-word');
@@ -1746,46 +1792,6 @@
           btn.className = 'hero-word-btn px-2.5 py-0.5 rounded-full text-white/80 hover:text-white transition';
         }
       });
-    }
-
-    function setPortraitStyle(style) {
-      const desktopCanvas = document.getElementById('cutout-canvas');
-      const naturalFrame = document.getElementById('natural-photo-frame');
-      const lensGlow = document.getElementById('sunglasses-glow');
-
-      const mobCutoutWrap = document.getElementById('mobile-cutout-wrap');
-      const mobNaturalWrap = document.getElementById('mobile-natural-wrap');
-
-      const btnEditorial = document.getElementById('btn-style-editorial');
-      const btnNatural = document.getElementById('btn-style-natural');
-      const mobBtnEditorial = document.getElementById('mob-btn-editorial');
-      const mobBtnNatural = document.getElementById('mob-btn-natural');
-
-      if (style === 'editorial') {
-        if (btnEditorial) btnEditorial.className = 'px-2.5 py-1 rounded-full text-[10px] font-bold bg-omnic-accent text-white transition';
-        if (btnNatural) btnNatural.className = 'px-2.5 py-1 rounded-full text-[10px] font-medium text-white/75 hover:text-white transition';
-        if (mobBtnEditorial) mobBtnEditorial.className = 'px-3 py-1 rounded-full text-[10px] font-bold bg-white text-neutral-900 transition';
-        if (mobBtnNatural) mobBtnNatural.className = 'px-3 py-1 rounded-full text-[10px] font-semibold text-white/85 transition';
-
-        if (desktopCanvas) desktopCanvas.classList.remove('hidden');
-        if (naturalFrame) naturalFrame.classList.add('hidden');
-        if (lensGlow) lensGlow.style.opacity = '0.85';
-
-        if (mobCutoutWrap) mobCutoutWrap.classList.remove('hidden');
-        if (mobNaturalWrap) mobNaturalWrap.classList.add('hidden');
-      } else {
-        if (btnNatural) btnNatural.className = 'px-2.5 py-1 rounded-full text-[10px] font-bold bg-omnic-accent text-white transition';
-        if (btnEditorial) btnEditorial.className = 'px-2.5 py-1 rounded-full text-[10px] font-medium text-white/75 hover:text-white transition';
-        if (mobBtnNatural) mobBtnNatural.className = 'px-3 py-1 rounded-full text-[10px] font-bold bg-white text-neutral-900 transition';
-        if (mobBtnEditorial) mobBtnEditorial.className = 'px-3 py-1 rounded-full text-[10px] font-semibold text-white/85 transition';
-
-        if (desktopCanvas) desktopCanvas.classList.add('hidden');
-        if (naturalFrame) naturalFrame.classList.remove('hidden');
-        if (lensGlow) lensGlow.style.opacity = '0';
-
-        if (mobCutoutWrap) mobCutoutWrap.classList.add('hidden');
-        if (mobNaturalWrap) mobNaturalWrap.classList.remove('hidden');
-      }
     }
 
     // Subtle Desktop Parallax on Hero Portrait
@@ -2145,8 +2151,8 @@
       const textarea = document.getElementById('generated-message');
 
       const templates = {
-        'Angel / Seed Investor (DILRU PINK)': `Hi Farhan, I’m ${sender}. I reviewed your executive portfolio and the DILRU PINK (300ml 100% Natural, No Added Sugar Period Relief beverage) showcase. I’d love to view your seed/investor brief and discuss your roadmap and unit economics.`,
-        'Retail, Hospitality & Distribution Inquiry': `Hi Farhan, I’m ${sender}. We’re impressed by DILRU PINK’s 300ml clear PET can presentation and 100% natural, zero-added-sugar period relief positioning. Let’s connect regarding retail/distribution and sampling opportunities.`,
+        'Angel / Seed Investor (DILRU PINK)': `Hi Farhan, I’m ${sender}. I reviewed your executive portfolio and the DILRU PINK (300ml Natural, No Added Sugar Period Relief beverage) showcase. I’d love to view your seed/investor brief and discuss your roadmap and unit economics.`,
+        'Retail, Hospitality & Distribution Inquiry': `Hi Farhan, I’m ${sender}. We’re impressed by DILRU PINK’s 300ml clear PET can presentation and natural, zero-added-sugar period relief positioning. Let’s connect regarding retail/distribution and sampling opportunities.`,
         'Co-Founder / Technical Venture Partner': `Hi Farhan, I’m ${sender}. Your combination of Applied AI (Multi-Agent LLMs, Self-Healing QA) and zero-to-one product execution stood out. Let’s schedule a call to discuss a technical venture collaboration.`,
         'Strategic Advisory & Networking': `Hi Farhan, I’m ${sender}. Loved exploring your portfolio and DILRU PINK brand showcase. Would be great to connect and exchange notes on venture building and AI systems.`
       };
@@ -2198,4 +2204,3 @@
   </script>
 </body>
 </html>
-```
