@@ -306,9 +306,9 @@
               <img
                 id="hero-portrait-mobile"
                 src="BW.png"
-                onerror="if(!this.dataset.fb){this.dataset.fb='1';this.src='https://raw.githubusercontent.com/farhanabhi/FARHANABHI/main/BW.png';}"
+                onerror="window.handleSmartImgError && window.handleSmartImgError(this, 'portrait')"
                 alt="FARHAN M HAMEED"
-                style="opacity:1 !important; display:block !important; visibility:visible !important;"
+                style="opacity: 1 !important; visibility: visible !important; display: block !important;"
                 class="w-full h-full object-contain object-bottom portrait-stage select-none"
               />
             </div>
@@ -340,9 +340,9 @@
             <img
               id="hero-portrait-desktop"
               src="BW.png"
-              onerror="if(!this.dataset.fb){this.dataset.fb='1';this.src='https://raw.githubusercontent.com/farhanabhi/FARHANABHI/main/BW.png';}"
+              onerror="window.handleSmartImgError && window.handleSmartImgError(this, 'portrait')"
               alt="FARHAN M HAMEED"
-              style="opacity:1 !important; display:block !important; visibility:visible !important;"
+              style="opacity: 1 !important; visibility: visible !important; display: block !important;"
               class="relative z-10 w-full h-full object-contain object-bottom portrait-stage select-none"
             />
           </div>
@@ -428,10 +428,11 @@
               <div class="mt-3 flex items-center justify-between border-t border-neutral-200/70 pt-2.5">
                 <div class="flex items-center gap-2.5">
                   <img
+                    id="quote-avatar-img"
                     src="Can_post.png"
-                    onerror="if(!this.dataset.fb){this.dataset.fb='1';this.src='https://raw.githubusercontent.com/farhanabhi/FARHANABHI/main/Can_post.png';}"
+                    onerror="window.handleSmartImgError && window.handleSmartImgError(this, 'can')"
                     alt="DILRU PINK 300ml"
-                    style="opacity:1 !important; display:block !important; visibility:visible !important;"
+                    style="opacity: 1 !important; visibility: visible !important; display: block !important;"
                     class="w-8 h-8 rounded-full object-cover border border-orange-300 shadow-sm shrink-0"
                   />
                   <div>
@@ -535,9 +536,9 @@
               <img
                 id="dilru-main-photo"
                 src="Can_post.png"
-                onerror="if(!this.dataset.fb){this.dataset.fb='1';this.src='https://raw.githubusercontent.com/farhanabhi/FARHANABHI/main/Can_post.png';}"
+                onerror="window.handleSmartImgError && window.handleSmartImgError(this, 'can')"
                 alt="DILRU PINK 300ml Studio Showcase"
-                style="opacity:1 !important; display:block !important; visibility:visible !important;"
+                style="opacity: 1 !important; visibility: visible !important; display: block !important;"
                 class="w-full h-full object-cover object-center transition-transform duration-700 ease-out select-none"
               />
 
@@ -1267,10 +1268,11 @@
             </div>
             <div class="flex items-start gap-4 mb-3">
               <img
+                id="venture-dilru-img"
                 src="Can_post.png"
-                onerror="if(!this.dataset.fb){this.dataset.fb='1';this.src='https://raw.githubusercontent.com/farhanabhi/FARHANABHI/main/Can_post.png';}"
+                onerror="window.handleSmartImgError && window.handleSmartImgError(this, 'can')"
                 alt="DILRU PINK 300ml"
-                style="opacity:1 !important; display:block !important; visibility:visible !important;"
+                style="opacity: 1 !important; visibility: visible !important; display: block !important;"
                 class="w-16 h-20 rounded-2xl object-cover border border-rose-300/30 shrink-0 shadow-md"
               />
               <div>
@@ -1395,10 +1397,29 @@
           <!-- Interactive Message Box -->
           <div class="lg:col-span-6">
             <div class="p-5 rounded-2xl bg-black/50 border border-white/15">
-              <div class="flex items-center justify-between text-[11px] font-mono text-white/60 mb-2">
+              <div class="flex items-center justify-between text-[11px] font-mono text-white/60 mb-3">
                 <span>TO: FARHAN M HAMEED</span>
-                <span id="copy-status-badge" class="text-amber-400">READY TO COPY</span>
+                <span id="copy-status-badge" class="text-amber-400">READY TO SEND</span>
               </div>
+
+              <!-- Editable Sender Fields -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 mb-3">
+                <input
+                  id="sender-name-input"
+                  type="text"
+                  placeholder="Your Name (optional)"
+                  oninput="updateOutreachFromInputs()"
+                  class="w-full bg-white/5 border border-white/10 rounded-xl px-3 py-2 text-xs text-white placeholder-white/40 focus:outline-none focus:border-orange-500"
+                />
+                <input
+                  id="sender-org-input"
+                  type="text"
+                  placeholder="Firm / Brand / Company"
+                  oninput="updateOutreachFromInputs()"
+                  class="w-full bg-white/5 border border-white/10 rounded-xl px-3 py-2 text-xs text-white placeholder-white/40 focus:outline-none focus:border-orange-500"
+                />
+              </div>
+
               <textarea
                 id="outreach-textarea"
                 rows="5"
@@ -1406,13 +1427,22 @@
               >Hi FARHAN M HAMEED, I reviewed your portfolio and the DILRU PINK (300ml, Natural • No Added Sugar) period-relief beverage showcase. I would love to connect regarding seed investment, unit economics, and your upcoming pilot roadmap.</textarea>
 
               <div class="mt-3 flex flex-wrap items-center justify-between gap-2">
-                <button
-                  onclick="copyOutreachBrief()"
-                  class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#FF5500] to-[#F69B11] text-white font-extrabold text-xs uppercase tracking-wider shadow-lg active:scale-95 transition"
-                >
-                  <i class="ph-bold ph-copy text-sm"></i>
-                  <span>Copy Outreach Message</span>
-                </button>
+                <div class="flex flex-wrap items-center gap-2">
+                  <button
+                    onclick="copyOutreachBrief()"
+                    class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-gradient-to-r from-[#FF5500] to-[#F69B11] text-white font-extrabold text-xs uppercase tracking-wider shadow-lg active:scale-95 transition"
+                  >
+                    <i class="ph-bold ph-copy text-sm"></i>
+                    <span>Copy Message</span>
+                  </button>
+                  <button
+                    onclick="triggerMailtoOutreach()"
+                    class="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/15 text-white font-bold text-xs uppercase tracking-wider transition"
+                  >
+                    <i class="ph-bold ph-envelope-simple text-sm"></i>
+                    <span>Email Direct</span>
+                  </button>
+                </div>
                 <span class="text-[11px] font-mono text-white/50">Kochi • Wayanad • Mysuru</span>
               </div>
             </div>
@@ -1444,25 +1474,108 @@
   <!-- ===================================================================== -->
   <script>
     // =========================================================================
-    // 1. SAFE OFFSCREEN WHITE-BACKGROUND CUTOUT FOR BW.PNG (NEVER HIDES <IMG>)
+    // 1. MULTI-SOURCE IMAGE LOADER + GITHUB API AUTO-RESOLVER + OFFSCREEN CUTOUT
     // =========================================================================
-    const PORTRAIT_SOURCES = [
-      "BW.png",
-      "https://raw.githubusercontent.com/farhanabhi/FARHANABHI/main/BW.png",
-      "./BW.png",
-      "https://farhanabhi.github.io/FARHANABHI/BW.png"
-    ];
+    const IMAGE_CANDIDATES = {
+      portrait: [
+        "BW.png",
+        "/FARHANABHI/BW.png",
+        "https://farhanabhi.github.io/FARHANABHI/BW.png",
+        "https://raw.githubusercontent.com/farhanabhi/FARHANABHI/main/BW.png",
+        "https://cdn.jsdelivr.net/gh/farhanabhi/FARHANABHI@main/BW.png",
+        "./BW.png",
+        "BWD.png",
+        "https://raw.githubusercontent.com/farhanabhi/FARHANABHI/main/BWD.png",
+        "bw.png"
+      ],
+      can: [
+        "Can_post.png",
+        "/FARHANABHI/Can_post.png",
+        "https://farhanabhi.github.io/FARHANABHI/Can_post.png",
+        "https://raw.githubusercontent.com/farhanabhi/FARHANABHI/main/Can_post.png",
+        "https://cdn.jsdelivr.net/gh/farhanabhi/FARHANABHI@main/Can_post.png",
+        "./Can_post.png",
+        "can_post.png",
+        "can%20post.png",
+        "https://raw.githubusercontent.com/farhanabhi/FARHANABHI/main/can%20post.png"
+      ]
+    };
 
-    function runSafeOffscreenCutout() {
+    // Inline fallback handler called immediately if an <img> tag encounters a 404
+    window.handleSmartImgError = function (imgEl, type) {
+      if (!imgEl) return;
+      const list = IMAGE_CANDIDATES[type] || [];
+      let idx = parseInt(imgEl.dataset.fallbackIdx || "0", 10) + 1;
+      if (idx < list.length) {
+        imgEl.dataset.fallbackIdx = String(idx);
+        imgEl.src = list[idx];
+      }
+    };
+
+    // Probe candidate URLs and return the first one that loads with naturalWidth > 0
+    function probeFirstWorkingUrl(candidates) {
+      return new Promise((resolve) => {
+        let index = 0;
+        function next() {
+          if (index >= candidates.length) {
+            resolve(null);
+            return;
+          }
+          const url = candidates[index++];
+          const probe = new Image();
+          probe.onload = function () {
+            if (probe.naturalWidth > 0) {
+              resolve(url);
+            } else {
+              next();
+            }
+          };
+          probe.onerror = function () {
+            next();
+          };
+          probe.src = url;
+        }
+        next();
+      });
+    }
+
+    // Query GitHub repository contents API as an extra guarantee to discover exact download_url
+    async function discoverFromGitHubRepoApi() {
+      try {
+        const res = await fetch("https://api.github.com/repos/farhanabhi/FARHANABHI/contents/");
+        if (!res.ok) return;
+        const files = await res.json();
+        if (!Array.isArray(files)) return;
+
+        files.forEach((f) => {
+          if (!f || !f.name || !f.download_url) return;
+          const lower = f.name.toLowerCase();
+          if (lower.includes("bw") || lower.includes("portrait") || lower.includes("kl05")) {
+            IMAGE_CANDIDATES.portrait.unshift(f.download_url);
+          }
+          if (lower.includes("can") || lower.includes("dilru") || lower.includes("100043") || lower.includes("post")) {
+            IMAGE_CANDIDATES.can.unshift(f.download_url);
+          }
+        });
+      } catch (err) {
+        // Ignore network/rate-limit errors; static candidate list still runs
+      }
+    }
+
+    function runSafeOffscreenCutout(prioritizedUrl) {
       const desktopImg = document.getElementById("hero-portrait-desktop");
       const mobileImg = document.getElementById("hero-portrait-mobile");
       if (!desktopImg && !mobileImg) return;
 
+      const sources = prioritizedUrl
+        ? [prioritizedUrl, ...IMAGE_CANDIDATES.portrait]
+        : [...IMAGE_CANDIDATES.portrait];
+
       let attemptIndex = 0;
 
       function tryNextSource() {
-        if (attemptIndex >= PORTRAIT_SOURCES.length) return;
-        const srcUrl = PORTRAIT_SOURCES[attemptIndex++];
+        if (attemptIndex >= sources.length) return;
+        const srcUrl = sources[attemptIndex++];
         const loader = new Image();
         loader.crossOrigin = "anonymous";
 
@@ -1534,7 +1647,7 @@
               if (mobileImg) mobileImg.src = dataURL;
             }
           } catch (e) {
-            // If local file protocol taints canvas, automatically try the CORS-enabled raw GitHub URL
+            // If local file protocol taints canvas, automatically try the CORS-enabled raw/jsDelivr URL
             tryNextSource();
           }
         };
@@ -1547,6 +1660,31 @@
       }
 
       tryNextSource();
+    }
+
+    async function verifyAndBindAllImages() {
+      await discoverFromGitHubRepoApi();
+
+      // Verify & bind DILRU PINK 300ml can images
+      const workingCanUrl = await probeFirstWorkingUrl(IMAGE_CANDIDATES.can);
+      if (workingCanUrl) {
+        ["dilru-main-photo", "quote-avatar-img", "venture-dilru-img"].forEach((id) => {
+          const el = document.getElementById(id);
+          if (el) el.src = workingCanUrl;
+        });
+      }
+
+      // Verify & bind Portrait images, then run non-destructive offscreen background removal
+      const workingPortraitUrl = await probeFirstWorkingUrl(IMAGE_CANDIDATES.portrait);
+      if (workingPortraitUrl) {
+        ["hero-portrait-desktop", "hero-portrait-mobile"].forEach((id) => {
+          const el = document.getElementById(id);
+          if (el && !el.src.startsWith("data:image/png")) {
+            el.src = workingPortraitUrl;
+          }
+        });
+      }
+      runSafeOffscreenCutout(workingPortraitUrl);
     }
 
     // =========================================================================
@@ -1762,6 +1900,8 @@
       });
     }
 
+    let currentOutreachIntent = "investor";
+
     const OUTREACH_TEMPLATES = {
       investor:
         "Hi FARHAN M HAMEED, I reviewed your portfolio and the DILRU PINK (300ml, Natural • No Added Sugar) period-relief beverage showcase. I would love to connect regarding seed investment, unit economics, and your upcoming pilot roadmap.",
@@ -1771,10 +1911,30 @@
         "Hi FARHAN M HAMEED, I came across your executive profile and AI systems engineering work alongside DILRU PINK. I would love to connect regarding a strategic founder / AI engineering collaboration."
     };
 
+    function buildOutreachMessage(intent) {
+      const base = OUTREACH_TEMPLATES[intent] || OUTREACH_TEMPLATES.investor;
+      const nameEl = document.getElementById("sender-name-input");
+      const orgEl = document.getElementById("sender-org-input");
+      const senderName = nameEl ? nameEl.value.trim() : "";
+      const senderOrg = orgEl ? orgEl.value.trim() : "";
+
+      if (!senderName && !senderOrg) return base;
+      const signoff = [senderName, senderOrg].filter(Boolean).join(" — ");
+      return `${base}\n\nBest regards,\n${signoff}`;
+    }
+
+    function updateOutreachFromInputs() {
+      const textarea = document.getElementById("outreach-textarea");
+      if (textarea) {
+        textarea.value = buildOutreachMessage(currentOutreachIntent);
+      }
+    }
+
     function setOutreachIntent(intent) {
+      currentOutreachIntent = intent;
       const textarea = document.getElementById("outreach-textarea");
       if (textarea && OUTREACH_TEMPLATES[intent]) {
-        textarea.value = OUTREACH_TEMPLATES[intent];
+        textarea.value = buildOutreachMessage(intent);
       }
 
       document.querySelectorAll(".intent-btn").forEach((btn) => {
@@ -1798,14 +1958,21 @@
         badge.textContent = "COPIED TO CLIPBOARD ✓";
         badge.className = "text-emerald-400 font-bold";
         setTimeout(() => {
-          badge.textContent = "READY TO COPY";
+          badge.textContent = "READY TO SEND";
           badge.className = "text-amber-400";
         }, 2500);
       }
     }
 
+    function triggerMailtoOutreach() {
+      const textarea = document.getElementById("outreach-textarea");
+      const body = encodeURIComponent(textarea ? textarea.value : OUTREACH_TEMPLATES.investor);
+      const subject = encodeURIComponent("Executive Inquiry — DILRU PINK (300ml) & Venture Collaboration");
+      window.location.href = `mailto:?subject=${subject}&body=${body}`;
+    }
+
     window.addEventListener("DOMContentLoaded", () => {
-      runSafeOffscreenCutout();
+      verifyAndBindAllImages();
       initWaterCanvasEngine();
     });
   </script>
