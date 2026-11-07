@@ -234,7 +234,7 @@
   <!-- ===================================================================== -->
   <!-- 2. SIGNATURE ORANGE OMNIC-STYLE SPLIT EDITORIAL HERO                  -->
   <!-- ===================================================================== -->
-  <section id="top" class="stage-wrapper min-h-screen pt-20 pb-10 sm:pb-14 px-3 sm:px-6 lg:px-10 flex flex-col items-center justify-center relative overflow-hidden">
+  <section id="top" class="stage-wrapper min-h-screen pt-24 sm:pt-28 pb-10 sm:pb-14 px-3 sm:px-6 lg:px-10 flex flex-col items-center justify-center relative overflow-hidden">
     
     <!-- Top Editorial Brand Header & Giant PORTFOLIO Back-Title -->
     <div class="w-full max-w-[1340px] mx-auto text-center mb-2 sm:mb-3 relative select-none">
@@ -317,21 +317,11 @@
               <canvas id="cutout-canvas-mobile" class="w-full h-full object-contain object-bottom portrait-stage hidden"></canvas>
               <img
                 id="fallback-cutout-img-mobile"
-                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                src="./BW.png"
                 alt=""
+                onerror="this.classList.add('opacity-0')"
                 class="w-full h-full object-contain object-bottom portrait-stage opacity-0 transition-opacity duration-500"
               />
-              <!-- Diagnostic / Quick-Attach Helper Pill (Only shown if file is missing from folder & repo) -->
-              <div id="portrait-helper-mobile" class="hidden absolute inset-x-4 bottom-4 z-40 pointer-events-auto">
-                <button
-                  type="button"
-                  onclick="triggerManualImageSelect('portrait')"
-                  class="w-full py-2.5 px-4 rounded-xl bg-black/80 hover:bg-black text-amber-300 border border-amber-400/40 text-[11px] font-mono flex items-center justify-center gap-2 shadow-xl transition"
-                >
-                  <i class="ph-bold ph-upload-simple text-sm"></i>
-                  <span>Select Portrait Photo (BWD.png)</span>
-                </button>
-              </div>
             </div>
           </div>
 
@@ -360,24 +350,14 @@
             <div class="absolute bottom-8 w-[340px] h-[340px] rounded-full bg-gradient-to-tr from-[#FF5500]/55 via-[#FF9E1B]/30 to-transparent blur-2xl pointer-events-none"></div>
             <!-- Progressive Canvas Cutout (Hidden until flood-fill succeeds) -->
             <canvas id="cutout-canvas-desktop" class="relative z-10 w-full h-full object-contain object-bottom portrait-stage hidden"></canvas>
-            <!-- Clean Portrait Image (Never shows ugly broken icon) -->
+            <!-- Clean Portrait Image (Never shows broken icon) -->
             <img
               id="fallback-cutout-img-desktop"
-              src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+              src="./BW.png"
               alt=""
+              onerror="this.classList.add('opacity-0')"
               class="relative z-10 w-full h-full object-contain object-bottom portrait-stage opacity-0 transition-opacity duration-500"
             />
-            <!-- Diagnostic / Quick-Attach Helper Pill (Only shown if file is missing from folder & repo) -->
-            <div id="portrait-helper-desktop" class="hidden absolute bottom-12 z-40 pointer-events-auto">
-              <button
-                type="button"
-                onclick="triggerManualImageSelect('portrait')"
-                class="py-2.5 px-4 rounded-full bg-neutral-950/90 hover:bg-neutral-900 text-amber-300 border border-amber-400/40 text-xs font-mono flex items-center gap-2 shadow-2xl transition"
-              >
-                <i class="ph-bold ph-image text-sm"></i>
-                <span>Click to Load BWD.png Portrait</span>
-              </button>
-            </div>
           </div>
         </div>
 
@@ -533,14 +513,14 @@
       </div>
 
       <!-- Main DILRU PINK Interactive Showcase Grid -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-stretch">
         
         <!-- LEFT/CENTER: REAL STUDIO PHOTOGRAPH (can post.png) + REAL-TIME WATER WAVE & RIPPLE ENGINE -->
-        <div class="lg:col-span-7">
+        <div class="lg:col-span-6 xl:col-span-7 min-w-0">
           <div
             id="dilru-water-stage"
             onclick="createClickWaterRipple(event)"
-            class="relative rounded-[28px] sm:rounded-[34px] overflow-hidden border-2 border-white bg-[#E8CFC1] shadow-[0_28px_70px_rgba(125,65,55,0.18)] group cursor-pointer select-none"
+            class="relative rounded-[28px] sm:rounded-[34px] overflow-hidden border-2 border-white bg-[#E8CFC1] shadow-[0_28px_70px_rgba(125,65,55,0.18)] group cursor-pointer select-none h-full flex flex-col justify-between"
           >
             <!-- Top Floating Glass Pill Bar -->
             <div class="absolute top-4 left-4 right-4 z-30 flex flex-wrap items-center justify-between gap-2 pointer-events-none">
@@ -555,34 +535,15 @@
             </div>
 
             <!-- Authentic Studio Photo Container (can post.png) -->
-            <div id="dilru-photo-wrapper" class="relative w-full aspect-[4/4.7] sm:aspect-[4/4.5] overflow-hidden bg-[#D8B6A0]">
+            <div id="dilru-photo-wrapper" class="relative w-full aspect-[4/4.6] sm:aspect-[4/4.3] overflow-hidden bg-[#D8B6A0]">
               <img
                 id="dilru-main-photo"
-                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
+                src="./Can_post.png"
                 alt=""
+                onerror="this.classList.add('opacity-0')"
                 class="w-full h-full object-cover object-center opacity-0 transition-all duration-700 ease-out"
                 style="filter: url(#water-refraction-filter);"
               />
-
-              <!-- Diagnostic / Quick-Attach Helper Pill for DILRU Can (Only shown if file is missing from folder & repo) -->
-              <div id="can-helper-overlay" class="hidden absolute inset-0 z-40 flex flex-col items-center justify-center p-6 text-center bg-[#3B1D19]/25 backdrop-blur-sm">
-                <div class="max-w-xs bg-white/95 border border-rose-200 rounded-3xl p-5 shadow-2xl text-[#261214]">
-                  <div class="w-10 h-10 rounded-2xl bg-rose-100 text-[#C83E5B] flex items-center justify-center mx-auto mb-2.5">
-                    <i class="ph-duotone ph-image-square text-xl"></i>
-                  </div>
-                  <div class="text-xs font-bold text-[#261214]">Load DILRU PINK Studio Photo</div>
-                  <p id="can-diagnostic-msg" class="text-[11px] text-[#6E474B] mt-1 leading-relaxed">
-                    Checking folder &amp; GitHub repo for <code class="font-mono text-[#C83E5B]">can post.png</code>...
-                  </p>
-                  <button
-                    type="button"
-                    onclick="event.stopPropagation(); triggerManualImageSelect('can')"
-                    class="mt-3 w-full py-2.5 px-4 rounded-xl bg-gradient-to-r from-[#C83E5B] to-[#E06D53] text-white font-bold text-xs uppercase tracking-wider shadow-md hover:opacity-95 transition"
-                  >
-                    Select "can post.png" File
-                  </button>
-                </div>
-              </div>
 
               <!-- Soft Warm Sunlit Vignette -->
               <div class="absolute inset-0 bg-gradient-to-t from-[#3B1D19]/35 via-transparent to-white/10 pointer-events-none"></div>
@@ -660,8 +621,8 @@
         </div>
 
         <!-- RIGHT: BRAND STORY, PRODUCT POSITIONING & COMMERCIAL HIGHLIGHTS -->
-        <div class="lg:col-span-5 space-y-6">
-          <div class="p-6 sm:p-8 rounded-3xl bg-white/90 border border-[#EAD4CC] shadow-[0_24px_60px_rgba(140,70,80,0.08)] backdrop-blur-xl">
+        <div class="lg:col-span-6 xl:col-span-5 min-w-0 flex flex-col justify-center">
+          <div class="w-full p-6 sm:p-8 rounded-3xl bg-white/95 border border-[#EAD4CC] shadow-[0_24px_60px_rgba(140,70,80,0.08)] backdrop-blur-xl">
             <div class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-widest text-[#C83E5B] font-bold mb-3">
               <i class="ph-fill ph-sparkle"></i>
               <span>WHY DILRU PINK EXISTS</span>
@@ -1466,45 +1427,47 @@
     </div>
   </section>
 
-  <!-- Hidden File Input for Instant Local Preview / Fallback Binding -->
-  <input type="file" id="manual-image-picker" accept="image/*" class="hidden" />
-
   <!-- ===================================================================== -->
-  <!-- COMPLETE JAVASCRIPT ENGINE (3-STAGE GITHUB + LOCAL IMAGE RESOLVER)    -->
+  <!-- COMPLETE JAVASCRIPT ENGINE (SILENT DIRECTORY & GITHUB AUTO-RESOLVER)  -->
   <!-- ===================================================================== -->
   <script>
     // =========================================================================
-    // 1. 3-STAGE SMART IMAGE AUTO-RESOLVER (LOCAL + GITHUB API + CACHE)
+    // 1. SILENT DIRECTORY + GITHUB REPOSITORY AUTO-RESOLVER (NO UPLOAD UI)
     // =========================================================================
     const IMAGE_CONFIG = {
       GITHUB_USERNAME: "farhanabhi",
       PRIORITY_REPOS: ["FARHANABHI", "farhanabhi.github.io", "Portfolio", "portfolio", "dilru"],
+      REMOTE_BASES: [
+        "https://farhanabhi.github.io/FARHANABHI/",
+        "https://raw.githubusercontent.com/farhanabhi/FARHANABHI/main/",
+        "https://raw.githubusercontent.com/farhanabhi/FARHANABHI/master/",
+        "https://farhanabhi.github.io/Portfolio/",
+        "https://raw.githubusercontent.com/farhanabhi/Portfolio/main/"
+      ],
       PORTRAIT_CANDIDATES: [
-        "BWD.png",
-        "bwd.png",
+        "BW.png",
+        "bw.png",
         "bw.png",
         "BW.png",
-        "BWD.PNG",
         "BW.PNG",
-        "BWD.png.png",
-        "bwd.png.png",
+        "BW.PNG",
+        "BW.png.png",
         "bw.png.png",
-        "BWD.jpg",
-        "bwd.jpg",
+        "bw.png.png",
+        "BW.jpg",
         "bw.jpg",
-        "BWD.jpeg",
-        "BWD.webp",
+        "bw.jpg",
+        "BW.jpeg",
+        "BW.webp",
         "Gemini_Generated_Image_kl05a4kl05a4kl05.png",
         "IMG_1113.jpg",
         "portrait.png",
-        "cutout.png",
-        "farhan.png",
-        "hero.png"
+        "cutout.png"
       ],
       DILRU_CAN_CANDIDATES: [
-        "can post.png",
-        "can%20post.png",
-        "Can post.png",
+        "Can_post.png",
+        "Can_post.png",
+        "Can_post.png",
         "Can%20post.png",
         "Can Post.png",
         "CAN POST.png",
@@ -1530,8 +1493,7 @@
       WORK_PORTFOLIO_URL: "https://farhanabhi.github.io/Portfolio/"
     };
 
-    // Test whether an image URL actually loads valid pixels
-    function probeImageUrl(url, timeoutMs = 4500) {
+    function probeImageUrl(url, timeoutMs = 4000) {
       return new Promise((resolve) => {
         const testImg = new Image();
         let settled = false;
@@ -1564,17 +1526,22 @@
       });
     }
 
-    // Stage 1: Probe local relative paths across root and common subfolders
-    async function findLocalImage(candidates) {
-      // First check root candidates in parallel batches for speed
+    async function findDirectoryImage(candidates) {
       const allUrls = [];
+      // 1. Check relative directory paths first
       for (const folder of IMAGE_CONFIG.SUBFOLDERS) {
         for (const name of candidates) {
           allUrls.push(`${folder}${name}`);
         }
       }
+      // 2. Check known GitHub Pages / Raw repository base paths
+      for (const base of IMAGE_CONFIG.REMOTE_BASES) {
+        for (const name of candidates.slice(0, 10)) {
+          allUrls.push(`${base}${name}`);
+        }
+      }
 
-      const batchSize = 8;
+      const batchSize = 10;
       for (let i = 0; i < allUrls.length; i += batchSize) {
         const batch = allUrls.slice(i, i + batchSize);
         const results = await Promise.all(batch.map((u) => probeImageUrl(u, 2500)));
@@ -1584,7 +1551,6 @@
       return null;
     }
 
-    // Stage 2: Automatically scan Farhan's GitHub repositories via GitHub REST API
     let githubRepoImagesCache = null;
 
     async function discoverGitHubRepoImages() {
@@ -1594,13 +1560,11 @@
       const user = IMAGE_CONFIG.GITHUB_USERNAME;
       const repoSet = new Set(IMAGE_CONFIG.PRIORITY_REPOS);
 
-      // Detect repo name from current URL if hosted on github.io
       const pathParts = window.location.pathname.split("/").filter(Boolean);
       if (pathParts.length > 0) {
         repoSet.add(pathParts[0]);
       }
 
-      // Also fetch recently updated public repos for farhanabhi
       try {
         const res = await fetch(`https://api.github.com/users/${user}/repos?sort=updated&per_page=10`);
         if (res.ok) {
@@ -1611,11 +1575,8 @@
             });
           }
         }
-      } catch (e) {
-        // Ignore network errors if offline
-      }
+      } catch (e) {}
 
-      // Scan each candidate repo's tree for image files
       for (const repo of repoSet) {
         try {
           const treeRes = await fetch(`https://api.github.com/repos/${user}/${repo}/git/trees/HEAD?recursive=1`);
@@ -1638,9 +1599,7 @@
               });
             }
           }
-        } catch (e) {
-          // Continue to next repo
-        }
+        } catch (e) {}
       }
 
       githubRepoImagesCache = discovered;
@@ -1651,12 +1610,11 @@
       const files = await discoverGitHubRepoImages();
       if (!files || files.length === 0) return null;
 
-      const portraitKeywords = ["bwd", "bw", "kl05", "portrait", "cutout", "1113", "farhan", "hero", "profile", "me", "photo"];
-      const canKeywords = ["can", "post", "dilru", "pink", "100043", "watermarked", "drink", "product", "bottle"];
+      const portraitKeywords = ["bw", "bw", "kl05", "portrait", "cutout", "1113", "farhan", "hero", "profile"];
+      const canKeywords = ["can", "post", "dilru", "pink", "100043", "watermarked", "drink", "product"];
 
       const targetKeywords = role === "portrait" ? portraitKeywords : canKeywords;
 
-      // Score each discovered image file
       let bestMatch = null;
       let bestScore = 0;
 
@@ -1666,7 +1624,6 @@
         for (const kw of targetKeywords) {
           if (fname.includes(kw)) score += 10;
         }
-        // Extra boost if in FARHANABHI repo
         if (file.repo.toLowerCase() === "farhanabhi") score += 3;
 
         if (score > bestScore) {
@@ -1676,22 +1633,16 @@
       }
 
       if (bestMatch && bestScore >= 10) {
-        const verified = await probeImageUrl(bestMatch.rawUrl, 5000);
+        const verified = await probeImageUrl(bestMatch.rawUrl, 4500);
         if (verified) return verified;
       }
 
       return null;
     }
 
-    // Apply resolved Portrait URL to Desktop & Mobile stages + run flood-fill cutout
     function applyPortraitUrl(url) {
       const desktopImg = document.getElementById("fallback-cutout-img-desktop");
       const mobileImg = document.getElementById("fallback-cutout-img-mobile");
-      const helperDesktop = document.getElementById("portrait-helper-desktop");
-      const helperMobile = document.getElementById("portrait-helper-mobile");
-
-      if (helperDesktop) helperDesktop.classList.add("hidden");
-      if (helperMobile) helperMobile.classList.add("hidden");
 
       [
         { img: desktopImg, canvasId: "cutout-canvas-desktop" },
@@ -1703,102 +1654,53 @@
           enhancePortraitCutout(img, canvasId);
         };
         img.src = url;
+        if (img.complete && img.naturalWidth > 1) {
+          img.classList.remove("opacity-0");
+          enhancePortraitCutout(img, canvasId);
+        }
       });
     }
 
-    // Apply resolved DILRU Can URL to main showcase stage
     function applyCanUrl(url) {
       const canImg = document.getElementById("dilru-main-photo");
-      const helperCan = document.getElementById("can-helper-overlay");
-      if (helperCan) helperCan.classList.add("hidden");
       if (!canImg) return;
       canImg.onload = () => {
         canImg.classList.remove("opacity-0");
       };
       canImg.src = url;
+      if (canImg.complete && canImg.naturalWidth > 1) {
+        canImg.classList.remove("opacity-0");
+      }
     }
 
-    // Master resolver orchestrating Stage 1 -> Stage 2 -> Stage 3
     async function initSmartImageResolver() {
-      // 1. Resolve Portrait (BWD.png)
-      let portraitUrl = null;
-      try {
-        portraitUrl = localStorage.getItem("farhan_cached_portrait_v1");
-      } catch (e) {}
-
-      if (portraitUrl) {
-        const valid = await probeImageUrl(portraitUrl, 2000);
-        if (!valid) portraitUrl = null;
-      }
-      if (!portraitUrl) {
-        portraitUrl = await findLocalImage(IMAGE_CONFIG.PORTRAIT_CANDIDATES);
-      }
-      if (!portraitUrl) {
-        portraitUrl = await findGitHubImage("portrait");
-      }
-
-      if (portraitUrl) {
-        applyPortraitUrl(portraitUrl);
+      // Check if default ./BWD.png and ./can%20post.png already loaded
+      const desktopImg = document.getElementById("fallback-cutout-img-desktop");
+      if (desktopImg && desktopImg.complete && desktopImg.naturalWidth > 1) {
+        applyPortraitUrl(desktopImg.src);
       } else {
-        const helperDesktop = document.getElementById("portrait-helper-desktop");
-        const helperMobile = document.getElementById("portrait-helper-mobile");
-        if (helperDesktop) helperDesktop.classList.remove("hidden");
-        if (helperMobile) helperMobile.classList.remove("hidden");
+        let portraitUrl = await findDirectoryImage(IMAGE_CONFIG.PORTRAIT_CANDIDATES);
+        if (!portraitUrl) {
+          portraitUrl = await findGitHubImage("portrait");
+        }
+        if (portraitUrl) {
+          applyPortraitUrl(portraitUrl);
+        }
       }
 
-      // 2. Resolve DILRU PINK Can Photo (can post.png)
-      let canUrl = null;
-      try {
-        canUrl = localStorage.getItem("farhan_cached_can_v1");
-      } catch (e) {}
-
-      if (canUrl) {
-        const valid = await probeImageUrl(canUrl, 2000);
-        if (!valid) canUrl = null;
-      }
-      if (!canUrl) {
-        canUrl = await findLocalImage(IMAGE_CONFIG.DILRU_CAN_CANDIDATES);
-      }
-      if (!canUrl) {
-        canUrl = await findGitHubImage("can");
-      }
-
-      if (canUrl) {
-        applyCanUrl(canUrl);
+      const canImg = document.getElementById("dilru-main-photo");
+      if (canImg && canImg.complete && canImg.naturalWidth > 1) {
+        canImg.classList.remove("opacity-0");
       } else {
-        const helperCan = document.getElementById("can-helper-overlay");
-        const msg = document.getElementById("can-diagnostic-msg");
-        if (helperCan) helperCan.classList.remove("hidden");
-        if (msg) {
-          msg.innerHTML = `Could not find <code class="font-mono text-[#C83E5B]">can post.png</code> in this folder. Click below to select it from your device:`;
+        let canUrl = await findDirectoryImage(IMAGE_CONFIG.DILRU_CAN_CANDIDATES);
+        if (!canUrl) {
+          canUrl = await findGitHubImage("can");
+        }
+        if (canUrl) {
+          applyCanUrl(canUrl);
         }
       }
     }
-
-    // Manual file picker fallback (for local testing from Downloads folder)
-    let currentPickerRole = "portrait";
-    function triggerManualImageSelect(role) {
-      currentPickerRole = role;
-      const picker = document.getElementById("manual-image-picker");
-      if (picker) picker.click();
-    }
-
-    document.getElementById("manual-image-picker")?.addEventListener("change", (e) => {
-      const file = e.target.files && e.target.files[0];
-      if (!file) return;
-      const reader = new FileReader();
-      reader.onload = () => {
-        const dataUrl = reader.result;
-        if (currentPickerRole === "portrait") {
-          try { localStorage.setItem("farhan_cached_portrait_v1", dataUrl); } catch (err) {}
-          applyPortraitUrl(dataUrl);
-        } else {
-          try { localStorage.setItem("farhan_cached_can_v1", dataUrl); } catch (err) {}
-          applyCanUrl(dataUrl);
-        }
-      };
-      reader.readAsDataURL(file);
-    });
 
     // =========================================================================
     // 2. PROGRESSIVE WHITE-BACKGROUND FLOOD-FILL CUTOUT FOR BWD.PNG
