@@ -310,17 +310,17 @@
               </a>
             </div>
           </div>
-
-          <!-- MOBILE/TABLET DEDICATED CUTOUT PORTRAIT STAGE (BWD.png) -->
+          <!-- MOBILE/TABLET DEDICATED CUTOUT PORTRAIT STAGE (BW.png) -->
           <div class="mt-6 lg:hidden relative w-full flex flex-col items-center justify-end pt-4 overflow-hidden rounded-2xl bg-gradient-to-t from-black/35 via-black/10 to-transparent border border-white/15">
             <div class="relative w-full max-w-[290px] sm:max-w-[340px] aspect-[4/4.3] flex items-end justify-center">
               <canvas id="cutout-canvas-mobile" class="w-full h-full object-contain object-bottom portrait-stage hidden"></canvas>
               <img
                 id="fallback-cutout-img-mobile"
-                src="./BW.png"
-                alt=""
-                onerror="this.classList.add('opacity-0')"
-                class="w-full h-full object-contain object-bottom portrait-stage opacity-0 transition-opacity duration-500"
+                src="BW.png"
+                alt="FARHAN M HAMEED"
+                onload="enhancePortraitCutout(this, 'cutout-canvas-mobile')"
+                onerror="if(!this.dataset.fallback){this.dataset.fallback='1';this.crossOrigin='anonymous';this.src='https://raw.githubusercontent.com/farhanabhi/FARHANABHI/main/BW.png';}"
+                class="w-full h-full object-contain object-bottom portrait-stage transition-opacity duration-500"
               />
             </div>
           </div>
@@ -342,21 +342,21 @@
           </div>
 
         </div>
-
-        <!-- DESKTOP CENTER OVERLAPPING CUTOUT PORTRAIT (BWD.png) -->
+        <!-- DESKTOP CENTER OVERLAPPING CUTOUT PORTRAIT (BW.png) -->
         <div id="hero-portrait-container" class="hidden lg:flex pointer-events-none absolute inset-y-0 left-[54%] -translate-x-1/2 z-30 items-end justify-center w-[470px] xl:w-[530px]">
           <div class="relative w-full h-[95%] flex items-end justify-center">
             <!-- Warm Sunset Rim Backlight Glow -->
             <div class="absolute bottom-8 w-[340px] h-[340px] rounded-full bg-gradient-to-tr from-[#FF5500]/55 via-[#FF9E1B]/30 to-transparent blur-2xl pointer-events-none"></div>
             <!-- Progressive Canvas Cutout (Hidden until flood-fill succeeds) -->
             <canvas id="cutout-canvas-desktop" class="relative z-10 w-full h-full object-contain object-bottom portrait-stage hidden"></canvas>
-            <!-- Clean Portrait Image (Never shows broken icon) -->
+            <!-- Clean Portrait Image (Starts visible immediately with opacity: 1) -->
             <img
               id="fallback-cutout-img-desktop"
-              src="./BW.png"
-              alt=""
-              onerror="this.classList.add('opacity-0')"
-              class="relative z-10 w-full h-full object-contain object-bottom portrait-stage opacity-0 transition-opacity duration-500"
+              src="BW.png"
+              alt="FARHAN M HAMEED"
+              onload="enhancePortraitCutout(this, 'cutout-canvas-desktop')"
+              onerror="if(!this.dataset.fallback){this.dataset.fallback='1';this.crossOrigin='anonymous';this.src='https://raw.githubusercontent.com/farhanabhi/FARHANABHI/main/BW.png';}"
+              class="relative z-10 w-full h-full object-contain object-bottom portrait-stage transition-opacity duration-500"
             />
           </div>
         </div>
@@ -534,14 +534,14 @@
               </div>
             </div>
 
-            <!-- Authentic Studio Photo Container (can post.png) -->
+            <!-- Authentic Studio Photo Container (Can_post.png) -->
             <div id="dilru-photo-wrapper" class="relative w-full aspect-[4/4.6] sm:aspect-[4/4.3] overflow-hidden bg-[#D8B6A0]">
               <img
                 id="dilru-main-photo"
-                src="./Can_post.png"
-                alt=""
-                onerror="this.classList.add('opacity-0')"
-                class="w-full h-full object-cover object-center opacity-0 transition-all duration-700 ease-out"
+                src="Can_post.png"
+                alt="DILRU PINK 300ml Period Relief Botanical Drink"
+                onerror="if(!this.dataset.fallback){this.dataset.fallback='1';this.src='https://raw.githubusercontent.com/farhanabhi/FARHANABHI/main/Can_post.png';}"
+                class="w-full h-full object-cover object-center transition-all duration-700 ease-out"
                 style="filter: url(#water-refraction-filter);"
               />
 
@@ -831,7 +831,10 @@
         <div>
           <div class="inline-flex flex-wrap items-center gap-2 mb-3">
             <span class="px-3.5 py-1 rounded-full bg-emerald-100 border border-emerald-300/80 text-emerald-800 text-xs font-mono uppercase tracking-widest font-bold">
-              NATURAL • NO ADDED SUGAR
+              NATURAL FORMULATION
+            </span>
+            <span class="px-3.5 py-1 rounded-full bg-amber-100 border border-amber-300/80 text-[#9A4B16] text-xs font-mono uppercase tracking-widest font-bold">
+              NO ADDED SUGAR
             </span>
             <span class="px-3.5 py-1 rounded-full bg-rose-100 border border-rose-300/80 text-[#B42B4B] text-xs font-mono uppercase tracking-widest font-bold">
               SIGNATURE BOTANICAL MATRIX
@@ -1438,8 +1441,8 @@
       GITHUB_USERNAME: "farhanabhi",
       PRIORITY_REPOS: ["FARHANABHI", "farhanabhi.github.io", "Portfolio", "portfolio", "dilru"],
       REMOTE_BASES: [
-        "https://farhanabhi.github.io/FARHANABHI/",
         "https://raw.githubusercontent.com/farhanabhi/FARHANABHI/main/",
+        "https://farhanabhi.github.io/FARHANABHI/",
         "https://raw.githubusercontent.com/farhanabhi/FARHANABHI/master/",
         "https://farhanabhi.github.io/Portfolio/",
         "https://raw.githubusercontent.com/farhanabhi/Portfolio/main/"
@@ -1447,47 +1450,31 @@
       PORTRAIT_CANDIDATES: [
         "BW.png",
         "bw.png",
-        "bw.png",
-        "BW.png",
+        "BWD.png",
+        "bwd.png",
         "BW.PNG",
-        "BW.PNG",
+        "BWD.PNG",
         "BW.png.png",
-        "bw.png.png",
-        "bw.png.png",
+        "BWD.png.png",
         "BW.jpg",
-        "bw.jpg",
-        "bw.jpg",
-        "BW.jpeg",
-        "BW.webp",
+        "BWD.jpg",
         "Gemini_Generated_Image_kl05a4kl05a4kl05.png",
-        "IMG_1113.jpg",
-        "portrait.png",
-        "cutout.png"
+        "IMG_1113.jpg"
       ],
       DILRU_CAN_CANDIDATES: [
         "Can_post.png",
-        "Can_post.png",
-        "Can_post.png",
-        "Can%20post.png",
-        "Can Post.png",
-        "CAN POST.png",
         "can_post.png",
-        "can-post.png",
-        "canpost.png",
-        "can post.PNG",
-        "can post.png.png",
-        "can%20post.png.png",
-        "can_post.png.png",
-        "can post.jpg",
-        "can%20post.jpg",
-        "can post.jpeg",
-        "can_post.jpg",
-        "can post.webp",
+        "can post.png",
+        "can%20post.png",
+        "Can post.png",
+        "Can%20post.png",
+        "CAN_POST.png",
+        "Can_post.PNG",
+        "Can_post.png.png",
+        "Can_post.jpg",
         "watermarked_img_11004187697620958444.png",
         "1000438210.png",
-        "1000438211.png",
-        "dilru.png",
-        "can.png"
+        "1000438211.png"
       ],
       SUBFOLDERS: ["", "./", "images/", "assets/", "img/", "public/"],
       WORK_PORTFOLIO_URL: "https://farhanabhi.github.io/Portfolio/"
@@ -1528,115 +1515,24 @@
 
     async function findDirectoryImage(candidates) {
       const allUrls = [];
-      // 1. Check relative directory paths first
       for (const folder of IMAGE_CONFIG.SUBFOLDERS) {
         for (const name of candidates) {
           allUrls.push(`${folder}${name}`);
         }
       }
-      // 2. Check known GitHub Pages / Raw repository base paths
       for (const base of IMAGE_CONFIG.REMOTE_BASES) {
-        for (const name of candidates.slice(0, 10)) {
+        for (const name of candidates.slice(0, 8)) {
           allUrls.push(`${base}${name}`);
         }
       }
 
-      const batchSize = 10;
+      const batchSize = 8;
       for (let i = 0; i < allUrls.length; i += batchSize) {
         const batch = allUrls.slice(i, i + batchSize);
-        const results = await Promise.all(batch.map((u) => probeImageUrl(u, 2500)));
+        const results = await Promise.all(batch.map((u) => probeImageUrl(u, 3000)));
         const hit = results.find((r) => r !== null);
         if (hit) return hit;
       }
-      return null;
-    }
-
-    let githubRepoImagesCache = null;
-
-    async function discoverGitHubRepoImages() {
-      if (githubRepoImagesCache) return githubRepoImagesCache;
-
-      const discovered = [];
-      const user = IMAGE_CONFIG.GITHUB_USERNAME;
-      const repoSet = new Set(IMAGE_CONFIG.PRIORITY_REPOS);
-
-      const pathParts = window.location.pathname.split("/").filter(Boolean);
-      if (pathParts.length > 0) {
-        repoSet.add(pathParts[0]);
-      }
-
-      try {
-        const res = await fetch(`https://api.github.com/users/${user}/repos?sort=updated&per_page=10`);
-        if (res.ok) {
-          const repos = await res.json();
-          if (Array.isArray(repos)) {
-            repos.forEach((r) => {
-              if (r && r.name) repoSet.add(r.name);
-            });
-          }
-        }
-      } catch (e) {}
-
-      for (const repo of repoSet) {
-        try {
-          const treeRes = await fetch(`https://api.github.com/repos/${user}/${repo}/git/trees/HEAD?recursive=1`);
-          if (!treeRes.ok) continue;
-          const treeData = await treeRes.json();
-          if (!treeData || !Array.isArray(treeData.tree)) continue;
-
-          for (const item of treeData.tree) {
-            if (item.type === "blob" && /\.(png|jpe?g|webp)$/i.test(item.path)) {
-              const encodedPath = item.path
-                .split("/")
-                .map((seg) => encodeURIComponent(seg))
-                .join("/");
-              const rawUrl = `https://raw.githubusercontent.com/${user}/${repo}/HEAD/${encodedPath}`;
-              discovered.push({
-                repo,
-                path: item.path,
-                filename: item.path.split("/").pop().toLowerCase(),
-                rawUrl
-              });
-            }
-          }
-        } catch (e) {}
-      }
-
-      githubRepoImagesCache = discovered;
-      return discovered;
-    }
-
-    async function findGitHubImage(role) {
-      const files = await discoverGitHubRepoImages();
-      if (!files || files.length === 0) return null;
-
-      const portraitKeywords = ["bw", "bw", "kl05", "portrait", "cutout", "1113", "farhan", "hero", "profile"];
-      const canKeywords = ["can", "post", "dilru", "pink", "100043", "watermarked", "drink", "product"];
-
-      const targetKeywords = role === "portrait" ? portraitKeywords : canKeywords;
-
-      let bestMatch = null;
-      let bestScore = 0;
-
-      for (const file of files) {
-        let score = 0;
-        const fname = file.filename;
-        for (const kw of targetKeywords) {
-          if (fname.includes(kw)) score += 10;
-        }
-        if (file.repo.toLowerCase() === "farhanabhi") score += 3;
-
-        if (score > bestScore) {
-          bestScore = score;
-          bestMatch = file;
-        }
-      }
-
-      if (bestMatch && bestScore >= 10) {
-        const verified = await probeImageUrl(bestMatch.rawUrl, 4500);
-        if (verified) return verified;
-      }
-
       return null;
     }
 
@@ -1649,13 +1545,15 @@
         { img: mobileImg, canvasId: "cutout-canvas-mobile" }
       ].forEach(({ img, canvasId }) => {
         if (!img) return;
+        if (url.startsWith("http")) {
+          img.crossOrigin = "anonymous";
+        }
         img.onload = () => {
-          img.classList.remove("opacity-0");
           enhancePortraitCutout(img, canvasId);
         };
-        img.src = url;
-        if (img.complete && img.naturalWidth > 1) {
-          img.classList.remove("opacity-0");
+        if (img.getAttribute("src") !== url) {
+          img.src = url;
+        } else if (img.complete && img.naturalWidth > 1) {
           enhancePortraitCutout(img, canvasId);
         }
       });
@@ -1664,38 +1562,32 @@
     function applyCanUrl(url) {
       const canImg = document.getElementById("dilru-main-photo");
       if (!canImg) return;
-      canImg.onload = () => {
-        canImg.classList.remove("opacity-0");
-      };
-      canImg.src = url;
-      if (canImg.complete && canImg.naturalWidth > 1) {
-        canImg.classList.remove("opacity-0");
+      if (canImg.getAttribute("src") !== url) {
+        canImg.src = url;
       }
     }
 
     async function initSmartImageResolver() {
-      // Check if default ./BWD.png and ./can%20post.png already loaded
       const desktopImg = document.getElementById("fallback-cutout-img-desktop");
+      const mobileImg = document.getElementById("fallback-cutout-img-mobile");
+
       if (desktopImg && desktopImg.complete && desktopImg.naturalWidth > 1) {
-        applyPortraitUrl(desktopImg.src);
-      } else {
-        let portraitUrl = await findDirectoryImage(IMAGE_CONFIG.PORTRAIT_CANDIDATES);
-        if (!portraitUrl) {
-          portraitUrl = await findGitHubImage("portrait");
-        }
+        enhancePortraitCutout(desktopImg, "cutout-canvas-desktop");
+      }
+      if (mobileImg && mobileImg.complete && mobileImg.naturalWidth > 1) {
+        enhancePortraitCutout(mobileImg, "cutout-canvas-mobile");
+      }
+
+      if (!desktopImg || !desktopImg.complete || desktopImg.naturalWidth <= 1) {
+        const portraitUrl = await findDirectoryImage(IMAGE_CONFIG.PORTRAIT_CANDIDATES);
         if (portraitUrl) {
           applyPortraitUrl(portraitUrl);
         }
       }
 
       const canImg = document.getElementById("dilru-main-photo");
-      if (canImg && canImg.complete && canImg.naturalWidth > 1) {
-        canImg.classList.remove("opacity-0");
-      } else {
-        let canUrl = await findDirectoryImage(IMAGE_CONFIG.DILRU_CAN_CANDIDATES);
-        if (!canUrl) {
-          canUrl = await findGitHubImage("can");
-        }
+      if (!canImg || !canImg.complete || canImg.naturalWidth <= 1) {
+        const canUrl = await findDirectoryImage(IMAGE_CONFIG.DILRU_CAN_CANDIDATES);
         if (canUrl) {
           applyCanUrl(canUrl);
         }
@@ -1703,29 +1595,29 @@
     }
 
     // =========================================================================
-    // 2. PROGRESSIVE WHITE-BACKGROUND FLOOD-FILL CUTOUT FOR BWD.PNG
+    // 2. PROGRESSIVE WHITE-BACKGROUND FLOOD-FILL CUTOUT FOR BW.PNG
     // =========================================================================
     function enhancePortraitCutout(imgEl, canvasId) {
       const canvas = document.getElementById(canvasId);
       if (!imgEl || !canvas) return;
 
-      const processImageToCanvas = () => {
+      const processImageToCanvas = (sourceImg) => {
         try {
-          const w = imgEl.naturalWidth;
-          const h = imgEl.naturalHeight;
+          const w = sourceImg.naturalWidth;
+          const h = sourceImg.naturalHeight;
           if (!w || !h) return;
 
           canvas.width = w;
           canvas.height = h;
           const ctx = canvas.getContext("2d");
-          ctx.drawImage(imgEl, 0, 0, w, h);
+          ctx.drawImage(sourceImg, 0, 0, w, h);
 
           const imgData = ctx.getImageData(0, 0, w, h);
           const data = imgData.data;
 
           // Check top-left corner pixel: if bright white & opaque, flood-fill remove outer white background
           const r0 = data[0], g0 = data[1], b0 = data[2], a0 = data[3];
-          if (a0 > 240 && r0 > 235 && g0 > 235 && b0 > 235) {
+          if (a0 > 200 && r0 > 225 && g0 > 225 && b0 > 225) {
             const visited = new Uint8Array(w * h);
             const queue = new Int32Array(w * h);
             let head = 0, tail = 0;
@@ -1747,7 +1639,7 @@
               const r = data[i], g = data[i + 1], b = data[i + 2];
               const lum = 0.299 * r + 0.587 * g + 0.114 * b;
 
-              if (lum > 232 && Math.abs(r - g) < 18 && Math.abs(g - b) < 18) {
+              if (lum > 228 && Math.abs(r - g) < 22 && Math.abs(g - b) < 22) {
                 data[i + 3] = 0;
                 const x = p % w;
                 const y = (p / w) | 0;
@@ -1763,240 +1655,25 @@
           canvas.classList.remove("hidden");
           imgEl.classList.add("hidden");
         } catch (err) {
-          // If cross-origin raw GitHub URL prevents getImageData, keep the clean <img> visible
-          canvas.classList.add("hidden");
-          imgEl.classList.remove("hidden");
-          imgEl.classList.remove("opacity-0");
+          // If cross-origin security blocks pixel manipulation, retry via an anonymous CORS image clone
+          if (!imgEl.dataset.corsRetried && imgEl.src) {
+            imgEl.dataset.corsRetried = "1";
+            const corsImg = new Image();
+            corsImg.crossOrigin = "anonymous";
+            corsImg.onload = () => processImageToCanvas(corsImg);
+            corsImg.src = imgEl.src;
+          } else {
+            canvas.classList.add("hidden");
+            imgEl.classList.remove("hidden");
+          }
         }
       };
 
       if (imgEl.complete && imgEl.naturalWidth > 1) {
-        processImageToCanvas();
+        processImageToCanvas(imgEl);
       }
     }
 
     // =========================================================================
     // 3. HERO HEADLINE MODE SWITCHER (CREATE / VENTURE / ENGINEER)
-    // =========================================================================
-    function setHeroWord(word) {
-      const giantWord = document.getElementById("hero-giant-word");
-      const subcopy = document.getElementById("hero-subcopy");
-      if (giantWord) giantWord.textContent = word;
-
-      const copyMap = {
-        CREATE: `Ventures that scale.<br />Systems that connect.<br /><span class="text-amber-100/90 text-xs sm:text-sm block mt-1">Founder of <strong class="text-white font-bold">DILRU PINK</strong> &amp; Applied AI Systems Engineer.</span>`,
-        VENTURE: `Functional consumer brands.<br />300ml transparent can innovation.<br /><span class="text-amber-100/90 text-xs sm:text-sm block mt-1">Building <strong class="text-white font-bold">DILRU PINK</strong> — Natural Period Relief • No Added Sugar.</span>`,
-        ENGINEER: `Autonomous multi-agent AI.<br />Full-stack enterprise software.<br /><span class="text-amber-100/90 text-xs sm:text-sm block mt-1">B.Tech AI &amp; Data Science • Systems Engineering at <strong class="text-white font-bold">Infosys</strong>.</span>`
-      };
-
-      if (subcopy && copyMap[word]) {
-        subcopy.innerHTML = copyMap[word];
-      }
-
-      document.querySelectorAll(".hero-word-btn").forEach((btn) => {
-        if (btn.dataset.word === word) {
-          btn.className = "hero-word-btn px-2.5 py-0.5 rounded-full bg-white text-neutral-950 font-bold transition";
-        } else {
-          btn.className = "hero-word-btn px-2.5 py-0.5 rounded-full text-white/80 hover:text-white transition";
-        }
-      });
-    }
-
-    // =========================================================================
-    // 4. DILRU PINK VIEW SWITCHER & REAL-TIME WATER WAVE / RIPPLE PHYSICS
-    // =========================================================================
-    function switchDilruView(mode) {
-      const img = document.getElementById("dilru-main-photo");
-      const specOverlay = document.getElementById("dilru-spec-overlay");
-      const tabs = {
-        studio: document.getElementById("tab-dilru-studio"),
-        macro: document.getElementById("tab-dilru-macro"),
-        specs: document.getElementById("tab-dilru-specs")
-      };
-
-      Object.keys(tabs).forEach((k) => {
-        if (!tabs[k]) return;
-        tabs[k].className = k === mode
-          ? "px-3.5 py-1.5 rounded-full bg-[#261214] text-white font-bold transition"
-          : "px-3.5 py-1.5 rounded-full text-[#5E3B3F] hover:text-[#261214] font-medium transition";
-      });
-
-      if (mode === "studio") {
-        if (img) img.style.transform = "scale(1)";
-        if (specOverlay) specOverlay.classList.add("hidden");
-      } else if (mode === "macro") {
-        if (img) img.style.transform = "scale(1.16) translateY(-2%)";
-        if (specOverlay) specOverlay.classList.add("hidden");
-        triggerWaterPulse();
-      } else if (mode === "specs") {
-        if (img) img.style.transform = "scale(1.04)";
-        if (specOverlay) specOverlay.classList.remove("hidden");
-      }
-    }
-
-    let waterWaveIntensity = 0;
-    const activeRipples = [];
-
-    function triggerWaterPulse() {
-      waterWaveIntensity = 14;
-      const stage = document.getElementById("dilru-water-stage");
-      if (stage) {
-        const rect = stage.getBoundingClientRect();
-        spawnRippleRing(rect.width * 0.5, rect.height * 0.52);
-      }
-    }
-
-    function createClickWaterRipple(e) {
-      const stage = document.getElementById("dilru-water-stage");
-      if (!stage) return;
-      const rect = stage.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      waterWaveIntensity = Math.min(18, waterWaveIntensity + 10);
-      spawnRippleRing(x, y);
-      activeRipples.push({ x, y, r: 8, alpha: 0.75 });
-    }
-
-    function spawnRippleRing(x, y) {
-      const container = document.getElementById("ripple-rings-container");
-      if (!container) return;
-      const ring = document.createElement("div");
-      ring.className = "water-ripple-ring";
-      ring.style.left = `${x}px`;
-      ring.style.top = `${y}px`;
-      container.appendChild(ring);
-      setTimeout(() => ring.remove(), 1350);
-    }
-
-    function initWaterCanvasAnimation() {
-      const canvas = document.getElementById("water-ripple-canvas");
-      const displacement = document.getElementById("water-displacement");
-      const turbulence = document.getElementById("water-turbulence");
-      if (!canvas) return;
-
-      const ctx = canvas.getContext("2d");
-      let phase = 0;
-
-      const resizeCanvas = () => {
-        const rect = canvas.parentElement.getBoundingClientRect();
-        canvas.width = rect.width || 600;
-        canvas.height = rect.height || 680;
-      };
-      resizeCanvas();
-      window.addEventListener("resize", resizeCanvas);
-
-      function animateWater() {
-        phase += 0.035;
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-        // Gentle continuous rose-water wave currents across the bottom third
-        const w = canvas.width;
-        const h = canvas.height;
-        for (let layer = 0; layer < 2; layer++) {
-          ctx.beginPath();
-          const baseY = h * (0.78 + layer * 0.07);
-          ctx.moveTo(0, baseY);
-          for (let x = 0; x <= w; x += 20) {
-            const y = baseY + Math.sin(x * 0.015 + phase * (layer + 1)) * (6 + waterWaveIntensity * 0.45);
-            ctx.lineTo(x, y);
-          }
-          ctx.lineTo(w, h);
-          ctx.lineTo(0, h);
-          ctx.closePath();
-          ctx.fillStyle = layer === 0
-            ? "rgba(244, 162, 172, 0.10)"
-            : "rgba(255, 255, 255, 0.07)";
-          ctx.fill();
-        }
-
-        // Draw expanding interactive water ripples
-        for (let i = activeRipples.length - 1; i >= 0; i--) {
-          const rp = activeRipples[i];
-          rp.r += 2.6;
-          rp.alpha *= 0.96;
-          ctx.beginPath();
-          ctx.arc(rp.x, rp.y, rp.r, 0, Math.PI * 2);
-          ctx.strokeStyle = `rgba(255, 235, 238, ${rp.alpha})`;
-          ctx.lineWidth = 1.8;
-          ctx.stroke();
-          if (rp.alpha < 0.04) activeRipples.splice(i, 1);
-        }
-
-        // Smoothly decay SVG water refraction displacement
-        if (waterWaveIntensity > 0.2) {
-          waterWaveIntensity *= 0.94;
-          if (displacement) displacement.setAttribute("scale", waterWaveIntensity.toFixed(2));
-          if (turbulence) {
-            const bf = 0.012 + Math.sin(phase) * 0.003;
-            turbulence.setAttribute("baseFrequency", `${bf.toFixed(4)} 0.025`);
-          }
-        } else if (displacement) {
-          displacement.setAttribute("scale", "0");
-        }
-
-        requestAnimationFrame(animateWater);
-      }
-
-      animateWater();
-    }
-
-    // =========================================================================
-    // 5. SKILLS FILTER & OUTREACH BRIEF GENERATOR
-    // =========================================================================
-    function filterSkills(category) {
-      document.querySelectorAll(".skill-filter-btn").forEach((btn) => {
-        btn.className = btn.dataset.filter === category
-          ? "skill-filter-btn px-3.5 py-1.5 rounded-full bg-orange-500 text-white font-bold transition"
-          : "skill-filter-btn px-3.5 py-1.5 rounded-full bg-white/5 hover:bg-white/15 text-white/75 transition";
-      });
-
-      document.querySelectorAll(".skill-pill").forEach((pill) => {
-        if (category === "all" || pill.dataset.cat === category) {
-          pill.classList.remove("hidden");
-        } else {
-          pill.classList.add("hidden");
-        }
-      });
-    }
-
-    function setOutreachIntent(intent) {
-      const textarea = document.getElementById("outreach-textarea");
-      const templates = {
-        investor: "Hi FARHAN M HAMEED, I reviewed your portfolio and the DILRU PINK (300ml, Natural • No Added Sugar) period-relief beverage showcase. I would love to connect regarding seed investment, unit economics, and your upcoming pilot roadmap.",
-        distributor: "Hi FARHAN M HAMEED, we are interested in stocking DILRU PINK (300ml Transparent PET Cans) across our retail/wellness distribution network. Let's connect to discuss MOQ, margins, and regional rollout.",
-        founder: "Hi FARHAN M HAMEED, I explored your executive profile and your work portfolio (https://farhanabhi.github.io/Portfolio/). Let's connect regarding an AI systems / full-stack product collaboration."
-      };
-      if (textarea && templates[intent]) {
-        textarea.value = templates[intent];
-      }
-      document.querySelectorAll(".intent-btn").forEach((btn) => {
-        btn.className = btn.dataset.intent === intent
-          ? "intent-btn px-3.5 py-2 rounded-xl bg-orange-500 text-white text-xs font-bold transition"
-          : "intent-btn px-3.5 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-medium transition";
-      });
-    }
-
-    function copyOutreachBrief() {
-      const textarea = document.getElementById("outreach-textarea");
-      const badge = document.getElementById("copy-status-badge");
-      if (!textarea) return;
-      textarea.select();
-      document.execCommand("copy");
-      if (badge) {
-        badge.textContent = "COPIED TO CLIPBOARD ✓";
-        badge.className = "text-emerald-400 font-bold";
-        setTimeout(() => {
-          badge.textContent = "READY TO COPY";
-          badge.className = "text-amber-400";
-        }, 2500);
-      }
-    }
-
-    // Initialize everything on DOM ready
-    window.addEventListener("DOMContentLoaded", () => {
-      initSmartImageResolver();
-      initWaterCanvasAnimation();
-    });
-  </script>
-</body>
-</html>
+// ... existing code ... -->
